@@ -1,0 +1,66 @@
+name: nazarih
+description: A Nazrah that contains all goods, cars, real estate, and hardware.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  responsive_builder: ^0.1.2
+  get_it:
+  cupertino_icons: ^1.0.2
+  animated_text_kit: ^4.2.1
+  firebase_core: ^1.0.2
+  cloud_firestore: ^1.0.3
+  firebase_auth:
+  provider: ^5.0.0
+  flutter_rating_bar: ^4.0.0
+  carousel_slider: ^3.0.0
+  firebase: ^9.0.1
+  dropdown_below: ^0.0.7
+  awesome_dropdown: ^0.0.2
+  vs_scrollbar: ^0.2.0
+  clipboard: ^0.1.3
+  shared_preferences: ^2.0.6
+  url_launcher: ^6.0.6
+  rflutter_alert: ^2.0.2
+  flutter_vector_icons: ^1.0.0
+  axios: ^1.0.1+1
+  sizer: ^2.0.13
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo/logo.png
+    - assets/images/icons/
+    - assets/images/car_brands/
+    - assets/images/devices_brands/
+    - assets/images/vectors/
+    - assets/images/payment_methods/
+    - assets/images/no_image.png
+
+  fonts:
+    - family: Bahij
+      fonts:
+        - asset: assets/fonts/Bahij_Myriad_Arabic-Regular.ttf
+    - family: Arslan Wessam
+      fonts:
+        - asset: assets/fonts/(A) Arslan Wessam A (A) Arslan Wessam A.ttf
+    - family: MCS Rika
+      fonts:
+        - asset: assets/fonts/MCS Rika S_U normal..ttf
+    - family: Arabic Nunbers
+      fonts:
+        - asset: assets/fonts/GE_SS_Two_Bold.otf
