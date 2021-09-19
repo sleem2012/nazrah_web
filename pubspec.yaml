@@ -32,6 +32,8 @@ dependencies:
   flutter_vector_icons: ^1.0.0
   axios: ^1.0.1+1
   sizer: ^2.0.13
+  marquee: ^2.2.0
+
 
 
 dev_dependencies:

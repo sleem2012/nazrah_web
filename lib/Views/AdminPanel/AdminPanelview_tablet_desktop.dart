@@ -752,6 +752,7 @@ class _PanelHomeState extends State<PanelHome> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "المستخدمين",
@@ -759,6 +760,7 @@ class _PanelHomeState extends State<PanelHome> {
                                               fontWeight: FontWeight.bold,
                                               fontSize: 45),
                                         ),
+                                        SizedBox(width: 10,),
                                         Container(
                                           height: 50,
                                           width: 250,
@@ -785,12 +787,12 @@ class _PanelHomeState extends State<PanelHome> {
                                               },
                                               decoration: InputDecoration(
                                                   labelText:
-                                                      'search for number',
+                                                      'ادخل رقم المستخدم',
                                                   contentPadding:
                                                       EdgeInsets.only(
                                                           right: 10),
                                                   suffixIcon: Icon(Icons
-                                                      .format_list_numbered),
+                                                      .search_sharp),
                                                   border: InputBorder.none),
                                             ),
                                           ),
@@ -1363,53 +1365,72 @@ class _PanelHomeState extends State<PanelHome> {
                                                 return Padding(
                                                   padding: EdgeInsets.all(20),
                                                   child: SingleChildScrollView(
+                                                    scrollDirection: Axis.vertical,
                                                     child: Container(
                                                       width:
                                                           MediaQuery.of(context)
                                                               .size
                                                               .width,
-                                                      child: DataTable(
-                                                        dividerThickness: 5,
-                                                        columns: [
-                                                          DataColumn(
-                                                              label:
-                                                                  Text('الاسم'),
-                                                              tooltip:
-                                                                  'يظهر اسم المستخدم المسجل من المستخدم'),
-                                                          DataColumn(
-                                                              label: Text(
-                                                                  'رقم الهاتف'),
-                                                              tooltip:
-                                                                  'يظهر رقم الهاتف السمجل من المستخدم'),
-                                                          DataColumn(
-                                                              label: Text(
-                                                                  'الاستفسار'),
-                                                              tooltip:
-                                                                  'يظهر استفسار المستخدم'),
-                                                        ],
-                                                        rows: inquires
-                                                            .map((e) => DataRow(
-                                                                  cells: [
-                                                                    DataCell(
-                                                                      Text(e
-                                                                          .username),
-                                                                    ),
-                                                                    DataCell(Text(
-                                                                        e.phoneNo)),
-                                                                    DataCell(
-                                                                        SingleChildScrollView(
-                                                                      scrollDirection:
-                                                                          Axis.vertical,
-                                                                      child:
-                                                                          Text(
-                                                                        e.message,
-                                                                        maxLines:
-                                                                            5,
-                                                                      ),
-                                                                    )),
-                                                                  ],
-                                                                ))
-                                                            .toList(),
+                                                      child: SingleChildScrollView(
+                                                        scrollDirection: Axis.vertical,
+
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(8.0),
+                                                          child: DataTable(
+                                                            dividerThickness:3,
+                                                            columns: [
+                                                              DataColumn(
+                                                                  label:
+                                                                      Text('الاسم'),
+                                                                  tooltip:
+                                                                      'يظهر اسم المستخدم المسجل من المستخدم'),
+                                                              DataColumn(
+                                                                  label: Text(
+                                                                      'رقم الهاتف'),
+                                                                  tooltip:
+                                                                      'يظهر رقم الهاتف السمجل من المستخدم'),
+                                                              DataColumn(
+                                                                  label: Text(
+                                                                      'الاستفسار'),
+                                                                  tooltip:
+                                                                      'يظهر استفسار المستخدم'),
+                                                            ],
+                                                            rows: inquires
+                                                                .map((e) => DataRow(
+                                                                      cells: [
+                                                                        DataCell(
+
+                                                                          Text(e
+                                                                              .username),
+
+                                                                        ),
+                                                                        DataCell(Text(
+                                                                            e.phoneNo),),
+
+                                                                        DataCell(
+
+                                                                            Tooltip(
+                                                                              height: MediaQuery.of(context).size.height*.05,
+
+                                                                              textStyle: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),
+                                                                              message: e.message ,
+                                                                              child: SizedBox(
+                                                                                width:
+                                                                               MediaQuery.of(context).size.width*.1,
+
+                                                                                child: Text(
+                                                                                 e.message,
+                                                                                  overflow: TextOverflow.clip,
+
+
+                                                                          ),
+                                                                              ),
+                                                                            )),
+                                                                      ],
+                                                                    ))
+                                                                .toList(),
+                                                          ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
