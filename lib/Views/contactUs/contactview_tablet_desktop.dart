@@ -53,7 +53,7 @@ class _ContactViewTabletDekstopState extends State<ContactViewTabletDekstop> {
               height: 100,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
+              padding: EdgeInsets.only(left: 20, right: 19),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

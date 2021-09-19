@@ -331,6 +331,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
       child: SingleChildScrollView(
         controller: _slidingPage,
         child: Column(
+
           children: [
             CenteredView(child: NavigationBar(currentRoute: 'Home')),
             Container(
@@ -13469,6 +13470,8 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
               height: 50,
             ),
             Row(
+              mainAxisSize: MainAxisSize.min,
+
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -13759,213 +13762,214 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                           : sorted;
                       return Directionality(
                         textDirection: TextDirection.rtl,
-                        child: Expanded(
-                          child: Container(
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .width / 1.5,
-                            child: ListView.builder(
-                              itemCount:
-                              (query != '') ? search.length : sorted.length,
-                              shrinkWrap: true,
-                              //reverse: true,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(bottom: 25),
-                                  child: TextButton(
-                                      onPressed: () {
-                                        locator<NavigationService>()
-                                            .navigateTo(
-                                            AdDetailsRoute,
-                                            queryParams: {
-                                              'id': (query != '')
-                                                  ? search[index].docId
-                                                  : sorted[index].docId
-                                            });
-                                      },
-                                      style: TextButton.styleFrom(
-                                        backgroundColor: Color(0xFF2980b9),
-                                      ),
-                                      child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 10,
-                                              right: 10,
-                                              top: 10,
-                                              bottom: 10),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Column(
-                                                mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    (query != '')
-                                                        ? search[index].title
-                                                        : sorted[index].title,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Bahij',
-                                                        fontSize: 50,
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                        FontWeight.bold),
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.person,
-                                                        color: Colors.white,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Text(
-                                                        (query != '')
-                                                            ? search[index]
-                                                            .username
-                                                            : sorted[index]
-                                                            .username,
-                                                        style: TextStyle(
-                                                          fontFamily: 'Bahij',
-                                                          fontSize: 30,
-                                                          color: Colors.white,
-                                                        ),
-                                                      ),
-                                                      SizedBox(width: 5,),
+                        child: Container(
 
-                                                      Image.asset(
-                                                        'assets/images/icons/star.png',
-                                                        height: 35,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.pin_drop,
-                                                        color: Colors.white,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Text(
-                                                        (query != '')
-                                                            ? search[index]
-                                                            .country
-                                                            : sorted[index]
-                                                            .country,
-                                                        style: TextStyle(
-                                                          fontFamily: 'Bahij',
-                                                          fontSize: 30,
-                                                          color: Colors.white,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.timelapse,
-                                                        color: Colors.white,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 5,
-                                                      ),
-                                                      Text(
-                                                        (query != '')
-                                                            ? (sorted[index]
-                                                            .dateDays !=
-                                                            0)
-                                                            ? "قبل ${search[index]
-                                                            .dateDays} ايام"
-                                                            : (sorted[index]
-                                                            .dateHours !=
-                                                            0)
-                                                            ? "قبل ${search[index]
-                                                            .dateHours} ساعات"
-                                                            : "قبل ${search[index]
-                                                            .dateMins} دقائق"
-                                                            : (sorted[index]
-                                                            .dateDays !=
-                                                            0)
-                                                            ? "قبل ${sorted[index]
-                                                            .dateDays} ايام"
-                                                            : (sorted[index]
-                                                            .dateHours !=
-                                                            0)
-                                                            ? "قبل ${sorted[index]
-                                                            .dateHours} ساعات"
-                                                            : "قبل ${sorted[index]
-                                                            .dateMins} دقائق",
-                                                        style: TextStyle(
-                                                          fontFamily: 'Bahij',
-                                                          fontSize: 30,
-                                                          color: Colors.white,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  )
-                                                ],
-                                              ),
-                                              ((query != '')
-                                                  ? search[index]
-                                                  .photoBool ==
-                                                  'true'
-                                                  : sorted[index]
-                                                  .photoBool ==
-                                                  'true')
-                                                  ? FutureBuilder<Uri>(
-                                                future: downloadUrl(
-                                                    (query != '')
-                                                        ? search[index]
-                                                        .photoPath
-                                                        : sorted[index]
-                                                        .photoPath),
-                                                builder:
-                                                    (context, snapshot) {
-                                                  if (snapshot
-                                                      .connectionState ==
-                                                      ConnectionState
-                                                          .waiting)
-                                                    return Center(
-                                                      child:
-                                                      CircularProgressIndicator(),
-                                                    );
-                                                  return ClipRRect(
-                                                    borderRadius:
-                                                    BorderRadius
-                                                        .circular(
-                                                        8.0),
-                                                    child: Image.network(
-                                                      snapshot.data
-                                                          .toString(),
-                                                      width: 300,
-                                                      height: 150,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  );
-                                                },
-                                              )
-                                                  : ClipRRect(
-                                                borderRadius:
-                                                BorderRadius.circular(
-                                                    8.0),
-                                                child: Image.asset(
-                                                  'assets/images/no_image.png',
-                                                  width: 300,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 1.5,
+                          child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+
+                            itemCount:
+                            (query != '') ? search.length : sorted.length,
+                            shrinkWrap: true,
+                            //reverse: true,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Padding(
+                                padding: const EdgeInsets.only(bottom: 25),
+                                child: TextButton(
+                                    onPressed: () {
+                                      locator<NavigationService>()
+                                          .navigateTo(
+                                          AdDetailsRoute,
+                                          queryParams: {
+                                            'id': (query != '')
+                                                ? search[index].docId
+                                                : sorted[index].docId
+                                          });
+                                    },
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: Color(0xFF2980b9),
+                                    ),
+                                    child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10,
+                                            right: 10,
+                                            top: 10,
+                                            bottom: 10),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  (query != '')
+                                                      ? search[index].title
+                                                      : sorted[index].title,
+                                                  style: TextStyle(
+                                                      fontFamily: 'Bahij',
+                                                      fontSize: 50,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                      FontWeight.bold),
                                                 ),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.person,
+                                                      color: Colors.white,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Text(
+                                                      (query != '')
+                                                          ? search[index]
+                                                          .username
+                                                          : sorted[index]
+                                                          .username,
+                                                      style: TextStyle(
+                                                        fontFamily: 'Bahij',
+                                                        fontSize: 30,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                    SizedBox(width: 5,),
+
+                                                    Image.asset(
+                                                      'assets/images/icons/star.png',
+                                                      height: 35,
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.pin_drop,
+                                                      color: Colors.white,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Text(
+                                                      (query != '')
+                                                          ? search[index]
+                                                          .country
+                                                          : sorted[index]
+                                                          .country,
+                                                      style: TextStyle(
+                                                        fontFamily: 'Bahij',
+                                                        fontSize: 30,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.timelapse,
+                                                      color: Colors.white,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Text(
+                                                      (query != '')
+                                                          ? (sorted[index]
+                                                          .dateDays !=
+                                                          0)
+                                                          ? "قبل ${search[index]
+                                                          .dateDays} ايام"
+                                                          : (sorted[index]
+                                                          .dateHours !=
+                                                          0)
+                                                          ? "قبل ${search[index]
+                                                          .dateHours} ساعات"
+                                                          : "قبل ${search[index]
+                                                          .dateMins} دقائق"
+                                                          : (sorted[index]
+                                                          .dateDays !=
+                                                          0)
+                                                          ? "قبل ${sorted[index]
+                                                          .dateDays} ايام"
+                                                          : (sorted[index]
+                                                          .dateHours !=
+                                                          0)
+                                                          ? "قبل ${sorted[index]
+                                                          .dateHours} ساعات"
+                                                          : "قبل ${sorted[index]
+                                                          .dateMins} دقائق",
+                                                      style: TextStyle(
+                                                        fontFamily: 'Bahij',
+                                                        fontSize: 30,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                            ((query != '')
+                                                ? search[index]
+                                                .photoBool ==
+                                                'true'
+                                                : sorted[index]
+                                                .photoBool ==
+                                                'true')
+                                                ? FutureBuilder<Uri>(
+                                              future: downloadUrl(
+                                                  (query != '')
+                                                      ? search[index]
+                                                      .photoPath
+                                                      : sorted[index]
+                                                      .photoPath),
+                                              builder:
+                                                  (context, snapshot) {
+                                                if (snapshot
+                                                    .connectionState ==
+                                                    ConnectionState
+                                                        .waiting)
+                                                  return Center(
+                                                    child:
+                                                    CircularProgressIndicator(),
+                                                  );
+                                                return ClipRRect(
+                                                  borderRadius:
+                                                  BorderRadius
+                                                      .circular(
+                                                      8.0),
+                                                  child: Image.network(
+                                                    snapshot.data
+                                                        .toString(),
+                                                    width: 300,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                );
+                                              },
+                                            )
+                                                : ClipRRect(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  8.0),
+                                              child: Image.asset(
+                                                'assets/images/no_image.png',
+                                                width: 300,
+                                                height: 150,
+                                                fit: BoxFit.cover,
                                               ),
-                                            ],
-                                          ))).mouseUpOnHover,
-                                );
-                              },
-                            ),
+                                            ),
+                                          ],
+                                        ))).mouseUpOnHover,
+                              );
+                            },
                           ),
                         ),
                       );
