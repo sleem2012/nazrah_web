@@ -14,8 +14,8 @@ class NavBarDrawerItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
 
-        locator<NavigationService>().navigateTo(navigationPath);
-
+        locator<NavigationService>().navigateAndPop(navigationPath);
+        context.findRootAncestorStateOfType<DrawerControllerState>()?.close();
 
       },
       child: Text(

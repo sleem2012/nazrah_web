@@ -11,6 +11,14 @@ class NavigationService {
     return navigatorKey.currentState.pushNamed(routeName);
   }
 
+  Future<dynamic> navigateAndPop(String routeName,
+      {Map<String, String> queryParams}) {
+    if (queryParams != null) {
+      routeName = Uri(path: routeName, queryParameters: queryParams).toString();
+    }
+    return navigatorKey.currentState.popAndPushNamed(routeName);
+  }
+
   Future<dynamic> navigateArgument(
       String routeName, String argument, String user) {
     return navigatorKey.currentState
