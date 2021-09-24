@@ -28,6 +28,7 @@ class HomeViewTabletDesktop extends StatefulWidget {
 }
 
 class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
+
   String query = '';
   String selectedCategory = 'all';
   String subCategory = 'null';
@@ -43,6 +44,8 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
   ScrollController list2 = ScrollController();
   ScrollController list3 = ScrollController();
   ScrollController _slidingPage;
+
+
 
   List<String> _list = [
     'كل المناطق',
@@ -322,9 +325,9 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
       controller: _slidingPage,
       isAlwaysShown: true,
       showTrackOnHover: true,
-      
+
       style: VsScrollbarStyle(
-        
+
         hoverThickness: 10.0, // default 12.0
         radius: Radius.circular(10), // default Radius.circular(8.0)
         thickness: 10.0, // [ default 8.0 ]
@@ -13553,6 +13556,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                 StreamBuilder<QuerySnapshot>(
                   stream: loadAds(),
                   builder: (context, snapshot) {
+
                     if (!snapshot.hasData || snapshot.data.docs.length == 0) {
                       return Padding(
                         padding: EdgeInsets.only(right: 20),
@@ -13856,10 +13860,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                                                         ),
                                                         SizedBox(width: 5,),
 
-                                                        Image.asset(
-                                                          'assets/images/icons/star.png',
-                                                          height: 35,
-                                                        ),
                                                       ],
                                                     ),
                                                     Row(
@@ -13988,7 +13988,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                             ),
                           ),
                         ),
-                        
+
                       );
                     }
                   },

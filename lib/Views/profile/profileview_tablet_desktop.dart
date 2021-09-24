@@ -179,7 +179,7 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                           ? Row(
                                               children: [
                                                 Text(
-                                                  "عضوية نظره المدفوعة",
+                                                  "",
                                                   style: TextStyle(
                                                       fontFamily: 'Bahij',
                                                       fontSize: 25,

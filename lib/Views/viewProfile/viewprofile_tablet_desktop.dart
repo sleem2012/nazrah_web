@@ -103,6 +103,7 @@ class _ViewProfileTabletDesktopState extends State<ViewProfileTabletDesktop> {
               stream: loadMyInfo(phoneNumber),
               builder: (context, snapshot) {
                 {
+
                   if (snapshot.hasData) {
                     String name = snapshot.data.data()['Name'];
                     int rating_count = snapshot.data.data()['rating'];

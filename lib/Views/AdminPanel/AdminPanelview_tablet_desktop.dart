@@ -67,6 +67,13 @@ class DelegateInfo {
 class _PanelHomeState extends State<PanelHome> {
   ScrollController _slidingPage = ScrollController();
   TextEditingController searchController = TextEditingController();
+  @override
+  void dispose() {
+    searchController.clear();
+    resultsMemberShip.clear();
+    super.dispose();
+  }
+
   List<UserInfo> users = [];
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
