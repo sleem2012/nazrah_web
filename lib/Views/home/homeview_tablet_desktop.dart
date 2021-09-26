@@ -13832,7 +13832,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                                                           : sorted[index].title,
                                                       style: TextStyle(
                                                           fontFamily: 'Bahij',
-                                                          fontSize: 50,
+                                                          fontSize: 40,
                                                           color: Colors.white,
                                                           fontWeight:
                                                           FontWeight.bold),
@@ -13854,7 +13854,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                                                               .username,
                                                           style: TextStyle(
                                                             fontFamily: 'Bahij',
-                                                            fontSize: 30,
+                                                            fontSize: 25,
                                                             color: Colors.white,
                                                           ),
                                                         ),
@@ -13879,7 +13879,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                                                               .country,
                                                           style: TextStyle(
                                                             fontFamily: 'Bahij',
-                                                            fontSize: 30,
+                                                            fontSize: 25,
                                                             color: Colors.white,
                                                           ),
                                                         ),
@@ -13922,7 +13922,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                                                               .dateMins} دقائق",
                                                           style: TextStyle(
                                                             fontFamily: 'Bahij',
-                                                            fontSize: 30,
+                                                            fontSize: 25,
                                                             color: Colors.white,
                                                           ),
                                                         ),

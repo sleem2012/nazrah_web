@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:clipboard/clipboard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -67,6 +68,7 @@ class DelegateInfo {
 class _PanelHomeState extends State<PanelHome> {
   ScrollController _slidingPage = ScrollController();
   TextEditingController searchController = TextEditingController();
+
   @override
   void dispose() {
     searchController.clear();
@@ -759,7 +761,8 @@ class _PanelHomeState extends State<PanelHome> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           "المستخدمين",
@@ -767,7 +770,9 @@ class _PanelHomeState extends State<PanelHome> {
                                               fontWeight: FontWeight.bold,
                                               fontSize: 45),
                                         ),
-                                        SizedBox(width: 10,),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
                                         Container(
                                           height: 50,
                                           width: 250,
@@ -798,8 +803,8 @@ class _PanelHomeState extends State<PanelHome> {
                                                   contentPadding:
                                                       EdgeInsets.only(
                                                           right: 10),
-                                                  suffixIcon: Icon(Icons
-                                                      .search_sharp),
+                                                  suffixIcon:
+                                                      Icon(Icons.search_sharp),
                                                   border: InputBorder.none),
                                             ),
                                           ),
@@ -938,24 +943,24 @@ class _PanelHomeState extends State<PanelHome> {
                                               "لا يوجد مستخدمين فالوقت الحالي"),
                                         );
                                       } else {
-                                        if(users.isEmpty)
-                                        for (var doc in snapshot.data.docs) {
-                                          users.add(UserInfo(
-                                              documentId: doc.id,
-                                              phoneNo:
-                                                  doc.data()['Phone Number'],
-                                              username: doc.data()['Name'],
-                                              commission:
-                                                  (doc.data()['Commission'] ==
-                                                          'Paid')
-                                                      ? 'تم دفع عمولة'
-                                                      : 'لم يدفع عمولة',
-                                              membership: (doc.data()[
-                                                          'Membership'] ==
-                                                      'Premium')
-                                                  ? 'معارض السيارات والسلع المتكرره'
-                                                  : 'مجانية'));
-                                        }
+                                        if (users.isEmpty)
+                                          for (var doc in snapshot.data.docs) {
+                                            users.add(UserInfo(
+                                                documentId: doc.id,
+                                                phoneNo:
+                                                    doc.data()['Phone Number'],
+                                                username: doc.data()['Name'],
+                                                commission:
+                                                    (doc.data()['Commission'] ==
+                                                            'Paid')
+                                                        ? 'تم دفع عمولة'
+                                                        : 'لم يدفع عمولة',
+                                                membership: (doc.data()[
+                                                            'Membership'] ==
+                                                        'Premium')
+                                                    ? 'معارض السيارات والسلع المتكرره'
+                                                    : 'مجانية'));
+                                          }
                                         return Padding(
                                           padding: EdgeInsets.all(40),
                                           child: VsScrollbar(
@@ -1002,33 +1007,34 @@ class _PanelHomeState extends State<PanelHome> {
                                                   rows:
                                                       searchController.text !=
                                                               ""
-                                                          ? resultsMemberShip  .map(
-                                                              (e) =>
-                                                              DataRow(
-                                                                selected:
-                                                                selectedUser.contains(e.documentId),
-                                                                onSelectChanged:
-                                                                    (isSelected) =>
-                                                                    setState(() {
-                                                                      final isAdding =
-                                                                          isSelected != null && isSelected;
-                                                                      isAdding
-                                                                          ? selectedUser.add(e.documentId)
-                                                                          : selectedUser.remove(e.documentId);
-                                                                    }),
-                                                                cells: [
-                                                                  DataCell(
-                                                                    Text(e.username),
-                                                                  ),
-                                                                  DataCell(
-                                                                      Text(e.phoneNo)),
-                                                                  DataCell(
-                                                                      Text(e.membership)),
-                                                                  DataCell(
-                                                                      Text(e.commission))
-                                                                ],
-                                                              ))
-                                                          .toList()
+                                                          ? resultsMemberShip
+                                                              .map(
+                                                                  (e) =>
+                                                                      DataRow(
+                                                                        selected:
+                                                                            selectedUser.contains(e.documentId),
+                                                                        onSelectChanged:
+                                                                            (isSelected) =>
+                                                                                setState(() {
+                                                                          final isAdding =
+                                                                              isSelected != null && isSelected;
+                                                                          isAdding
+                                                                              ? selectedUser.add(e.documentId)
+                                                                              : selectedUser.remove(e.documentId);
+                                                                        }),
+                                                                        cells: [
+                                                                          DataCell(
+                                                                            Text(e.username),
+                                                                          ),
+                                                                          DataCell(
+                                                                              Text(e.phoneNo)),
+                                                                          DataCell(
+                                                                              Text(e.membership)),
+                                                                          DataCell(
+                                                                              Text(e.commission))
+                                                                        ],
+                                                                      ))
+                                                              .toList()
                                                           : users
                                                               .map(
                                                                   (e) =>
@@ -1373,23 +1379,27 @@ class _PanelHomeState extends State<PanelHome> {
                                                 return Padding(
                                                   padding: EdgeInsets.all(20),
                                                   child: SingleChildScrollView(
-                                                    scrollDirection: Axis.vertical,
+                                                    scrollDirection:
+                                                        Axis.vertical,
                                                     child: Container(
                                                       width:
                                                           MediaQuery.of(context)
                                                               .size
                                                               .width,
-                                                      child: SingleChildScrollView(
-                                                        scrollDirection: Axis.vertical,
-
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        scrollDirection:
+                                                            Axis.vertical,
                                                         child: Padding(
-                                                          padding: const EdgeInsets.all(8.0),
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(8.0),
                                                           child: DataTable(
-                                                            dividerThickness:3,
+                                                            dividerThickness: 3,
                                                             columns: [
                                                               DataColumn(
-                                                                  label:
-                                                                      Text('الاسم'),
+                                                                  label: Text(
+                                                                      'الاسم'),
                                                                   tooltip:
                                                                       'يظهر اسم المستخدم المسجل من المستخدم'),
                                                               DataColumn(
@@ -1402,40 +1412,39 @@ class _PanelHomeState extends State<PanelHome> {
                                                                       'الاستفسار'),
                                                                   tooltip:
                                                                       'يظهر استفسار المستخدم'),
+                                                              DataColumn(
+                                                                  label: Text(
+                                                                      ' انسخ الاستفسار'),
+                                                                  ),
                                                             ],
                                                             rows: inquires
-                                                                .map((e) => DataRow(
-                                                                      cells: [
-                                                                        DataCell(
-
-                                                                          Text(e
-                                                                              .username),
-
-                                                                        ),
-                                                                        DataCell(Text(
-                                                                            e.phoneNo),),
-
-                                                                        DataCell(
-
-                                                                            Tooltip(
-                                                                              height: MediaQuery.of(context).size.height*.05,
-
-                                                                              textStyle: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),
-                                                                              message: e.message ,
+                                                                .map(
+                                                                    (e) =>
+                                                                        DataRow(
+                                                                          cells: [
+                                                                            DataCell(
+                                                                              Text(e.username),
+                                                                            ),
+                                                                            DataCell(
+                                                                              Text(e.phoneNo),
+                                                                            ),
+                                                                            DataCell(Tooltip(
+                                                                              height: MediaQuery.of(context).size.height * .05,
+                                                                              textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                                                                              message: e.message,
                                                                               child: SizedBox(
-                                                                                width:
-                                                                               MediaQuery.of(context).size.width*.1,
-
+                                                                                width: MediaQuery.of(context).size.width * .1,
                                                                                 child: Text(
-                                                                                 e.message,
+                                                                                  e.message,
                                                                                   overflow: TextOverflow.clip,
-
-
-                                                                          ),
+                                                                                ),
                                                                               ),
                                                                             )),
-                                                                      ],
-                                                                    ))
+                                                                            DataCell(InkWell(child: Icon(Icons.copy),onTap: (){
+                                                                              FlutterClipboard.copy(e.message);
+                                                                            },))
+                                                                          ],
+                                                                        ))
                                                                 .toList(),
                                                           ),
                                                         ),
