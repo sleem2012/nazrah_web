@@ -938,6 +938,7 @@ class _PanelHomeState extends State<PanelHome> {
                                               "لا يوجد مستخدمين فالوقت الحالي"),
                                         );
                                       } else {
+                                        if(users.isEmpty)
                                         for (var doc in snapshot.data.docs) {
                                           users.add(UserInfo(
                                               documentId: doc.id,
