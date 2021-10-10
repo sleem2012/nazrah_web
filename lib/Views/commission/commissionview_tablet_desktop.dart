@@ -74,10 +74,10 @@ class _CommissionViewTabletDesktopState
                             "بيع منتجك بعمولة 0.5% فقط في نظره",
                             style: TextStyle(
                                 fontFamily: 'Bahij',
-                                fontSize: 75,
+                                fontSize: 50,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.end,
+                            textAlign: TextAlign.right,
                           ),
                           SizedBox(
                             height: 30,
@@ -142,7 +142,7 @@ class _CommissionViewTabletDesktopState
                           "عمولة السلع و الخدمات الأخرى",
                           style: TextStyle(
                               fontFamily: 'Bahij',
-                              fontSize: 18.sp,
+                              fontSize: 14.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,
@@ -163,14 +163,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'بيع سلعة: 0.5% من قيمة السلعة المباعة',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -184,14 +184,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'تأجير سلع(معدات وغيرها): 0.5% من قيمة مبلغ الإيجار',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -205,14 +205,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'تقديم خدمات: 0.5% من قيمة الخدمة المقدمة',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -226,14 +226,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'طلب سلعة أو خدمة: 0.5% من قيمة المبايعة',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -282,7 +282,7 @@ class _CommissionViewTabletDesktopState
                           "عمولة العقارات",
                           style: TextStyle(
                               fontFamily: 'Bahij',
-                              fontSize: 18.sp,
+                              fontSize: 14.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
@@ -302,14 +302,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'بيع عقار عن طريق المالك: 0.5% من قيمة العقار',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -323,14 +323,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'بيع عقار عن طريق وسيط: يعتبر الموقع شريك في الوساطة',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -344,14 +344,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'تأجير عقارات: 0.5% من قيمة عقد الإيجار الجديد فقط',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -436,7 +436,7 @@ class _CommissionViewTabletDesktopState
                           "عمولة السيارات",
                           style: TextStyle(
                               fontFamily: 'Bahij',
-                              fontSize: 18.sp,
+                              fontSize: 14.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
@@ -456,14 +456,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'بيع السيارات: 0.5% من قيمة السيارة',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -477,14 +477,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'سيارات للتنازل: 0.5% من قيمة التنازل إذا كان التنازل بمقابل',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -498,14 +498,14 @@ class _CommissionViewTabletDesktopState
                                     text: '• ',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12.sp,
+                                        fontSize: 10.sp,
                                         fontFamily: 'Bahij'),
                                     children: <TextSpan>[
                                       TextSpan(
                                           text:
                                               'تبادل السيارات: 0.5% من قيمة المبادلة إذا كان هناك مقابل للمبادلة',
                                           style: TextStyle(
-                                              fontSize: 12.sp,
+                                              fontSize: 10.sp,
                                               fontFamily: 'Bahij',
                                               color: Colors.white)),
                                     ],
@@ -595,7 +595,7 @@ class _CommissionViewTabletDesktopState
                       "حساب العمولة",
                       style: TextStyle(
                           fontFamily: 'Bahij',
-                          fontSize: 50,
+                          fontSize: 40,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -714,12 +714,12 @@ class _CommissionViewTabletDesktopState
                       "طرق الدفع",
                       style: TextStyle(
                           fontFamily: 'Bahij',
-                          fontSize: 50,
+                          fontSize: 40,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 30,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

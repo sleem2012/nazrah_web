@@ -922,11 +922,7 @@ class _PanelHomeState extends State<PanelHome> {
                                             for (var i = 0;
                                                 i < selectedUser.length;
                                                 i++) {
-                                              _firestore
-                                                  .collection('users')
-                                                  .doc(selectedUser[i])
-                                                  .update(
-                                                      {'Commission': 'Paid'});
+                                              _firestore.collection('users').doc(selectedUser[i]).update({'Commission': 'Paid'});
                                             }
                                           },
                                           icon: Icon(Icons.money),

@@ -181,29 +181,29 @@ class _ProfileViewMobileState extends State<ProfileViewMobile> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                (membership == 'Premium')
-                                    ? Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "عضوية نظره المدفوعة",
-                                            style: TextStyle(
-                                                fontFamily: 'Bahij',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          SizedBox(
-                                            width: 5,
-                                          ),
-                                          Image.asset(
-                                            'assets/images/icons/star.png',
-                                            height: 20,
-                                          ),
-                                        ],
-                                      )
-                                    : Container(),
+                                // (membership == 'Premium')
+                                //     ? Row(
+                                //         mainAxisAlignment:
+                                //             MainAxisAlignment.center,
+                                //         children: [
+                                //           Text(
+                                //             "عضوية نظره المدفوعة",
+                                //             style: TextStyle(
+                                //                 fontFamily: 'Bahij',
+                                //                 fontSize: 15,
+                                //                 color: Colors.black,
+                                //                 fontWeight: FontWeight.bold),
+                                //           ),
+                                //           SizedBox(
+                                //             width: 5,
+                                //           ),
+                                //           Image.asset(
+                                //             'assets/images/icons/star.png',
+                                //             height: 20,
+                                //           ),
+                                //         ],
+                                //       )
+                                //     : Container(),
                                 (commission == 'Paid')
                                     ? Row(
                                         mainAxisAlignment:
@@ -348,66 +348,71 @@ class _ProfileViewMobileState extends State<ProfileViewMobile> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                ads[index].title,
-                                                style: TextStyle(
-                                                    fontFamily: 'Bahij',
-                                                    fontSize: 30,
-                                                    color: Colors.white,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.pin_drop,
-                                                    color: Colors.white,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    ads[index].country,
-                                                    style: TextStyle(
+                                          Container(
+                                            width: MediaQuery.of(context).size.width *0.35,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  ads[index].title,
+                                                  maxLines: 3,
+                                                  style: TextStyle(
                                                       fontFamily: 'Bahij',
-                                                      fontSize: 20,
+                                                      fontSize: 25,
+
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.pin_drop,
                                                       color: Colors.white,
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.timelapse,
-                                                    color: Colors.white,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    (ads[index].dateDays != 0)
-                                                        ? "قبل ${ads[index].dateDays} ايام"
-                                                        : (ads[index]
-                                                                    .dateHours !=
-                                                                0)
-                                                            ? "قبل ${ads[index].dateHours} ساعات"
-                                                            : "قبل ${ads[index].dateMins} دقائق",
-                                                    style: TextStyle(
-                                                      fontFamily: 'Bahij',
-                                                      fontSize: 20,
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Text(
+                                                      ads[index].country,
+                                                      style: TextStyle(
+                                                        fontFamily: 'Bahij',
+                                                        fontSize: 20,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.timelapse,
                                                       color: Colors.white,
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Text(
+                                                      (ads[index].dateDays != 0)
+                                                          ? "قبل ${ads[index].dateDays} ايام"
+                                                          : (ads[index]
+                                                                      .dateHours !=
+                                                                  0)
+                                                              ? "قبل ${ads[index].dateHours} ساعات"
+                                                              : "قبل ${ads[index].dateMins} دقائق",
+                                                      style: TextStyle(
+                                                        fontFamily: 'Bahij',
+                                                        fontSize: 20,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                           (ads[index].photoBool == 'true')
                                               ? FutureBuilder<Uri>(

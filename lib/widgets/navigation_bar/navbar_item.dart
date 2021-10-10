@@ -12,6 +12,8 @@ class NavBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double width=MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onTap: ontap,
       child: Text(

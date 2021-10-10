@@ -37,7 +37,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
   String subCountry = 'الكل';
   String photoBool = 'all';
   String model = 'null';
-
   String phoneNo;
 
   ScrollController list1 = ScrollController();
@@ -45,7 +44,8 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
   ScrollController list3 = ScrollController();
   ScrollController _slidingPage;
 
-
+  bool ariaOpened=false;
+  bool subAriaOpened=false;
 
   List<String> _list = [
     'كل المناطق',
@@ -150,7 +150,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'الخفجي',
     'القطيف',
   ];
-
   bool isStrechedDropDownShurqia = false;
   int groupValueShurqia = 0;
   String titleShurqia = 'الكل';
@@ -171,7 +170,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'مدينة الملك عبدالله الاقتصادية',
     'الخرمة',
   ];
-
   bool isStrechedDropDownMekkah = false;
   int groupValueMekkah = 0;
   String titleMekkah = 'الكل';
@@ -185,7 +183,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'مهد الذهب',
     'ينبع',
   ];
-
   bool isStrechedDropDownMeddinah = false;
   int groupValueMeddinah = 0;
   String titleMeddinah = 'الكل';
@@ -197,7 +194,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'نيماء',
     'ضبا',
   ];
-
   bool isStrechedDropDownTabuk = false;
   int groupValueTabuk = 0;
   String titleTabuk = 'الكل';
@@ -214,7 +210,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'رياض الخبراء',
     'البكيرية',
   ];
-
   bool isStrechedDropDownQassim = false;
   int groupValueQassim = 0;
   String titleQassim = 'الكل';
@@ -227,7 +222,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'الشنان',
     'تربة حائل',
   ];
-
   bool isStrechedDropDownHail = false;
   int groupValueHail = 0;
   String titleHail = 'الكل';
@@ -243,7 +237,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'احد رفيده',
     'محايل عسير',
   ];
-
   bool isStrechedDropDownAseer = false;
   int groupValueAseer = 0;
   String titleAseer = 'الكل';
@@ -253,7 +246,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'شرورة',
     'الوديعة',
   ];
-
   bool isStrechedDropDownNajran = false;
   int groupValueNajran = 0;
   String titleNajran = 'الكل';
@@ -264,7 +256,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'دومة الجندل',
     'سكاكا',
   ];
-
   bool isStrechedDropDownJowf = false;
   int groupValueJowf = 0;
   String titleJowf = 'الكل';
@@ -275,7 +266,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
     'طريف',
     'عرعر',
   ];
-
   bool isStrechedDropDownArar = false;
   int groupValueArar = 0;
   String titleArar = 'الكل';
@@ -283,11 +273,9 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
   bool isStrechedDropDownModel = false;
   int groupValueModel = 0;
   String titleModel = 'كل الموديلات';
-
   bool isStrechedDropDown = false;
   int groupValue = 0;
   String title = 'كل المناطق';
-
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Stream<QuerySnapshot> loadAds() {
@@ -321,6 +309,8 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
 
   @override
   Widget build(BuildContext context) {
+    final double width=MediaQuery.of(context).size.width;
+
     return VsScrollbar(
       controller: _slidingPage,
       isAlwaysShown: true,
@@ -354,6 +344,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
             StreamBuilder<DocumentSnapshot>(
               stream: loadBanners(),
               builder: (context, snapshot) {
+
                 if (snapshot.hasData) {
                   String banner1 = snapshot.data.data()['ads 1'];
                   return Container(
@@ -382,10 +373,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
             ),
             Container(
               //height: 500,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               child: Padding(
                 padding: const EdgeInsets.only(right: 20),
                 child: Column(
@@ -430,7 +418,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                                 ),
                               )).mouseUpOnHover,
                           Container(
-                            width: 500,
+                            width:width*0.4 ,
                             child: SearchWidget(
                                 text: query,
                                 hintText: 'أبحث عن سلعة..',
@@ -11443,2030 +11431,312 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                     SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 50,
-                          child: textCategories("اعلانات بدون صور", () {
-                            setState(() {
-                              photoBool = 'false';
-                            });
-                          },
-                              (photoBool == 'false')
-                                  ? Color(0xFF2980b9)
-                                  : Colors.transparent),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        SizedBox(
-                          height: 50,
-                          child: textCategories("اعلانات بصور", () {
-                            setState(() {
-                              photoBool = 'true';
-                            });
-                          },
-                              (photoBool == 'true')
-                                  ? Color(0xFF2980b9)
-                                  : Colors.transparent),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        SizedBox(
-                          height: 50,
-                          child: textCategories("كل الاعلانات", () {
-                            setState(() {
-                              photoBool = 'all';
-                            });
-                          },
-                              (photoBool == 'all')
-                                  ? Color(0xFF2980b9)
-                                  : Colors.transparent),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        (subSubCategory != 'null')
-                            ? Padding(
-                          padding: const EdgeInsets.only(right: 15),
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(0xFF2980b9)),
-                                                borderRadius:
-                                                BorderRadius.all(
-                                                    Radius.circular(27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets.only(
-                                                        right: 10, left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius
-                                                                .circular(
-                                                                25))),
-                                                    alignment:
-                                                    Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal:
-                                                                20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleModel,
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                  'Bahij',
-                                                                  fontSize:
-                                                                  20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownModel =
-                                                                !isStrechedDropDownModel;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownModel
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand:
-                                                  isStrechedDropDownModel,
-                                                  height: 30,
-                                                  child: MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding:
-                                                            EdgeInsets
-                                                                .all(0),
-                                                            controller:
-                                                            scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount:
-                                                            _modellist
-                                                                .length,
-                                                            itemBuilder:
-                                                                (context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor:
-                                                                  Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _modellist
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily:
-                                                                          'Bahij',
-                                                                          fontSize:
-                                                                          20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value:
-                                                                  index,
-                                                                  groupValue:
-                                                                  groupValueModel,
-                                                                  onChanged:
-                                                                      (val) {
-                                                                    setState(
-                                                                            () {
-                                                                          model =
-                                                                              _modellist
-                                                                                  .elementAt(
-                                                                                  index);
-                                                                          groupValueModel =
-                                                                              val;
-                                                                          titleModel =
-                                                                              _modellist
-                                                                                  .elementAt(
-                                                                                  index);
-                                                                        });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : Container(),
-                        (country == 'الرياض')
-                            ? Padding(
-                          padding: const EdgeInsets.only(right: 15),
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(0xFF2980b9)),
-                                                borderRadius:
-                                                BorderRadius.all(
-                                                    Radius.circular(27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets.only(
-                                                        right: 10, left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius
-                                                                .circular(
-                                                                25))),
-                                                    alignment:
-                                                    Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal:
-                                                                20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleRiyadh,
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                  'Bahij',
-                                                                  fontSize:
-                                                                  20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownRiyadh =
-                                                                !isStrechedDropDownRiyadh;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownRiyadh
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand:
-                                                  isStrechedDropDownRiyadh,
-                                                  height: 30,
-                                                  child: MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding:
-                                                            EdgeInsets.all(
-                                                                0),
-                                                            controller:
-                                                            scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount:
-                                                            _riyadhList
-                                                                .length,
-                                                            itemBuilder:
-                                                                (context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor:
-                                                                  Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _riyadhList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily:
-                                                                          'Bahij',
-                                                                          fontSize:
-                                                                          20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value:
-                                                                  index,
-                                                                  groupValue:
-                                                                  groupValueRiyadh,
-                                                                  onChanged:
-                                                                      (val) {
-                                                                    setState(
-                                                                            () {
-                                                                          subCountry =
-                                                                              _riyadhList
-                                                                                  .elementAt(
-                                                                                  index);
-                                                                          groupValueRiyadh =
-                                                                              val;
-                                                                          titleRiyadh =
-                                                                              _riyadhList
-                                                                                  .elementAt(
-                                                                                  index);
-                                                                        });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country == 'الشرقيه')
-                            ? Padding(
-                          padding: const EdgeInsets.only(right: 15),
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(
-                                                        0xFF2980b9)),
-                                                borderRadius:
-                                                BorderRadius.all(
-                                                    Radius.circular(
-                                                        27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets
-                                                        .only(
-                                                        right: 10,
-                                                        left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(Radius
-                                                            .circular(
-                                                            25))),
-                                                    alignment:
-                                                    Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal:
-                                                                20,
-                                                                vertical:
-                                                                10),
-                                                            child: Text(
-                                                              titleShurqia,
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                  'Bahij',
-                                                                  fontSize:
-                                                                  20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(
-                                                                      () {
-                                                                    isStrechedDropDownShurqia =
-                                                                    !isStrechedDropDownShurqia;
-                                                                  });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownRiyadh
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand:
-                                                  isStrechedDropDownShurqia,
-                                                  height: 30,
-                                                  child: MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding:
-                                                            EdgeInsets
-                                                                .all(
-                                                                0),
-                                                            controller:
-                                                            scrollController2,
-                                                            shrinkWrap:
-                                                            true,
-                                                            itemCount:
-                                                            _shurqiaList
-                                                                .length,
-                                                            itemBuilder:
-                                                                (context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor:
-                                                                  Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _shurqiaList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueShurqia,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(
-                                                                            () {
-                                                                          subCountry =
-                                                                              _shurqiaList
-                                                                                  .elementAt(
-                                                                                  index);
-                                                                          groupValueShurqia =
-                                                                              val;
-                                                                          titleShurqia =
-                                                                              _shurqiaList
-                                                                                  .elementAt(
-                                                                                  index);
-                                                                        });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country == 'مكه')
-                            ? Padding(
-                          padding:
-                          const EdgeInsets.only(right: 15),
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(
-                                                        0xFF2980b9)),
-                                                borderRadius:
-                                                BorderRadius.all(
-                                                    Radius
-                                                        .circular(
-                                                        27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets
-                                                        .only(
-                                                        right: 10,
-                                                        left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                25))),
-                                                    alignment:
-                                                    Alignment
-                                                        .center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child:
-                                                          Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal:
-                                                                20,
-                                                                vertical:
-                                                                10),
-                                                            child:
-                                                            Text(
-                                                              titleMekkah,
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                  'Bahij',
-                                                                  fontSize:
-                                                                  20,
-                                                                  color:
-                                                                  Colors.black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap:
-                                                                () {
-                                                              setState(
-                                                                      () {
-                                                                    isStrechedDropDownMekkah =
-                                                                    !isStrechedDropDownMekkah;
-                                                                  });
-                                                            },
-                                                            child:
-                                                            Icon(
-                                                              isStrechedDropDownMekkah
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand:
-                                                  isStrechedDropDownMekkah,
-                                                  height: 30,
-                                                  child: MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView
-                                                            .builder(
-                                                            padding:
-                                                            EdgeInsets.all(
-                                                                0),
-                                                            controller:
-                                                            scrollController2,
-                                                            shrinkWrap:
-                                                            true,
-                                                            itemCount:
-                                                            _mekkahList
-                                                                .length,
-                                                            itemBuilder:
-                                                                (context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor:
-                                                                  Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _mekkahList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueMekkah,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _mekkahList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueMekkah =
-                                                                          val;
-                                                                      titleMekkah =
-                                                                          _mekkahList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country == 'المدينة')
-                            ? Padding(
-                          padding: const EdgeInsets.only(
-                              right: 15),
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .start,
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(
-                                                        0xFF2980b9)),
-                                                borderRadius: BorderRadius
-                                                    .all(Radius
-                                                    .circular(
-                                                    27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets
-                                                        .only(
-                                                        right:
-                                                        10,
-                                                        left:
-                                                        10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(Radius
-                                                            .circular(
-                                                            25))),
-                                                    alignment:
-                                                    Alignment
-                                                        .center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child:
-                                                          Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 20,
-                                                                vertical: 10),
-                                                            child:
-                                                            Text(
-                                                              titleMeddinah,
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Bahij',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap:
-                                                                () {
-                                                              setState(() {
-                                                                isStrechedDropDownMeddinah =
-                                                                !isStrechedDropDownMeddinah;
-                                                              });
-                                                            },
-                                                            child:
-                                                            Icon(
-                                                              isStrechedDropDownMeddinah
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color:
-                                                              Color(0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand:
-                                                  isStrechedDropDownMeddinah,
-                                                  height: 30,
-                                                  child:
-                                                  MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView
-                                                            .builder(
-                                                            padding: EdgeInsets
-                                                                .all(
-                                                                0),
-                                                            controller:
-                                                            scrollController2,
-                                                            shrinkWrap:
-                                                            true,
-                                                            itemCount: _meddinahList
-                                                                .length,
-                                                            itemBuilder:
-                                                                (context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor: Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _meddinahList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueMeddinah,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _meddinahList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueMeddinah =
-                                                                          val;
-                                                                      titleMeddinah =
-                                                                          _meddinahList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country == 'تبوك')
-                            ? Padding(
-                          padding: const EdgeInsets.only(
-                              right: 15),
-                          child: Directionality(
-                            textDirection:
-                            TextDirection.rtl,
-                            child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .start,
-                                    children: [
-                                      Expanded(
-                                          child:
-                                          Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(
-                                                        0xFF2980b9)),
-                                                borderRadius:
-                                                BorderRadius.all(
-                                                    Radius.circular(
-                                                        27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width:
-                                                    250,
-                                                    padding: EdgeInsets.only(
-                                                        right:
-                                                        10,
-                                                        left:
-                                                        10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(
-                                                            Radius.circular(
-                                                                25))),
-                                                    alignment:
-                                                    Alignment
-                                                        .center,
-                                                    child:
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child:
-                                                          Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleTabuk,
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Bahij',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownTabuk =
-                                                                !isStrechedDropDownTabuk;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownTabuk
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand:
-                                                  isStrechedDropDownTabuk,
-                                                  height: 30,
-                                                  child:
-                                                  MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding: EdgeInsets
-                                                                .all(0),
-                                                            controller: scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount: _tabukList
-                                                                .length,
-                                                            itemBuilder: (
-                                                                context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor: Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _tabukList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueTabuk,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _tabukList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueTabuk =
-                                                                          val;
-                                                                      titleTabuk =
-                                                                          _tabukList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country == 'القصيم')
-                            ? Padding(
-                          padding:
-                          const EdgeInsets.only(
-                              right: 15),
-                          child: Directionality(
-                            textDirection:
-                            TextDirection.rtl,
-                            child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .start,
-                                    children: [
-                                      Expanded(
-                                          child:
-                                          Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(
-                                                        0xFF2980b9)),
-                                                borderRadius:
-                                                BorderRadius.all(
-                                                    Radius.circular(27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width:
-                                                    250,
-                                                    padding: EdgeInsets.only(
-                                                        right:
-                                                        10,
-                                                        left:
-                                                        10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(
-                                                            Radius.circular(
-                                                                25))),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleQassim,
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Bahij',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownQassim =
-                                                                !isStrechedDropDownQassim;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownQassim
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand:
-                                                  isStrechedDropDownQassim,
-                                                  height:
-                                                  30,
-                                                  child:
-                                                  MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding: EdgeInsets
-                                                                .all(0),
-                                                            controller: scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount: _qassimList
-                                                                .length,
-                                                            itemBuilder: (
-                                                                context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor: Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _qassimList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueQassim,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _qassimList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueQassim =
-                                                                          val;
-                                                                      titleQassim =
-                                                                          _qassimList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country == 'حائل')
-                            ? Padding(
-                          padding:
-                          const EdgeInsets
-                              .only(
-                              right: 15),
-                          child: Directionality(
-                            textDirection:
-                            TextDirection.rtl,
-                            child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .start,
-                                    children: [
-                                      Expanded(
-                                          child:
-                                          Container(
-                                            decoration: BoxDecoration(
-                                                border:
-                                                Border.all(
-                                                    color: Color(0xFF2980b9)),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(27))),
-                                            child:
-                                            Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets.only(
-                                                        right: 10, left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(
-                                                            Radius.circular(
-                                                                25))),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleHail,
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Bahij',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownHail =
-                                                                !isStrechedDropDownHail;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownHail
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand:
-                                                  isStrechedDropDownHail,
-                                                  height:
-                                                  30,
-                                                  child:
-                                                  MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding: EdgeInsets
-                                                                .all(0),
-                                                            controller: scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount: _hailList
-                                                                .length,
-                                                            itemBuilder: (
-                                                                context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor: Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _hailList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueHail,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _hailList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueHail =
-                                                                          val;
-                                                                      titleHail =
-                                                                          _hailList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country == 'عسير')
-                            ? Padding(
-                          padding:
-                          const EdgeInsets
-                              .only(
-                              right: 15),
-                          child:
+
+                    // isStrechedDropDownRiyadh
+                    // isStrechedDropDownShurqia
+                    // isStrechedDropDownMekkah
+                    // isStrechedDropDownMeddinah
+
+                    // isStrechedDropDownTabuk
+                    // isStrechedDropDownQassim
+                    // isStrechedDropDownHail
+                    // isStrechedDropDownAseer
+                    // isStrechedDropDownNajran
+                    // isStrechedDropDownJowf
+                    // isStrechedDropDownArar
+                    // isStrechedDropDown
+
+
+                    Container(
+                      height: 60,
+                      child: ListView(
+                        // mainAxisAlignment: MainAxisAlignment.end,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        scrollDirection: Axis.horizontal,
+                        reverse: true,
+                        children: [
                           Directionality(
-                            textDirection:
-                            TextDirection
-                                .rtl,
+                            textDirection: TextDirection.rtl,
                             child: Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .start,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Color(0xFF2980b9)),
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(27))),
+                              child: Container(
+                                // height: 45,
+                                  width: 170,
+                                  padding: EdgeInsets.only(right: 10, left: 10),
+                                  decoration: BoxDecoration(
+                                      border:
+                                      Border.all(color: Color(0xFF2980b9)),
+                                      borderRadius:
+                                      BorderRadius.all(Radius.circular(27))),
+                                  alignment: Alignment.center,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Expanded(
-                                          child:
-                                          Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(0xFF2980b9)),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(27))),
-                                            child:
-                                            Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets.only(
-                                                        right: 10, left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(
-                                                            Radius.circular(
-                                                                25))),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleAseer,
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Bahij',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownAseer =
-                                                                !isStrechedDropDownAseer;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownAseer
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand: isStrechedDropDownAseer,
-                                                  height: 30,
-                                                  child: MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding: EdgeInsets
-                                                                .all(0),
-                                                            controller: scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount: _aseerList
-                                                                .length,
-                                                            itemBuilder: (
-                                                                context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor: Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _aseerList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueAseer,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _aseerList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueAseer =
-                                                                          val;
-                                                                      titleAseer =
-                                                                          _aseerList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 10),
+                                        child: Text(
+                                          title,
+                                          maxLines: 2,
+                                          style: TextStyle(
+                                              fontFamily: 'Bahij',
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                          onTap: () {
+                                            _optionsCountryFilter(context);
+                                          },
+                                          child: Icon(
+                                            Icons.arrow_downward,
+                                            color: Color(0xFF2980b9),
+                                          ))
                                     ],
-                                  )
-                                ],
-                              ),
+                                  )),
                             ),
                           ),
-                        )
-                            : (country == 'نجران')
-                            ? Padding(
-                          padding:
-                          const EdgeInsets
-                              .only(
-                              right:
-                              15),
-                          child:
-                          Directionality(
-                            textDirection:
-                            TextDirection
-                                .rtl,
-                            child:
-                            Container(
-                              width: 250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child:
-                              Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(0xFF2980b9)),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets.only(
-                                                        right: 10, left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(Radius
-                                                            .circular(25))),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleNajran,
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Bahij',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownNajran =
-                                                                !isStrechedDropDownNajran;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownNajran
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand: isStrechedDropDownNajran,
-                                                  height: 30,
-                                                  child: MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding: EdgeInsets
-                                                                .all(0),
-                                                            controller: scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount: _najranList
-                                                                .length,
-                                                            itemBuilder: (
-                                                                context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor: Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _najranList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueNajran,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _najranList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueNajran =
-                                                                          val;
-                                                                      titleNajran =
-                                                                          _najranList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country ==
-                            'الجوف')
-                            ? Padding(
-                          padding: const EdgeInsets
-                              .only(
-                              right:
-                              15),
-                          child:
-                          Directionality(
-                            textDirection:
-                            TextDirection
-                                .rtl,
-                            child:
-                            Container(
-                              width:
-                              250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child:
-                              Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(0xFF2980b9)),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets.only(
-                                                        right: 10, left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(Radius
-                                                            .circular(25))),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleJowf,
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Bahij',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownJowf =
-                                                                !isStrechedDropDownJowf;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownJowf
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand: isStrechedDropDownJowf,
-                                                  height: 30,
-                                                  child: MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding: EdgeInsets
-                                                                .all(0),
-                                                            controller: scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount: _jowfList
-                                                                .length,
-                                                            itemBuilder: (
-                                                                context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor: Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _jowfList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueJowf,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _jowfList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueJowf =
-                                                                          val;
-                                                                      titleJowf =
-                                                                          _jowfList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : (country ==
-                            'عرعر')
-                            ? Padding(
-                          padding:
-                          const EdgeInsets.only(right: 15),
-                          child:
-                          Directionality(
-                            textDirection:
-                            TextDirection.rtl,
-                            child:
-                            Container(
-                              width:
-                              250,
-                              // padding: EdgeInsets.symmetric(
-                              //     vertical: 10, horizontal: 20),
-                              child:
-                              Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
-                                    children: [
-                                      Expanded(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Color(0xFF2980b9)),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(27))),
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  // height: 45,
-                                                    width: 250,
-                                                    padding: EdgeInsets.only(
-                                                        right: 10, left: 10),
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xFF2980b9)),
-                                                        borderRadius: BorderRadius
-                                                            .all(Radius
-                                                            .circular(25))),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment: MainAxisAlignment
-                                                          .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding: const EdgeInsets
-                                                                .symmetric(
-                                                                horizontal: 20,
-                                                                vertical: 10),
-                                                            child: Text(
-                                                              titleArar,
-                                                              style: TextStyle(
-                                                                  fontFamily: 'Bahij',
-                                                                  fontSize: 20,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontWeight: FontWeight
-                                                                      .bold),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedDropDownArar =
-                                                                !isStrechedDropDownArar;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedDropDownArar
-                                                                  ? Icons
-                                                                  .arrow_upward
-                                                                  : Icons
-                                                                  .arrow_downward,
-                                                              color: Color(
-                                                                  0xFF2980b9),
-                                                            ))
-                                                      ],
-                                                    )),
-                                                ExpandedSection(
-                                                  expand: isStrechedDropDownArar,
-                                                  height: 30,
-                                                  child: MyScrollbar(
-                                                    builder: (context,
-                                                        scrollController2) =>
-                                                        ListView.builder(
-                                                            padding: EdgeInsets
-                                                                .all(0),
-                                                            controller: scrollController2,
-                                                            shrinkWrap: true,
-                                                            itemCount: _ararList
-                                                                .length,
-                                                            itemBuilder: (
-                                                                context,
-                                                                index) {
-                                                              return RadioListTile(
-                                                                  activeColor: Color(
-                                                                      0xFF2980b9),
-                                                                  title: Text(
-                                                                      _ararList
-                                                                          .elementAt(
-                                                                          index),
-                                                                      style: TextStyle(
-                                                                          fontFamily: 'Bahij',
-                                                                          fontSize: 20,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .bold)),
-                                                                  value: index,
-                                                                  groupValue: groupValueArar,
-                                                                  onChanged: (
-                                                                      val) {
-                                                                    setState(() {
-                                                                      subCountry =
-                                                                          _ararList
-                                                                              .elementAt(
-                                                                              index);
-                                                                      groupValueArar =
-                                                                          val;
-                                                                      titleArar =
-                                                                          _ararList
-                                                                              .elementAt(
-                                                                              index);
-                                                                    });
-                                                                  });
-                                                            }),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                            : Container(),
-                        Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: Container(
-                            width: 250,
-                            // padding: EdgeInsets.symmetric(
-                            //     vertical: 10, horizontal: 20),
-                            child: Column(
-                              children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Color(0xFF2980b9)),
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(27))),
-                                          child: Column(
-                                            children: [
-                                              Container(
-                                                // height: 45,
-                                                  width: 250,
-                                                  padding: EdgeInsets.only(
-                                                      right: 10, left: 10),
-                                                  decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Color(
-                                                              0xFF2980b9)),
-                                                      borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(25))),
-                                                  alignment: Alignment.center,
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding: const EdgeInsets
-                                                              .symmetric(
-                                                              horizontal: 20,
-                                                              vertical: 10),
-                                                          child: Text(
-                                                            title,
-                                                            style: TextStyle(
-                                                                fontFamily: 'Bahij',
-                                                                fontSize: 20,
-                                                                color: Colors
-                                                                    .black,
-                                                                fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      GestureDetector(
-                                                          onTap: () {
-                                                            setState(() {
-                                                              isStrechedDropDown =
-                                                              !isStrechedDropDown;
-                                                            });
-                                                          },
-                                                          child: Icon(
-                                                            isStrechedDropDown
-                                                                ? Icons
-                                                                .arrow_upward
-                                                                : Icons
-                                                                .arrow_downward,
-                                                            color:
-                                                            Color(0xFF2980b9),
-                                                          ))
-                                                    ],
-                                                  )),
-                                              ExpandedSection(
-                                                expand: isStrechedDropDown,
-                                                height: 30,
-                                                child: MyScrollbar(
-                                                  builder: (context,
-                                                      scrollController2) =>
-                                                      ListView.builder(
-                                                          padding:
-                                                          EdgeInsets.all(0),
-                                                          controller:
-                                                          scrollController2,
-                                                          shrinkWrap: true,
-                                                          itemCount: _list
-                                                              .length,
-                                                          itemBuilder:
-                                                              (context, index) {
-                                                            return RadioListTile(
-                                                                activeColor: Color(
-                                                                    0xFF2980b9),
-                                                                title: Text(
-                                                                    _list
-                                                                        .elementAt(
-                                                                        index),
-                                                                    style: TextStyle(
-                                                                        fontFamily:
-                                                                        'Bahij',
-                                                                        fontSize:
-                                                                        20,
-                                                                        color: Colors
-                                                                            .black,
-                                                                        fontWeight:
-                                                                        FontWeight
-                                                                            .bold)),
-                                                                value: index,
-                                                                groupValue:
-                                                                groupValue,
-                                                                onChanged: (
-                                                                    val) {
-                                                                  setState(() {
-                                                                    country =
-                                                                        _list
-                                                                            .elementAt(
-                                                                            index);
-                                                                    groupValue =
-                                                                        val;
-                                                                    title =
-                                                                        _list
-                                                                            .elementAt(
-                                                                            index);
-                                                                  });
-                                                                });
-                                                          }),
-                                                ),
-                                              )
-                                            ],
+                          (country == 'الرياض' ||
+                              country == 'الشرقيه' ||
+                              country == 'مكه' ||
+                              country == 'المدينة' ||
+                              country == 'تبوك' ||
+                              country == 'القصيم' ||
+                              country == 'حائل' ||
+                              country == 'عسير' ||
+                              country == 'نجران' ||
+                              country == 'الجوف' ||
+                              country == 'عرعر')
+                              ? Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Color(0xFF2980b9)),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(27))),
+                                child: Container(
+                                  // height: 45,
+                                    width: 170,
+                                    padding: EdgeInsets.only(
+                                        right: 10, left: 10),
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        border: Border.all(
+                                            color: Color(0xFF2980b9)),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(27))),
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 20,
+                                              vertical: 10),
+                                          child: Text(
+                                            (country == 'الرياض')
+                                                ? titleRiyadh
+                                                : (country == 'الشرقيه')
+                                                ? titleShurqia
+                                                : (country == 'مكه')
+                                                ? titleMeddinah
+                                                : (country ==
+                                                'المدينة')
+                                                ? titleMeddinah
+                                                : (country ==
+                                                'تبوك')
+                                                ? titleTabuk
+                                                : (country ==
+                                                'القصيم')
+                                                ? titleQassim
+                                                : (country ==
+                                                'حائل')
+                                                ? titleHail
+                                                : (country == 'عسير')
+                                                ? titleAseer
+                                                : (country == 'نجران')
+                                                ? titleNajran
+                                                : (country == 'الجوف')
+                                                ? titleJowf
+                                                : (country == 'عرعر')
+                                                ? titleArar
+                                                : '',
+                                            style: TextStyle(
+                                                fontFamily: 'Bahij',
+                                                fontSize: 20,
+                                                color: Colors.black,
+                                                fontWeight:
+                                                FontWeight.bold),
                                           ),
-                                        )),
-                                  ],
-                                )
-                              ],
+                                        ),
+                                        GestureDetector(
+                                            onTap: () {
+                                              switch (country) {
+                                                case 'الرياض':
+                                                  _optionsRiyadhCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'الشرقيه':
+                                                  _optionsShurqiaCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'مكه':
+                                                  _optionsMekkahCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'المدينة':
+                                                  _optionsMeddinahCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'تبوك':
+                                                  _optionsTabukCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'القصيم':
+                                                  _optionsQassimCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'حائل':
+                                                  _optionsHailCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'عسير':
+                                                  _optionsAseerCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'نجران':
+                                                  _optionsNajranCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'الجوف':
+                                                  _optionsJowfCountryFilter(
+                                                      context);
+                                                  break;
+                                                case 'عرعر':
+                                                  _optionsArarCountryFilter(
+                                                      context);
+                                                  break;
+                                                default:
+                                              }
+                                            },
+                                            child: Icon(
+                                                Icons.arrow_downward,
+                                                color: Color(0xFF2980b9)))
+                                      ],
+                                    )),
+                              ),
                             ),
+                          )
+                              : Container(),
+                          (subSubCategory != 'null')
+                              ? Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Color(0xFF2980b9)),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(27))),
+                                child: Container(
+                                  // height: 45,
+                                    width: 170,
+                                    padding: EdgeInsets.only(
+                                        right: 10, left: 10),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Color(0xFF2980b9)),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(25))),
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 20,
+                                              vertical: 10),
+                                          child: Text(
+                                            titleModel,
+                                            style: TextStyle(
+                                                fontFamily: 'Bahij',
+                                                fontSize: 20,
+                                                color: Colors.black,
+                                                fontWeight:
+                                                FontWeight.bold),
+                                          ),
+                                        ),
+                                        GestureDetector(
+                                            onTap: () {
+                                              _optionsModelFilter(context);
+                                            },
+                                            child: Icon(
+                                              Icons.arrow_downward,
+                                              color: Color(0xFF2980b9),
+                                            ))
+                                      ],
+                                    )),
+                              ),
+                            ),
+                          )
+                              : Container(),
+                          SizedBox(
+                            width: 15,
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: 50,
+                            child: textCategories("كل الاعلانات", () {
+                              setState(() {
+                                photoBool = 'all';
+                              });
+                            },
+                                (photoBool == 'all')
+                                    ? Color(0xFF2980b9)
+                                    : Colors.transparent),
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          SizedBox(
+                            height: 50,
+                            child: textCategories("اعلانات بدون صور", () {
+                              setState(() {
+                                photoBool = 'false';
+                              });
+                            },
+                                (photoBool == 'false')
+                                    ? Color(0xFF2980b9)
+                                    : Colors.transparent),
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          SizedBox(
+                            height: 50,
+                            child: textCategories("اعلانات بصور", () {
+                              setState(() {
+                                photoBool = 'true';
+                              });
+                            },
+                                (photoBool == 'true')
+                                    ? Color(0xFF2980b9)
+                                    : Colors.transparent),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -13476,7 +11746,6 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
               height: 50,
             ),
             Row(
-
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -13580,6 +11849,9 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                             subSubCategory: doc.data()['subSubCategory'],
                             model: doc.data()['model'],
                             username: doc.data()['userName'],
+                            communication:doc.data()['Communication'] ,
+                            commission:doc.data()['Commission'] ,
+                            membership:doc.data()['Membership'] ,
                             docId: doc.id,
                             photoPath: (doc.data()['photoBool'] == 'true')
                                 ? doc.data()['photo_url 0']
@@ -13751,42 +12023,30 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                           ? (subCountry == 'الكل')
                           ? ads.where((e) => e.country == country).toList()
                           : ads.where((e) =>
-                      e.country == country && e.subCountry == subCountry)
-                          .toList()
-                          : (subCountry == 'الكل')
-                          ? ads.where((e) =>
-                      e.country == country && e.photoBool == photoBool).toList()
-                          : ads.where((e) =>
-                      e.country == country && e.photoBool == photoBool &&
-                          e.subCountry == subCountry).toList();
-                      List<AdDisplayInfo> search = (query != '')
-                          ? ads
-                          .where((element) =>
-                          element.title
-                              .toLowerCase()
-                              .contains(query.toLowerCase()))
+
+
+                      e.country == country && e.subCountry == subCountry).toList() : (subCountry == 'الكل') ? ads.where((e) => e.country == country && e.photoBool == photoBool).toList() : ads.where((e) => e.country == country && e.photoBool == photoBool && e.subCountry == subCountry).toList();
+
+
+                      List<AdDisplayInfo> search = (query != '') ? ads.where((element) =>
+                          element.title.toLowerCase().contains(query.toLowerCase()))
                           .toList()
                           : sorted;
+
+
                       return Directionality(
                         textDirection: TextDirection.rtl,
                         child: SizedBox(
-                          width: MediaQuery
-                            .of(context)
-                            .size
-                            .width / 1.5,
                           child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 20, right: 20, ),
+                            padding:  EdgeInsets.only(left: 20, right: 20, ),
                             child: ConstrainedBox(
                               constraints: BoxConstraints.expand(
-                                height:MediaQuery
-                                    .of(context)
-                                    .size
-                                    .height*2.2,
+                                height:MediaQuery.of(context).size.height*2.2,
+                                width: MediaQuery.of(context).size.width / 1.5,
+
                               ),
                               child: ListView.builder(
                                 scrollDirection: Axis.vertical,
-
                                 physics: BouncingScrollPhysics(parent: ClampingScrollPhysics()),
                                 itemCount:
                                 (query != '') ? search.length : sorted.length,
@@ -13816,170 +12076,235 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                                               top: 10,
                                             ),
                                             child: Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
-                                                Column(
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      (query != '')
-                                                          ? search[index].title
-                                                          : sorted[index].title,
-                                                      style: TextStyle(
-                                                          fontFamily: 'Bahij',
-                                                          fontSize: 40,
-                                                          color: Colors.white,
-                                                          fontWeight:
-                                                          FontWeight.bold),
-                                                    ),
-                                                    Row(
-                                                      children: [
-                                                        Icon(
-                                                          Icons.person,
-                                                          color: Colors.white,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 5,
-                                                        ),
-                                                        Text(
+                                                Container(
+                                                  width: MediaQuery.of(context).size.width *0.32,
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                    children: [
+                                                      Container(
+                                                        child: Text(
                                                           (query != '')
-                                                              ? search[index]
-                                                              .username
-                                                              : sorted[index]
-                                                              .username,
+                                                              ? search[index].title
+                                                              : sorted[index].title,
+                                                          maxLines: 3,
                                                           style: TextStyle(
-                                                            fontFamily: 'Bahij',
-                                                            fontSize: 25,
-                                                            color: Colors.white,
-                                                          ),
+                                                              fontFamily: 'Bahij',
+                                                              fontSize: 25,
+                                                              color: Colors.white,
+                                                              fontWeight:
+                                                              FontWeight.bold),
                                                         ),
-                                                        SizedBox(width: 5,),
-
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      children: [
-                                                        Icon(
-                                                          Icons.pin_drop,
-                                                          color: Colors.white,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 5,
-                                                        ),
-                                                        Text(
-                                                          (query != '')
-                                                              ? search[index]
-                                                              .country
-                                                              : sorted[index]
-                                                              .country,
-                                                          style: TextStyle(
-                                                            fontFamily: 'Bahij',
-                                                            fontSize: 25,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      children: [
-                                                        Icon(
-                                                          Icons.timelapse,
-                                                          color: Colors.white,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 5,
-                                                        ),
-                                                        Text(
-                                                          (query != '')
-                                                              ? (sorted[index]
-                                                              .dateDays !=
-                                                              0)
-                                                              ? "قبل ${search[index]
-                                                              .dateDays} ايام"
-                                                              : (sorted[index]
-                                                              .dateHours !=
-                                                              0)
-                                                              ? "قبل ${search[index]
-                                                              .dateHours} ساعات"
-                                                              : "قبل ${search[index]
-                                                              .dateMins} دقائق"
-                                                              : (sorted[index]
-                                                              .dateDays !=
-                                                              0)
-                                                              ? "قبل ${sorted[index]
-                                                              .dateDays} ايام"
-                                                              : (sorted[index]
-                                                              .dateHours !=
-                                                              0)
-                                                              ? "قبل ${sorted[index]
-                                                              .dateHours} ساعات"
-                                                              : "قبل ${sorted[index]
-                                                              .dateMins} دقائق",
-                                                          style: TextStyle(
-                                                            fontFamily: 'Bahij',
-                                                            fontSize: 25,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    )
-                                                  ],
-                                                ),
-                                                ((query != '')
-                                                    ? search[index]
-                                                    .photoBool ==
-                                                    'true'
-                                                    : sorted[index]
-                                                    .photoBool ==
-                                                    'true')
-                                                    ? FutureBuilder<Uri>(
-                                                  future: downloadUrl(
-                                                      (query != '')
-                                                          ? search[index]
-                                                          .photoPath
-                                                          : sorted[index]
-                                                          .photoPath),
-                                                  builder:
-                                                      (context, snapshot) {
-                                                    if (snapshot
-                                                        .connectionState ==
-                                                        ConnectionState
-                                                            .waiting)
-                                                      return Center(
-                                                        child:
-                                                        CircularProgressIndicator(),
-                                                      );
-                                                    return ClipRRect(
-                                                      borderRadius:
-                                                      BorderRadius
-                                                          .circular(
-                                                          8.0),
-                                                      child: Image.network(
-                                                        snapshot.data
-                                                            .toString(),
-                                                        width: 300,
-                                                        height: 150,
-                                                        fit: BoxFit.cover,
                                                       ),
-                                                    );
-                                                  },
-                                                )
-                                                    : ClipRRect(
-                                                  borderRadius:
-                                                  BorderRadius.circular(
-                                                      8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/no_image.png',
-                                                    width: 300,
-                                                    height: 150,
-                                                    fit: BoxFit.cover,
+                                                      Row(
+                                                        children: [
+                                                          Icon(
+                                                            Icons.person,
+                                                            color: Colors.white,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 5,
+                                                          ),
+                                                          Row(
+                                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                                            children: [
+                                                              Text(
+                                                                (query != '') ? search[index].username :
+                                                                sorted[index].username,
+                                                                style: TextStyle(
+                                                                  fontFamily: 'Bahij',
+                                                                  fontSize: 20,
+                                                                  color: Colors.white,
+                                                                ),
+                                                              ),
+
+                                                              Visibility(
+                                                                visible: (query != ''),
+                                                                child:(search[index].communication.toString() == 'Paid')? Container(
+                                                                  margin: EdgeInsets.only(right: 5),
+                                                                  child: Row(
+                                                                    children: [
+                                                                      Image.asset(
+                                                                        'assets/images/icons/feature.png',
+                                                                        height: 18,
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ): Container(),
+                                                                replacement: (sorted[index].communication.toString() == 'Paid')? Container(
+                                                                  margin: EdgeInsets.only(right: 5),
+                                                                  child: Row(
+                                                                    children: [
+                                                                      Image.asset(
+                                                                        'assets/images/icons/feature.png',
+                                                                        height: 18,
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ): Container(),
+                                                              ),
+
+                                                            ],
+                                                          ),
+                                                          /// star islam
+                                                          // (commission == 'Paid')
+                                                          //     ? Row(
+                                                          //   children: [
+                                                          //     Text(
+                                                          //       "دفع العمولة",
+                                                          //       style: TextStyle(
+                                                          //           fontFamily: 'Bahij',
+                                                          //           fontSize: 25,
+                                                          //           color: Colors.black,
+                                                          //           fontWeight:
+                                                          //           FontWeight.bold),
+                                                          //     ),
+                                                          //     SizedBox(
+                                                          //       width: 5,
+                                                          //     ),
+                                                          //     Image.asset(
+                                                          //       'assets/images/icons/invoice.png',
+                                                          //       height: 35,
+                                                          //     ),
+                                                          //   ],
+                                                          // )
+                                                          //     : Container(),
+
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          Icon(
+                                                            Icons.pin_drop,
+                                                            color: Colors.white,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 5,
+                                                          ),
+                                                          Text(
+                                                            ( (query != '') ? search[index].country : sorted[index].country)=="All"?"كل المناطق": ( (query != '') ? search[index].country : sorted[index].country),
+                                                            style: TextStyle(
+                                                              fontFamily: 'Bahij',
+                                                              fontSize: 25,
+                                                              color: Colors.white,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          Icon(
+                                                            Icons.timelapse,
+                                                            color: Colors.white,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 5,
+                                                          ),
+                                                          Text(
+                                                            (query != '')
+                                                                ? (sorted[index]
+                                                                .dateDays !=
+                                                                0)
+                                                                ? "قبل ${search[index]
+                                                                .dateDays} ايام"
+                                                                : (sorted[index]
+                                                                .dateHours !=
+                                                                0)
+                                                                ? "قبل ${search[index]
+                                                                .dateHours} ساعات"
+                                                                : "قبل ${search[index]
+                                                                .dateMins} دقائق"
+                                                                : (sorted[index]
+                                                                .dateDays !=
+                                                                0)
+                                                                ? "قبل ${sorted[index]
+                                                                .dateDays} ايام"
+                                                                : (sorted[index]
+                                                                .dateHours !=
+                                                                0)
+                                                                ? "قبل ${sorted[index]
+                                                                .dateHours} ساعات"
+                                                                : "قبل ${sorted[index]
+                                                                .dateMins} دقائق",
+                                                            style: TextStyle(
+                                                              fontFamily: 'Bahij',
+                                                              fontSize: 25,
+                                                              color: Colors.white,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      )
+                                                    ],
                                                   ),
                                                 ),
+
+                                                Row(
+                                                   crossAxisAlignment: CrossAxisAlignment.center,
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                  children: [
+                                                    Container(
+                                                      margin: EdgeInsets.only(bottom: 10),
+                                                      alignment: Alignment.centerRight,
+                                                      child: ((query != '')
+                                                          ? search[index]
+                                                          .photoBool ==
+                                                          'true'
+                                                          : sorted[index]
+                                                          .photoBool ==
+                                                          'true')
+                                                          ? FutureBuilder<Uri>(
+                                                        future: downloadUrl(
+                                                            (query != '')
+                                                                ? search[index]
+                                                                .photoPath
+                                                                : sorted[index]
+                                                                .photoPath),
+                                                        builder:
+                                                            (context, snapshot) {
+                                                          if (snapshot
+                                                              .connectionState ==
+                                                              ConnectionState
+                                                                  .waiting)
+                                                            return Center(
+                                                              child:
+                                                              CircularProgressIndicator(),
+                                                            );
+                                                          return ClipRRect(
+                                                            borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                8.0),
+                                                            child: Image.network(
+                                                              snapshot.data
+                                                                  .toString(),
+                                                              width: MediaQuery.of(context).size.width *0.17,
+                                                              height: MediaQuery.of(context).size.width *0.1,
+                                                              alignment: Alignment.centerRight,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          );
+                                                        },
+                                                      )
+                                                          : ClipRRect(
+                                                        borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                        child: Image.asset(
+                                                          'assets/images/no_image.png',
+                                                          width: MediaQuery.of(context).size.width *0.17,
+                                                          height: MediaQuery.of(context).size.width *0.1,
+                                                          alignment: Alignment.centerRight,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+
                                               ],
                                             ))).mouseUpOnHover,
                                   );
@@ -14084,5 +12409,1045 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
         });
       }
     }
+  }
+
+  void _optionsRiyadhCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _riyadhList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_riyadhList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueRiyadh,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _riyadhList.elementAt(index);
+                                  groupValueRiyadh = val;
+                                  titleRiyadh = _riyadhList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsShurqiaCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _shurqiaList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_shurqiaList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueShurqia,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _shurqiaList.elementAt(index);
+                                  groupValueShurqia = val;
+                                  titleShurqia = _shurqiaList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsMeddinahCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _meddinahList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_meddinahList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueMeddinah,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _meddinahList.elementAt(index);
+                                  groupValueMeddinah = val;
+                                  titleMeddinah =
+                                      _meddinahList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsMekkahCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _mekkahList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_mekkahList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueMekkah,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _mekkahList.elementAt(index);
+                                  groupValueMekkah = val;
+                                  titleMekkah = _mekkahList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsTabukCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _tabukList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_tabukList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueTabuk,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _tabukList.elementAt(index);
+                                  groupValueTabuk = val;
+                                  titleTabuk = _tabukList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsQassimCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _qassimList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_qassimList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueQassim,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _qassimList.elementAt(index);
+                                  groupValueQassim = val;
+                                  titleQassim = _qassimList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsHailCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _hailList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_hailList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueHail,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _hailList.elementAt(index);
+                                  groupValueHail = val;
+                                  titleHail = _hailList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsAseerCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _aseerList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_aseerList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueAseer,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _aseerList.elementAt(index);
+                                  groupValueAseer = val;
+                                  titleAseer = _aseerList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsNajranCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _najranList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_najranList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueNajran,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _najranList.elementAt(index);
+                                  groupValueNajran = val;
+                                  titleNajran = _najranList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsJowfCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _jowfList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_jowfList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueJowf,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _jowfList.elementAt(index);
+                                  groupValueJowf = val;
+                                  titleJowf = _jowfList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsArarCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المدينة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _ararList.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_ararList.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueArar,
+                              onChanged: (val) {
+                                setState(() {
+                                  subCountry = _ararList.elementAt(index);
+                                  groupValueArar = val;
+                                  titleArar = _ararList.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsCountryFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المنطقة',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius: Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _list.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_list.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValue,
+                              onChanged: (val) {
+                                setState(() {
+                                  country = _list.elementAt(index);
+                                  groupValue = val;
+                                  title = _list.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _optionsModelFilter(context) {
+    ScrollController list1 = ScrollController();
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 2,
+            padding: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'اختر المودل',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Bahij",
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Color(0xff818181),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  height: (MediaQuery.of(context).size.height / 2) - 134,
+                  child: VsScrollbar(
+                    controller: list1,
+                    isAlwaysShown: true,
+                    showTrackOnHover: true,
+                    style: VsScrollbarStyle(
+                      hoverThickness: 10.0, // default 12.0
+                      radius:
+                      Radius.circular(10), // default Radius.circular(8.0)
+                      thickness: 10.0, // [ default 8.0 ]
+                      color: Color(0xFF2980b9), // default ColorScheme Theme
+                    ),
+                    child: ListView.builder(
+                        controller: list1,
+                        padding: EdgeInsets.all(0),
+                        shrinkWrap: true,
+                        itemCount: _modellist.length,
+                        itemBuilder: (context, index) {
+                          return RadioListTile(
+                              activeColor: Color(0xFF2980b9),
+                              title: Text(_modellist.elementAt(index),
+                                  style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold)),
+                              value: index,
+                              groupValue: groupValueModel,
+                              onChanged: (val) {
+                                setState(() {
+                                  model = _modellist.elementAt(index);
+                                  groupValueModel = val;
+                                  titleModel = _modellist.elementAt(index);
+                                });
+                                Navigator.pop(context);
+                              });
+                        }),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

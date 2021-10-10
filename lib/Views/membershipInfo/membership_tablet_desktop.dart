@@ -70,7 +70,7 @@ class _MembershipViewTabletDesktopState
                               "عضوية موقع نظره",
                               style: TextStyle(
                                   fontFamily: 'Bahij',
-                                  fontSize: 75,
+                                  fontSize: 50,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                               textAlign: TextAlign.end,
@@ -127,7 +127,7 @@ class _MembershipViewTabletDesktopState
                           "مزايا العضوية",
                           style: TextStyle(
                               fontFamily: 'Bahij',
-                              fontSize: 50,
+                              fontSize: 40,
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
@@ -140,7 +140,7 @@ class _MembershipViewTabletDesktopState
                               fontSize: 30,
                               color: Colors.white,
                             ),
-                            textAlign: TextAlign.end,
+                            textAlign: TextAlign.center,
                           ),
                         )
                       ],
@@ -182,7 +182,7 @@ class _MembershipViewTabletDesktopState
                           "عن العضوية",
                           style: TextStyle(
                               fontFamily: 'Bahij',
-                              fontSize: 50,
+                              fontSize: 40,
                               color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
@@ -195,7 +195,7 @@ class _MembershipViewTabletDesktopState
                               fontSize: 30,
                               color: Colors.white,
                             ),
-                            textAlign: TextAlign.end,
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ],
@@ -245,7 +245,7 @@ class _MembershipViewTabletDesktopState
                       "سعر العضوية",
                       style: TextStyle(
                           fontFamily: 'Bahij',
-                          fontSize: 50,
+                          fontSize: 40,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -305,7 +305,7 @@ class _MembershipViewTabletDesktopState
                       "شروط العضوية",
                       style: TextStyle(
                           fontFamily: 'Bahij',
-                          fontSize: 50,
+                          fontSize: 40,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -420,7 +420,7 @@ class _MembershipViewTabletDesktopState
                       "طرق الدفع",
                       style: TextStyle(
                           fontFamily: 'Bahij',
-                          fontSize: 50,
+                          fontSize: 40,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),

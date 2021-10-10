@@ -345,7 +345,7 @@ class _ContactViewTabletDekstopState extends State<ContactViewTabletDekstop> {
                             "تواصل معنا الان",
                             style: TextStyle(
                                 fontFamily: 'Bahij',
-                                fontSize: 75,
+                                fontSize: 50,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.end,
@@ -357,7 +357,7 @@ class _ContactViewTabletDekstopState extends State<ContactViewTabletDekstop> {
                             "من خلال",
                             style: TextStyle(
                                 fontFamily: 'Bahij',
-                                fontSize: 40,
+                                fontSize: 30,
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.end,
@@ -383,7 +383,7 @@ class _ContactViewTabletDekstopState extends State<ContactViewTabletDekstop> {
                             style: TextStyle(
                                 //decoration: TextDecoration.underline,
                                 fontFamily: 'Bahij',
-                                fontSize: 40,
+                                fontSize: 30,
                                 color: Color(0xFF2980b9),
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.right,
@@ -400,7 +400,7 @@ class _ContactViewTabletDekstopState extends State<ContactViewTabletDekstop> {
                                 },
                                 child: Image.asset(
                                   'assets/images/icons/whatsapp (1).png',
-                                  height: 100,
+                                  height: 50,
                                 ).mouseUpOnHover.showCursorOnHover,
                               ),
                               SizedBox(
@@ -412,7 +412,7 @@ class _ContactViewTabletDekstopState extends State<ContactViewTabletDekstop> {
                                 },
                                 child: Image.asset(
                                   'assets/images/icons/instagram.png',
-                                  height: 100,
+                                  height: 50,
                                 ).mouseUpOnHover.showCursorOnHover,
                               ),
                               SizedBox(
@@ -424,7 +424,7 @@ class _ContactViewTabletDekstopState extends State<ContactViewTabletDekstop> {
                                 },
                                 child: Image.asset(
                                         'assets/images/icons/twitter.png',
-                                        height: 100)
+                                        height: 50)
                                     .mouseUpOnHover
                                     .showCursorOnHover,
                               ),

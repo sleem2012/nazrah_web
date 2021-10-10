@@ -173,42 +173,19 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: Color(0xFF2980b9),
-                                borderRadius: BorderRadius.circular(30),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.blue[100],
-                                      spreadRadius: 10,
-                                      blurRadius: 20)
-                                ]),
-                            //width: 50,
-                            child: Padding(
-                                padding: EdgeInsets.all(10),
-                                child: Directionality(
-                                  textDirection: TextDirection.rtl,
-                                  child: Text(
-                                    (priceBool == 'true')
-                                        ? "$price ريال"
-                                        : 'لم يتم تحديد السعر',
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontFamily: 'Bahij',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )),
-                          ),
-                          Text(
-                            title,
-                            style: TextStyle(
-                                fontFamily: 'Bahij',
-                                fontSize: 30,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+
+                          Expanded(
+                            child: Text(
+                              title,
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                  fontFamily: 'Bahij',
+                                  fontSize: 30,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ],
                       ),
@@ -316,6 +293,7 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                                         );
                                       });
                                     }).toList(),
+
                                     options: CarouselOptions(
                                       height: 300,
                                       autoPlay: true,
@@ -375,6 +353,7 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                     SizedBox(
                       height: 5,
                     ),
+
                     SizedBox(
                       height: 15,
                     ),
@@ -382,10 +361,12 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Text(
                         description,
+                        textDirection: TextDirection.rtl,
                         style: TextStyle(
                           fontFamily: 'Bahij',
-                          fontSize: 30,
+                          fontSize: 23,
                           color: Colors.black,
+
                         ),
                         textAlign: TextAlign.right,
                       ),
@@ -491,7 +472,37 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                       ],
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 25,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFF2980b9),
+                          borderRadius: BorderRadius.circular(30),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.blue[100],
+                                spreadRadius: 10,
+                                blurRadius: 20)
+                          ]),
+                      //width: 50,
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Directionality(
+                            textDirection: TextDirection.rtl,
+                            child: Text(
+                              (priceBool == 'true')
+                                  ? "$price ريال"
+                                  : 'لم يتم تحديد السعر',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Bahij',
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )),
+                    ),
+                    SizedBox(
+                      height: 25,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 20, left: 20),

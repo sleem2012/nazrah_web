@@ -12923,6 +12923,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                               communication != '' ||
                               description != '') {
                             String membership;
+                            String commission;
+
                             await FirebaseFirestore.instance
                                 .collection('users')
                                 .doc(phoneNo)
@@ -12930,7 +12932,9 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                 .then((DocumentSnapshot documentSnapshot) => {
                                       membership =
                                           documentSnapshot.data()['Membership'],
-                                    });
+                              commission = documentSnapshot.data()['Commission'],
+
+                            });
                             if (membership == 'free') {
                               bool repeated = false;
                               await FirebaseFirestore.instance
@@ -13003,6 +13007,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                       'subCountry': subCountry,
                                       'Title': title,
                                       'Communication': communication,
+                                      'Commission': commission,
+                                      'Membership': membership,
                                       'Description': description,
                                       'priceBool': priceBool,
                                       'price': price,
@@ -13041,6 +13047,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                       'subCountry': subCountry,
                                       'Title': title,
                                       'Communication': communication,
+                                      'Commission': commission,
+                                      'Membership': membership,
                                       'Description': description,
                                       'priceBool': priceBool,
                                       'price': price,
@@ -13100,6 +13108,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                       'subCountry': subCountry,
                                       'Title': title,
                                       'Communication': communication,
+                                      'Commission': commission,
+                                      'Membership': membership,
                                       'Description': description,
                                       'priceBool': priceBool,
                                       'price': price,
@@ -13175,6 +13185,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                       'subCountry': subCountry,
                                       'Title': title,
                                       'Communication': communication,
+                                      'Commission': commission,
+                                      'Membership': membership,
                                       'Description': description,
                                       'priceBool': priceBool,
                                       'price': price,
@@ -13234,6 +13246,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                   'subCountry': subCountry,
                                   'Title': title,
                                   'Communication': communication,
+                                  'Commission': commission,
+                                  'Membership': membership,
                                   'Description': description,
                                   'priceBool': priceBool,
                                   'price': price,
@@ -13271,6 +13285,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                   'subCountry': subCountry,
                                   'Title': title,
                                   'Communication': communication,
+                                  'Commission': commission,
+                                  'Membership': membership,
                                   'Description': description,
                                   'priceBool': priceBool,
                                   'price': price,
@@ -13325,6 +13341,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                   'subCountry': subCountry,
                                   'Title': title,
                                   'Communication': communication,
+                                  'Commission': commission,
+                                  'Membership': membership,
                                   'Description': description,
                                   'priceBool': priceBool,
                                   'price': price,
@@ -13392,6 +13410,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                   'Country': country,
                                   'Title': title,
                                   'Communication': communication,
+                                  'Commission': commission,
+                                  'Membership': membership,
                                   'Description': description,
                                   'priceBool': priceBool,
                                   'price': price,

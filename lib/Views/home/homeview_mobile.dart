@@ -309,6 +309,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
 
   @override
   Widget build(BuildContext context) {
+    final double width=MediaQuery.of(context).size.width;
     return SingleChildScrollView(
 
       child: Column(
@@ -10797,9 +10798,10 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                           horizontal: 20, vertical: 10),
                                       child: Text(
                                         title,
+                                        maxLines: 2,
                                         style: TextStyle(
                                             fontFamily: 'Bahij',
-                                            fontSize: 20,
+                                            fontSize: 16,
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -11084,6 +11086,9 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                       subSubCategory: doc.data()['subSubCategory'],
                       model: doc.data()['model'],
                       username: doc.data()['userName'],
+                      communication: doc.data()['Communication'],
+                      commission: doc.data()['Commission'],
+                      membership:doc.data()['Membership'] ,
                       docId: doc.id,
                       photoPath: (doc.data()['photoBool'] == 'true')
                           ? doc.data()['photo_url 0']
@@ -11230,24 +11235,26 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                         top: 10,
                                         bottom: 10),
                                     child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              (query != '')
-                                                  ? search[index].title
-                                                  : sorted[index].title,
-                                              style: TextStyle(
-                                                  fontFamily: 'Bahij',
-                                                  fontSize: 30,
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold),
+                                            Container(
+                                              width: width*0.5,
+                                              child: Text(
+                                                (query != '')
+                                                    ? search[index].title
+                                                    : sorted[index].title,
+                                                maxLines: 3,
+                                                style: TextStyle(
+                                                    fontFamily: 'Bahij',
+
+                                                    fontSize: 25,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold),
+                                              ),
                                             ),
                                             Row(
                                               children: [
@@ -11258,15 +11265,47 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                                 SizedBox(
                                                   width: 5,
                                                 ),
-                                                Text(
-                                                  (query != '')
-                                                      ? search[index].username
-                                                      : sorted[index].username,
-                                                  style: TextStyle(
-                                                    fontFamily: 'Bahij',
-                                                    fontSize: 20,
-                                                    color: Colors.white,
-                                                  ),
+                                                Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      (query != '') ? search[index].username :
+                                                      sorted[index].username,
+                                                      style: TextStyle(
+                                                        fontFamily: 'Bahij',
+                                                        fontSize: 20,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+
+                                                    Visibility(
+                                                      visible: (query != ''),
+                                                      child:(search[index].commission.toString() == 'Paid')? Container(
+                                                        margin: EdgeInsets.only(right: 5),
+                                                        child: Row(
+                                                          children: [
+                                                            Image.asset(
+                                                              'assets/images/icons/feature.png',
+                                                              height: 15,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ): Container(),
+                                                      replacement: (sorted[index].commission.toString() == 'Paid')? Container(
+                                                        margin: EdgeInsets.only(right: 5),
+                                                        child: Row(
+                                                          children: [
+                                                            Image.asset(
+                                                              'assets/images/icons/feature.png',
+                                                              height: 15,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ): Container(),
+                                                    ),
+
+
+                                                  ],
                                                 ),
                                               ],
                                             ),
@@ -11280,9 +11319,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                                   width: 5,
                                                 ),
                                                 Text(
-                                                  (query != '')
-                                                      ? search[index].country
-                                                      : sorted[index].country,
+                                                  ( (query != '') ? search[index].country : sorted[index].country)=="All"?"كل المناطق": ( (query != '') ? search[index].country : sorted[index].country),
                                                   style: TextStyle(
                                                     fontFamily: 'Bahij',
                                                     fontSize: 20,
@@ -11330,6 +11367,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                             )
                                           ],
                                         ),
+
                                         ((query != '')
                                                 ? search[index].photoBool ==
                                                     'true'
@@ -12382,8 +12420,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                     showTrackOnHover: true,
                     style: VsScrollbarStyle(
                       hoverThickness: 10.0, // default 12.0
-                      radius:
-                          Radius.circular(10), // default Radius.circular(8.0)
+                      radius: Radius.circular(10), // default Radius.circular(8.0)
                       thickness: 10.0, // [ default 8.0 ]
                       color: Color(0xFF2980b9), // default ColorScheme Theme
                     ),

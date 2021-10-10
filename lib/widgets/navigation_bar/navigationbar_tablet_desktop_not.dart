@@ -47,6 +47,8 @@ class _NavigationBarTabletDekstopNotState
 
   @override
   Widget build(BuildContext context) {
+    final double width=MediaQuery.of(context).size.width;
+
     return Container(
       height: 140,
       child: Row(
@@ -104,149 +106,158 @@ class _NavigationBarTabletDekstopNotState
                   )).showCursorOnHover.mouseUpOnHover,
             ],
           ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              NavBarItem('أتصل بنا', ContactRoute, () {
-                locator<NavigationService>().navigateTo(ContactRoute);
-                setState(() {
-                  currentRoute = 'Contact';
-                });
-              },
-                  (currentRoute == 'Contact')
-                      ? Color(0xFF2980b9)
-                      : Colors.black),
-              SizedBox(
-                width: 40,
-              ),
-              StreamBuilder<DocumentSnapshot>(
-                  stream: loadMyPages(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      bool legacy = snapshot.data.data()['Legacy'];
-                      if (legacy == true) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 40),
-                          child: NavBarItem(
-                              'السلع والإعلانات الممنوعة', LegacyRoute, () {
-                            locator<NavigationService>()
-                                .navigateTo(LegacyRoute);
-                            setState(() {
-                              currentRoute = 'Legacy';
-                            });
-                          },
-                              (currentRoute == 'Legacy')
-                                  ? Color(0xFF2980b9)
-                                  : Colors.black),
-                        );
-                      } else {
-                        return Container();
-                      }
-                    } else {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 40),
-                        child: NavBarItem(
-                            'السلع والإعلانات الممنوعة', LegacyRoute, () {
-                          locator<NavigationService>().navigateTo(LegacyRoute);
-                          setState(() {
-                            currentRoute = 'Legacy';
-                          });
-                        },
-                            (currentRoute == 'Legacy')
-                                ? Color(0xFF2980b9)
-                                : Colors.black),
-                      );
-                    }
-                  }),
-              // SizedBox(
-              //   width: 40,
-              // ),
-              NavBarItem('اتفاقية استخدام الموقع والمعلومات', TermsRoute, () {
-                locator<NavigationService>().navigateTo(TermsRoute);
-                setState(() {
-                  currentRoute = 'Terms';
-                });
-              }, (currentRoute == 'Terms') ? Color(0xFF2980b9) : Colors.black),
-              SizedBox(
-                width: 40,
-              ),
-              StreamBuilder<DocumentSnapshot>(
-                  stream: loadMyPages(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      bool delegate = snapshot.data.data()['Delegate'];
-                      if (delegate) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 40),
-                          child: NavBarItem('تسجيل مندوب', DelegateRoute, () {
-                            locator<NavigationService>()
-                                .navigateTo(DelegateRoute);
-                            setState(() {
-                              currentRoute = 'Delegate';
-                            });
-                          },
-                              (currentRoute == 'Delegate')
-                                  ? Color(0xFF2980b9)
-                                  : Colors.black),
-                        );
-                      } else {
-                        return Container();
-                      }
-                    } else {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 40),
-                        child: NavBarItem('تسجيل مندوب', DelegateRoute, () {
-                          locator<NavigationService>()
-                              .navigateTo(DelegateRoute);
-                          setState(() {
-                            currentRoute = 'Delegate';
-                          });
-                        },
-                            (currentRoute == 'Delegate')
-                                ? Color(0xFF2980b9)
-                                : Colors.black),
-                      );
-                    }
-                  }),
-              // SizedBox(
-              //   width: 40,
-              // ),
-              NavBarItem('العمولة', CommissionInfoRoute, () {
-                locator<NavigationService>().navigateTo(CommissionInfoRoute);
-                setState(() {
-                  currentRoute = 'Commission';
-                });
-              },
-                  (currentRoute == 'Commission')
-                      ? Color(0xFF2980b9)
-                      : Colors.black),
-              SizedBox(
-                width: 40,
-              ),
-              NavBarItem('العضويات', MembershipInfoRoute, () {
-                locator<NavigationService>().navigateTo(MembershipInfoRoute);
-                setState(() {
-                  currentRoute = 'Membership';
-                });
-              },
-                  (currentRoute == 'Membership')
-                      ? Color(0xFF2980b9)
-                      : Colors.black),
-              SizedBox(
-                width: 40,
-              ),
-              NavBarItem('الرئيسية', HomeRoute, () {
-                locator<NavigationService>().navigateTo(HomeRoute);
-                setState(() {
-                  currentRoute = 'Home';
-                });
-              }, (currentRoute == 'Home') ? Color(0xFF2980b9) : Colors.black),
-            ],
+
+          Expanded(
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    NavBarItem('أتصل بنا', ContactRoute, () {
+                      locator<NavigationService>().navigateTo(ContactRoute);
+                      setState(() {
+                        currentRoute = 'Contact';
+                      });
+                    },
+                        (currentRoute == 'Contact')
+                            ? Color(0xFF2980b9)
+                            : Colors.black),
+                    SizedBox(
+                      width: 40,
+                    ),
+                    StreamBuilder<DocumentSnapshot>(
+                        stream: loadMyPages(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            bool legacy = snapshot.data.data()['Legacy'];
+                            if (legacy == true) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 40),
+                                child: NavBarItem(
+                                    'السلع والإعلانات الممنوعة', LegacyRoute, () {
+                                  locator<NavigationService>()
+                                      .navigateTo(LegacyRoute);
+                                  setState(() {
+                                    currentRoute = 'Legacy';
+                                  });
+                                },
+                                    (currentRoute == 'Legacy')
+                                        ? Color(0xFF2980b9)
+                                        : Colors.black),
+                              );
+                            } else {
+                              return Container();
+                            }
+                          } else {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 40),
+                              child: NavBarItem(
+                                  'السلع والإعلانات الممنوعة', LegacyRoute, () {
+                                locator<NavigationService>().navigateTo(LegacyRoute);
+                                setState(() {
+                                  currentRoute = 'Legacy';
+                                });
+                              },
+                                  (currentRoute == 'Legacy')
+                                      ? Color(0xFF2980b9)
+                                      : Colors.black),
+                            );
+                          }
+                        }),
+                    // SizedBox(
+                    //   width: 40,
+                    // ),
+                    NavBarItem('اتفاقية استخدام الموقع والمعلومات', TermsRoute, () {
+                      locator<NavigationService>().navigateTo(TermsRoute);
+                      setState(() {
+                        currentRoute = 'Terms';
+                      });
+                    }, (currentRoute == 'Terms') ? Color(0xFF2980b9) : Colors.black),
+                    SizedBox(
+                      width: 40,
+                    ),
+                    StreamBuilder<DocumentSnapshot>(
+                        stream: loadMyPages(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            bool delegate = snapshot.data.data()['Delegate'];
+                            if (delegate) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 40),
+                                child: NavBarItem('تسجيل مندوب', DelegateRoute, () {
+                                  locator<NavigationService>()
+                                      .navigateTo(DelegateRoute);
+                                  setState(() {
+                                    currentRoute = 'Delegate';
+                                  });
+                                },
+                                    (currentRoute == 'Delegate')
+                                        ? Color(0xFF2980b9)
+                                        : Colors.black),
+                              );
+                            } else {
+                              return Container();
+                            }
+                          } else {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 40),
+                              child: NavBarItem('تسجيل مندوب', DelegateRoute, () {
+                                locator<NavigationService>()
+                                    .navigateTo(DelegateRoute);
+                                setState(() {
+                                  currentRoute = 'Delegate';
+                                });
+                              },
+                                  (currentRoute == 'Delegate')
+                                      ? Color(0xFF2980b9)
+                                      : Colors.black),
+                            );
+                          }
+                        }),
+                    // SizedBox(
+                    //   width: 40,
+                    // ),
+                    NavBarItem('العمولة', CommissionInfoRoute, () {
+                      locator<NavigationService>().navigateTo(CommissionInfoRoute);
+                      setState(() {
+                        currentRoute = 'Commission';
+                      });
+                    },
+                        (currentRoute == 'Commission')
+                            ? Color(0xFF2980b9)
+                            : Colors.black),
+                    SizedBox(
+                      width: 40,
+                    ),
+                    NavBarItem('العضويات', MembershipInfoRoute, () {
+                      locator<NavigationService>().navigateTo(MembershipInfoRoute);
+                      setState(() {
+                        currentRoute = 'Membership';
+                      });
+                    },
+                        (currentRoute == 'Membership')
+                            ? Color(0xFF2980b9)
+                            : Colors.black),
+                    SizedBox(
+                      width: 40,
+                    ),
+                    NavBarItem('الرئيسية', HomeRoute, () {
+                      locator<NavigationService>().navigateTo(HomeRoute);
+                      setState(() {
+                        currentRoute = 'Home';
+                      });
+                    }, (currentRoute == 'Home') ? Color(0xFF2980b9) : Colors.black),
+                  ],
+                ),
+              ],
+            ),
           ),
           Container(
             height: 140,
+            width: 140,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

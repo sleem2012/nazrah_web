@@ -6,9 +6,12 @@ class AdDisplayInfo {
       subSubCategory,
       model,
       username,
+      communication,
       docId,
       selectedCategory,
       subCategory,
+      commission,
+      membership,
       user,
       photoPath;
   int dateDays, dateHours, dateMins;
@@ -27,5 +30,8 @@ class AdDisplayInfo {
       this.subCategory,
       this.dateDays,
       this.dateHours,
+      this.commission,
+      this.membership,
+      this.communication,
       this.dateMins});
 }

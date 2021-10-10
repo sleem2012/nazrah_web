@@ -12708,7 +12708,7 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                   height: 15,
                 ),
                 Directionality(
-                  textDirection: textDirection,
+                  textDirection: textDirection = TextDirection.rtl,
                   child: TextField(
                     maxLines: 10,
                     onChanged: (val) {
@@ -12722,6 +12722,11 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                           !exp.hasMatch(val.substring(val.length - 1))) {
                         setState(() {
                           textDirection = TextDirection.rtl;
+                        });
+                      }
+                      else{
+                        setState(() {
+                          textDirection = TextDirection.ltr;
                         });
                       }
                       description = val;
@@ -12800,14 +12805,16 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                             communication != '' ||
                             description != '') {
                           String membership;
+                          String commission;
                           await FirebaseFirestore.instance
                               .collection('users')
                               .doc(phoneNo)
                               .get()
                               .then((DocumentSnapshot documentSnapshot) => {
-                                    membership =
-                                        documentSnapshot.data()['Membership'],
-                                  });
+                                membership = documentSnapshot.data()['Membership'],
+                                commission = documentSnapshot.data()['Commission'],
+
+                          });
                           if (membership == 'free') {
                             bool repeated = false;
                             await FirebaseFirestore.instance
@@ -12879,6 +12886,8 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                     'subCountry': subCountry,
                                     'Title': title,
                                     'Communication': communication,
+                                    'Commission': commission,
+                                    'Membership': membership,
                                     'Description': description,
                                     'priceBool': priceBool,
                                     'price': price,
@@ -12917,6 +12926,9 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                     'subCountry': subCountry,
                                     'Title': title,
                                     'Communication': communication,
+                                    'Commission': commission,
+                                    'Membership': membership,
+
                                     'Description': description,
                                     'priceBool': priceBool,
                                     'price': price,
@@ -12973,6 +12985,9 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                     'subCountry': subCountry,
                                     'Title': title,
                                     'Communication': communication,
+                                    'Commission': commission,
+                                    'Membership': membership,
+
                                     'Description': description,
                                     'priceBool': priceBool,
                                     'price': price,
@@ -13042,8 +13057,11 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                     'model': model,
                                     'subCountry': subCountry,
                                     'Title': title,
-                                    'Communication': communication,
                                     'Description': description,
+                                    'Communication': communication,
+                                    'Commission': commission,
+                                    'Membership': membership,
+
                                     'priceBool': priceBool,
                                     'price': price,
                                     'photoBool': photoBool,
@@ -13099,6 +13117,9 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                 'subCountry': subCountry,
                                 'Title': title,
                                 'Communication': communication,
+                                'Commission': commission,
+                                'Membership': membership,
+
                                 'Description': description,
                                 'priceBool': priceBool,
                                 'price': price,
@@ -13135,6 +13156,9 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                 'subCountry': subCountry,
                                 'Title': title,
                                 'Communication': communication,
+                                'Commission': commission,
+                                'Membership': membership,
+
                                 'Description': description,
                                 'priceBool': priceBool,
                                 'price': price,
@@ -13187,6 +13211,9 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                 'subCountry': subCountry,
                                 'Title': title,
                                 'Communication': communication,
+                                'Commission': commission,
+                                'Membership': membership,
+
                                 'Description': description,
                                 'priceBool': priceBool,
                                 'price': price,
@@ -13252,6 +13279,9 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                 'Country': country,
                                 'Title': title,
                                 'Communication': communication,
+                                'Commission': commission,
+                                'Membership': membership,
+
                                 'Description': description,
                                 'priceBool': priceBool,
                                 'price': price,

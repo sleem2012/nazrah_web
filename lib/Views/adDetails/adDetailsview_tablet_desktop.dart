@@ -192,46 +192,23 @@ class _AdDetailsViewTabletDesktopState
                   }
 
                   return Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        padding: const EdgeInsets.only(left: 20, right: 20,top: 20),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Color(0xFF2980b9),
-                                  borderRadius: BorderRadius.circular(30),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.blue[100],
-                                        spreadRadius: 10,
-                                        blurRadius: 20)
-                                  ]),
-                              //width: 50,
-                              child: Padding(
-                                  padding: EdgeInsets.all(15),
-                                  child: Directionality(
-                                    textDirection: TextDirection.rtl,
-                                    child: Text(
-                                      (priceBool == 'true')
-                                          ? "$price ريال"
-                                          : 'لم يتم تحديد السعر',
-                                      style: TextStyle(
-                                          fontSize: 30,
-                                          fontFamily: 'Bahij',
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  )),
-                            ),
-                            Text(
-                              title,
-                              style: TextStyle(
-                                  fontFamily: 'Bahij',
-                                  fontSize: 70,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
+                            Expanded(
+                              child: Text(
+                                title,
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    fontFamily: 'Bahij',
+                                    fontSize: 40,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ],
                         ),
@@ -439,9 +416,9 @@ class _AdDetailsViewTabletDesktopState
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Text(
                           description,
+                          textDirection: TextDirection.rtl,
                           style: TextStyle(
-                            fontFamily: 'Bahij',
-                            fontSize: 50,
+                            fontSize: 30,
                             color: Colors.black,
                           ),
                           textAlign: TextAlign.right,
@@ -550,7 +527,37 @@ class _AdDetailsViewTabletDesktopState
                         ],
                       ),
                       SizedBox(
-                        height: 50,
+                        height: 25,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xFF2980b9),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.blue[100],
+                                  spreadRadius: 10,
+                                  blurRadius: 20)
+                            ]),
+                        //width: 50,
+                        child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: Text(
+                                (priceBool == 'true')
+                                    ? "$price ريال"
+                                    : 'لم يتم تحديد السعر',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Bahij',
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            )),
+                      ),
+                      SizedBox(
+                        height: 25,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 20, left: 20),

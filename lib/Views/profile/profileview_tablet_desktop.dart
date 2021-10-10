@@ -58,6 +58,7 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
 
   @override
   Widget build(BuildContext context) {
+    final double width=MediaQuery.of(context).size.width;
     if (phoneNo == null) return Center(child: CircularProgressIndicator());
     return VsScrollbar(
       controller: _slidingPage,
@@ -116,7 +117,7 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: 100,
+                              width: width*0.1,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(30),
@@ -156,12 +157,13 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                             ).mouseUpOnHover,
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
                                   name,
                                   style: TextStyle(
                                       fontFamily: 'Bahij',
-                                      fontSize: 70,
+                                      fontSize: 50,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold),
                                   textAlign: TextAlign.end,
@@ -258,9 +260,9 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                               shape: BoxShape.circle,
                                               image: DecorationImage(
                                                   fit: BoxFit.cover,
-                                                  image: NetworkImage(snapshot
-                                                      .data
-                                                      .toString()))),
+                                                  image: NetworkImage(
+                                                      snapshot.data.toString(),
+                                                  ))),
                                         );
                                       },
                                     ),
@@ -359,7 +361,7 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                   return Directionality(
                     textDirection: TextDirection.rtl,
                     child: Container(
-                      width: MediaQuery.of(context).size.width / 1.5,
+                      width: width*0.8,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 100, right: 100),
                         child: ListView.builder(
@@ -383,75 +385,76 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                         backgroundColor: Color(0xFF2980b9),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 10,
-                                            right: 10,
-                                            top: 10,
-                                            bottom: 10),
+                                        padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10,),
                                         child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  ads[index].title,
-                                                  style: TextStyle(
-                                                      fontFamily: 'Bahij',
-                                                      fontSize: 50,
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.pin_drop,
-                                                      color: Colors.white,
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    Text(
-                                                      ads[index].country,
-                                                      style: TextStyle(
+                                            Container(
+                                              width: MediaQuery.of(context).size.width *0.32,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    ads[index].title,
+                                                    maxLines: 3,
+
+                                                    style: TextStyle(
                                                         fontFamily: 'Bahij',
-                                                        fontSize: 30,
+                                                        fontSize: 25,
+
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        Icons.pin_drop,
                                                         color: Colors.white,
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.timelapse,
-                                                      color: Colors.white,
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    Text(
-                                                      (ads[index].dateDays != 0)
-                                                          ? "قبل ${ads[index].dateDays} ايام"
-                                                          : (ads[index]
-                                                                      .dateHours !=
-                                                                  0)
-                                                              ? "قبل ${ads[index].dateHours} ساعات"
-                                                              : "قبل ${ads[index].dateMins} دقائق",
-                                                      style: TextStyle(
-                                                        fontFamily: 'Bahij',
-                                                        fontSize: 30,
+                                                      SizedBox(
+                                                        width: 5,
+                                                      ),
+                                                      Text(
+                                                        ads[index].country,
+                                                        style: TextStyle(
+                                                          fontFamily: 'Bahij',
+                                                          fontSize: 30,
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        Icons.timelapse,
                                                         color: Colors.white,
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
+                                                      SizedBox(
+                                                        width: 5,
+                                                      ),
+                                                      Text(
+                                                        (ads[index].dateDays != 0)
+                                                            ? "قبل ${ads[index].dateDays} ايام"
+                                                            : (ads[index]
+                                                                        .dateHours !=
+                                                                    0)
+                                                                ? "قبل ${ads[index].dateHours} ساعات"
+                                                                : "قبل ${ads[index].dateMins} دقائق",
+                                                        style: TextStyle(
+                                                          fontFamily: 'Bahij',
+                                                          fontSize: 30,
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                             (ads[index].photoBool == 'true')
                                                 ? FutureBuilder<Uri>(
@@ -474,8 +477,8 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                                         child: Image.network(
                                                           snapshot.data
                                                               .toString(),
-                                                          width: 300,
-                                                          height: 150,
+                                                          width: MediaQuery.of(context).size.width *0.17,
+                                                          height: MediaQuery.of(context).size.width *0.1,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       );
@@ -487,14 +490,15 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                                             8.0),
                                                     child: Image.asset(
                                                       'assets/images/no_image.png',
-                                                      width: 300,
-                                                      height: 150,
+                                                      width: MediaQuery.of(context).size.width *0.17,
+                                                      height: MediaQuery.of(context).size.width *0.1,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                           ],
                                         ),
-                                      )).mouseUpOnHover,
+                                      ),
+                                  ).mouseUpOnHover,
                                   Positioned(
                                       top: 0,
                                       left: 0,

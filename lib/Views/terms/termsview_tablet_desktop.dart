@@ -63,7 +63,7 @@ class _TermsViewTabletDesktopState extends State<TermsViewTabletDesktop> {
                             "اتفاقية استخدام الموقع والمعلومات",
                             style: TextStyle(
                                 fontFamily: 'Bahij',
-                                fontSize: 65,
+                                fontSize: 50,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.end,
@@ -88,7 +88,7 @@ class _TermsViewTabletDesktopState extends State<TermsViewTabletDesktop> {
                     "مقدمة",
                     style: TextStyle(
                         fontFamily: 'Bahij',
-                        fontSize: 50,
+                        fontSize: 40,
                         color: Color(0xFF2980b9),
                         fontWeight: FontWeight.bold),
                   ),
@@ -99,7 +99,7 @@ class _TermsViewTabletDesktopState extends State<TermsViewTabletDesktop> {
                     "تم إنشاء الاتفاقية بناء على نظام التعاملات الإلكترونية تخضع البنود والشروط والأحكام والمنازعات القانونية للقوانين والتشريعات والأنظمة المعمول بها في المملكة العربية السعودية",
                     style: TextStyle(
                       fontFamily: 'Bahij',
-                      fontSize: 30,
+                      fontSize: 20,
                       color: Colors.black,
                     ),
                     textAlign: TextAlign.end,
@@ -111,7 +111,7 @@ class _TermsViewTabletDesktopState extends State<TermsViewTabletDesktop> {
                     "هام! هذه اتفاقية قانونية ملزمة يُرجى قراءة شروط وأحكام الاستخدام بعناية قبل استخدام هذا الموقع والموافقة عليها",
                     style: TextStyle(
                       fontFamily: 'Bahij',
-                      fontSize: 30,
+                      fontSize: 20,
                       color: Colors.black,
                     ),
                     textAlign: TextAlign.end,
@@ -127,7 +127,7 @@ class _TermsViewTabletDesktopState extends State<TermsViewTabletDesktop> {
                     ]),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Text(
                     "شروط الاستخدام",
