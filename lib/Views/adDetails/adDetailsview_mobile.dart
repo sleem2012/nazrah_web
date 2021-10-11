@@ -15,7 +15,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 class AdDetailsViewMobile extends StatefulWidget {
   final String documentId;
-
   AdDetailsViewMobile({@required this.documentId});
 
   @override
