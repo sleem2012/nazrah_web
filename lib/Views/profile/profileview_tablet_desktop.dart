@@ -111,13 +111,12 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                 blurRadius: 20)
                           ]),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 40, right: 40),
+                        padding:  EdgeInsets.only(left: width*0.08, right: width*0.08),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: width*0.1,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(30),
@@ -129,11 +128,11 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                   ]),
                               child: ElevatedButton(
                                 child: Container(
-                                  width: double.infinity,
                                   height: 50,
                                   child: Center(
                                       child: Text(
                                     "تسحيل خروج",
+                                    maxLines: 1,
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontFamily: 'Bahij',
@@ -159,46 +158,50 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text(
-                                  name,
-                                  style: TextStyle(
-                                      fontFamily: 'Bahij',
-                                      fontSize: 50,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.end,
+                                Row(
+                                  children: [
+                                    (membership == 'Premium')
+                                        ? Row(
+                                      children: [
+                                        Text(
+                                          "",
+                                          style: TextStyle(
+                                              fontFamily: 'Bahij',
+                                              fontSize: 25,
+                                              color: Colors.black,
+                                              fontWeight:
+                                              FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Image.asset(
+                                          'assets/images/icons/star.png',
+                                          height: 35,
+                                        ),
+                                      ],
+                                    )
+                                        : Container(),
+                                    Text(
+                                      name,
+                                      style: TextStyle(
+                                          fontFamily: 'Bahij',
+                                          fontSize: 40,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                      textAlign: TextAlign.end,
+                                    ),
+                                  ],
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
                                 Container(
-                                  width: 410,
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      (membership == 'Premium')
-                                          ? Row(
-                                              children: [
-                                                Text(
-                                                  "",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Bahij',
-                                                      fontSize: 25,
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                SizedBox(
-                                                  width: 5,
-                                                ),
-                                                Image.asset(
-                                                  'assets/images/icons/star.png',
-                                                  height: 35,
-                                                ),
-                                              ],
-                                            )
-                                          : Container(),
+
                                       (commission == 'Paid')
                                           ? Row(
                                               children: [
@@ -216,7 +219,7 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                                 ),
                                                 Image.asset(
                                                   'assets/images/icons/invoice.png',
-                                                  height: 35,
+                                                  height: width*0.02,
                                                 ),
                                               ],
                                             )
@@ -243,8 +246,8 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                             child: CircularProgressIndicator(),
                                           );
                                         return Container(
-                                          width: 150,
-                                          height: 150,
+                                          width: width*0.08,
+                                          height: width*0.08,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                   width: 4,
@@ -274,8 +277,8 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                             uploadToStorage(phoneNo, phoneNo);
                                           },
                                           child: Container(
-                                                  height: 40,
-                                                  width: 40,
+                                                  height: width*0.028,
+                                                  width: width*0.028,
                                                   decoration: BoxDecoration(
                                                       color: Color(0xFF2980b9),
                                                       border: Border.all(
@@ -285,6 +288,7 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                                   child: Icon(
                                                     Icons.edit,
                                                     color: Colors.white,
+                                                    size: width*0.018,
                                                   ))
                                               .showCursorOnHover
                                               .mouseUpOnHover,
@@ -298,13 +302,13 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                                   rating: rating,
                                   direction: Axis.horizontal,
                                   itemCount: 5,
-                                  itemPadding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
+                                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                                   itemBuilder: (context, _) => Icon(
                                     Icons.star,
                                     color: Colors.amber,
                                   ),
-                                )
+                                  itemSize:width*0.022,
+                                ),
                               ],
                             ),
                           ],

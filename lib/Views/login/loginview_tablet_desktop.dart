@@ -248,7 +248,7 @@ class _LoginViewTabletDesktopState extends State<LoginViewTabletDesktop> {
                             "سجل دخولك الان \nلموقع نظره",
                             style: TextStyle(
                                 fontFamily: 'Bahij',
-                                fontSize: 100,
+                                fontSize: 50,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.end,
@@ -260,7 +260,7 @@ class _LoginViewTabletDesktopState extends State<LoginViewTabletDesktop> {
                             "إذا كنت لا تملك حساب",
                             style: TextStyle(
                                 fontFamily: 'Bahij',
-                                fontSize: 40,
+                                fontSize: 30,
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                             textAlign: TextAlign.end,

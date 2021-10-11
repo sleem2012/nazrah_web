@@ -164,68 +164,77 @@ class _ProfileViewMobileState extends State<ProfileViewMobile> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text(
-                            name,
-                            style: TextStyle(
-                                fontFamily: 'Bahij',
-                                fontSize: 20,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.end,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center ,
+                            children: [
+
+                              Text(
+                                name,
+                                style: TextStyle(
+                                    fontFamily: 'Bahij',
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.end,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              (membership == 'Premium')
+                                  ? Row(
+                                children: [
+                                  Text(
+                                    "",
+                                    style: TextStyle(
+                                        fontFamily: 'Bahij',
+                                        fontSize: 15,
+                                        color: Colors.black,
+                                        fontWeight:
+                                        FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Image.asset(
+                                    'assets/images/icons/star.png',
+                                    height: 20,
+                                  ),
+                                ],
+                              )
+                                  : Container(),
+                            ],
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
                           Container(
-                            width: 150,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                // (membership == 'Premium')
-                                //     ? Row(
-                                //         mainAxisAlignment:
-                                //             MainAxisAlignment.center,
-                                //         children: [
-                                //           Text(
-                                //             "عضوية نظره المدفوعة",
-                                //             style: TextStyle(
-                                //                 fontFamily: 'Bahij',
-                                //                 fontSize: 15,
-                                //                 color: Colors.black,
-                                //                 fontWeight: FontWeight.bold),
-                                //           ),
-                                //           SizedBox(
-                                //             width: 5,
-                                //           ),
-                                //           Image.asset(
-                                //             'assets/images/icons/star.png',
-                                //             height: 20,
-                                //           ),
-                                //         ],
-                                //       )
-                                //     : Container(),
                                 (commission == 'Paid')
                                     ? Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "دفع العمولة",
-                                            style: TextStyle(
-                                                fontFamily: 'Bahij',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          SizedBox(
-                                            width: 5,
-                                          ),
-                                          Image.asset(
-                                            'assets/images/icons/invoice.png',
-                                            height: 20,
-                                          ),
-                                        ],
-                                      )
+                                  mainAxisAlignment: MainAxisAlignment.center,
+
+                                  children: [
+                                    Text(
+                                      "دفع العمولة",
+                                      style: TextStyle(
+                                          fontFamily: 'Bahij',
+                                          fontSize: 15,
+                                          color: Colors.black,
+                                          fontWeight:
+                                          FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Image.asset(
+                                      'assets/images/icons/invoice.png',
+                                      height: 20,
+                                    ),
+                                  ],
+                                )
                                     : Container(),
                               ],
                             ),

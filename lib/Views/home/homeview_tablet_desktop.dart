@@ -12061,9 +12061,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                                               .navigateTo(
                                               AdDetailsRoute,
                                               queryParams: {
-                                                'id': (query != '')
-                                                    ? search[index].docId
-                                                    : sorted[index].docId
+                                                'id': (query != '') ? search[index].docId : sorted[index].docId,
                                               });
                                         },
                                         style: TextButton.styleFrom(
@@ -12124,24 +12122,24 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
 
                                                               Visibility(
                                                                 visible: (query != ''),
-                                                                child:(search[index].communication.toString() == 'Paid')? Container(
+                                                                child:(search[index].commission.toString() == 'Paid')? Container(
                                                                   margin: EdgeInsets.only(right: 5),
                                                                   child: Row(
                                                                     children: [
                                                                       Image.asset(
                                                                         'assets/images/icons/feature.png',
-                                                                        height: 18,
+                                                                        height: 15,
                                                                       ),
                                                                     ],
                                                                   ),
                                                                 ): Container(),
-                                                                replacement: (sorted[index].communication.toString() == 'Paid')? Container(
+                                                                replacement: (sorted[index].commission.toString() == 'Paid')? Container(
                                                                   margin: EdgeInsets.only(right: 5),
                                                                   child: Row(
                                                                     children: [
                                                                       Image.asset(
                                                                         'assets/images/icons/feature.png',
-                                                                        height: 18,
+                                                                        height: 15,
                                                                       ),
                                                                     ],
                                                                   ),
