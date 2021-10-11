@@ -174,6 +174,7 @@ class _AdDetailsViewTabletDesktopState
                   String photoBool = snapshot.data.data()['photoBool'];
                   String userName = snapshot.data.data()['userName'];
                   String user = snapshot.data.data()['user'];
+                  String membership=snapshot.data.data()['Membership'];
 
                   final Timestamp timestamp =
                       snapshot.data.data()['date'] as Timestamp;
@@ -227,19 +228,17 @@ class _AdDetailsViewTabletDesktopState
                                   onTap: () async {
                                     if (phoneNo != null) {
                                       String username;
+                                      String membership2;
                                       await FirebaseFirestore.instance
                                           .collection('users')
                                           .doc(phoneNo)
                                           .get()
-                                          .then((DocumentSnapshot
-                                                  documentSnapshot) =>
-                                              {
-                                                username = documentSnapshot
-                                                    .data()['Name'],
+                                          .then((DocumentSnapshot documentSnapshot) => {
+                                                username = documentSnapshot.data()['Name'],
+                                               membership2 = documentSnapshot.data()['Membership'],
                                               });
                                       if (username == userName) {
-                                        locator<NavigationService>()
-                                            .navigateTo(ProfileRoute);
+                                        locator<NavigationService>().navigateTo(ProfileRoute);
                                       } else {
                                         locator<NavigationService>().navigateTo(
                                             UserDetailsRoute,
@@ -255,13 +254,34 @@ class _AdDetailsViewTabletDesktopState
                                           .navigateTo(LoginRoute);
                                     }
                                   },
-                                  child: Text(
-                                    userName,
-                                    style: TextStyle(
-                                        fontFamily: 'Bahij',
-                                        fontSize: 30,
-                                        color: Colors.black,
-                                        decoration: TextDecoration.underline),
+
+                                  child: Row(
+                                    children: [
+                                      (membership == 'Premium')
+                                          ? Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Image.asset(
+                                            'assets/images/icons/star.png',
+                                            height: 20,
+                                          ),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                        ],
+                                      )
+                                          : Container(),
+                                      Text(
+                                        userName,
+                                        style: TextStyle(
+                                            fontFamily: 'Bahij',
+                                            fontSize: 30,
+                                            color: Colors.black,
+                                            decoration: TextDecoration.underline),
+                                      ),
+                                    ],
                                   ),
                                 ).showCursorOnHover.mouseUpOnHover,
                                 SizedBox(

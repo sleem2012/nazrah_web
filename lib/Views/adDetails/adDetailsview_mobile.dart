@@ -150,6 +150,7 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                 String photoBool = snapshot.data.data()['photoBool'];
                 String userName = snapshot.data.data()['userName'];
                 String user = snapshot.data.data()['user'];
+                String membership=snapshot.data.data()['Membership'];
 
                 final Timestamp timestamp =
                     snapshot.data.data()['date'] as Timestamp;
@@ -203,6 +204,7 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                                 onTap: () async {
                                   if (phoneNo != null) {
                                     String username;
+                                    String membership2;
                                     await FirebaseFirestore.instance
                                         .collection('users')
                                         .doc(phoneNo)
@@ -210,8 +212,9 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                                         .then((DocumentSnapshot
                                                 documentSnapshot) =>
                                             {
-                                              username = documentSnapshot
-                                                  .data()['Name'],
+                                              username = documentSnapshot.data()['Name'],
+                                              membership2 = documentSnapshot.data()['Membership'],
+
                                             });
                                     if (username == userName) {
                                       locator<NavigationService>()
@@ -226,13 +229,33 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                                         .navigateTo(LoginRoute);
                                   }
                                 },
-                                child: Text(
-                                  userName,
-                                  style: TextStyle(
-                                      fontFamily: 'Bahij',
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                      decoration: TextDecoration.underline),
+                                child: Row(
+                                  children: [
+                                    (membership == 'Premium')
+                                        ? Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Image.asset(
+                                          'assets/images/icons/star.png',
+                                          height: 20,
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                      ],
+                                    )
+                                        : Container(),
+                                    Text(
+                                      userName,
+                                      style: TextStyle(
+                                          fontFamily: 'Bahij',
+                                          fontSize: 20,
+                                          color: Colors.black,
+                                          decoration: TextDecoration.underline),
+                                    ),
+                                  ],
                                 ),
                               ),
                               SizedBox(

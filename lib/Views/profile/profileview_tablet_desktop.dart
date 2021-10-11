@@ -359,6 +359,7 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                         user: doc.data()['user'],
                         dateDays: DateTime.now().difference(dateTime).inDays,
                         dateHours: DateTime.now().difference(dateTime).inHours,
+
                         dateMins:
                             DateTime.now().difference(dateTime).inMinutes));
                   }
