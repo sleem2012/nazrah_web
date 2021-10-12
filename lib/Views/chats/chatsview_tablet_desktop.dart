@@ -204,29 +204,25 @@ class _ChatsViewTabletDesktopState extends State<ChatsViewTabletDesktop> {
                                                   children: [
                                                     (membership == 'Premium')
                                                         ? Row(
-                                                            children: [
-                                                              Text(
-                                                                "عضوية نظره المدفوعة",
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        'Bahij',
-                                                                    fontSize:
-                                                                        25,
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold),
-                                                              ),
-                                                              SizedBox(
-                                                                width: 5,
-                                                              ),
-                                                              Image.asset(
-                                                                'assets/images/icons/staff.png',
-                                                                height: 35,
-                                                              ),
-                                                            ],
-                                                          )
+                                                      children: [
+                                                        Text(
+                                                          "",
+                                                          style: TextStyle(
+                                                              fontFamily: 'Bahij',
+                                                              fontSize: 15,
+                                                              color: Colors.black,
+                                                              fontWeight:
+                                                              FontWeight.bold),
+                                                        ),
+                                                        SizedBox(
+                                                          width: 10,
+                                                        ),
+                                                        Image.asset(
+                                                          'assets/images/icons/star.png',
+                                                          height: 35,
+                                                        ),
+                                                      ],
+                                                    )
                                                         : Container(),
                                                     (commission == 'Paid')
                                                         ? Row(

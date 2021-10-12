@@ -13127,6 +13127,20 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                           )),
                         ),
                         onPressed: () async {
+                          String commission ;
+                          String membership ;
+
+                          await _firestore
+                              .collection('users')
+                              .doc(phoneNo)
+                              .get()
+                              .then((DocumentSnapshot documentSnapshot) => {
+                               commission = documentSnapshot.data()['Commission'],
+                              membership = documentSnapshot.data()['Membership'],
+
+                          });
+
+                          //islam
                           if (photoEditited != true) {
                             _firestore
                                 .collection('ads')
@@ -13140,6 +13154,9 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                               'Country': country,
                               'Title': title,
                               'Communication': communication,
+                              'Commission': commission,
+                              'Membership': membership,
+
                               'Description': description,
                               'priceBool': priceBool,
                               'price': price,
@@ -13161,6 +13178,8 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                               'Country': country,
                               'Title': title,
                               'Communication': communication,
+                              'Commission': commission,
+                              'Membership': membership,
                               'Description': description,
                               'priceBool': priceBool,
                               'price': price,
@@ -13175,8 +13194,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                 .doc(dateTime.toString())
                                 .get()
                                 .then((DocumentSnapshot documentSnapshot) => {
-                                      imageCountCurrent = documentSnapshot
-                                          .data()['photo_limit'],
+                                      imageCountCurrent = documentSnapshot.data()['photo_limit'],
                                       for (var i = 0;
                                           i < imageCountCurrent;
                                           i++)

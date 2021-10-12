@@ -253,33 +253,27 @@ class _ChatsViewMobileState extends State<ChatsViewMobile> {
                                                       ],
                                                     )
                                                   : Container(),
-                                              (commission == 'Paid')
+                                              (membership == 'Premium')
                                                   ? Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          "دفع العمولة",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Bahij',
-                                                              fontSize: 15,
-                                                              color:
-                                                                  Colors.black,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                        SizedBox(
-                                                          width: 5,
-                                                        ),
-                                                        Image.asset(
-                                                          'assets/images/icons/invoice.png',
-                                                          height: 20,
-                                                        ),
-                                                      ],
-                                                    )
+                                                children: [
+                                                  Text(
+                                                    "",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Bahij',
+                                                        fontSize: 15,
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                        FontWeight.bold),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  Image.asset(
+                                                    'assets/images/icons/star.png',
+                                                    height: 20,
+                                                  ),
+                                                ],
+                                              )
                                                   : Container(),
                                             ],
                                           ),

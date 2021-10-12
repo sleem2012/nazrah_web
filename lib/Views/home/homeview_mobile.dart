@@ -11280,23 +11280,23 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
 
                                                     Visibility(
                                                       visible: (query != ''),
-                                                      child:(search[index].commission.toString() == 'Paid')? Container(
+                                                      child:(search[index].membership.toString() == 'Premium')? Container(
                                                         margin: EdgeInsets.only(right: 5),
                                                         child: Row(
                                                           children: [
                                                             Image.asset(
-                                                              'assets/images/icons/feature.png',
+                                                              'assets/images/icons/star.png',
                                                               height: 15,
                                                             ),
                                                           ],
                                                         ),
                                                       ): Container(),
-                                                      replacement: (sorted[index].commission.toString() == 'Paid')? Container(
+                                                      replacement: (sorted[index].commission.toString() == 'Premium')? Container(
                                                         margin: EdgeInsets.only(right: 5),
                                                         child: Row(
                                                           children: [
                                                             Image.asset(
-                                                              'assets/images/icons/feature.png',
+                                                              'assets/images/icons/star.png',
                                                               height: 15,
                                                             ),
                                                           ],

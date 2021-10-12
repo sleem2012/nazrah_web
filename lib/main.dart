@@ -8,7 +8,6 @@ import 'package:sizer/sizer.dart';
 
 void main() {
   setupLoactor();
-
   runApp(MyApp());
 }
 

@@ -12999,6 +12999,19 @@ class _EditAdViewMobileState extends State<EditAdViewMobile> {
                         )),
                       ),
                       onPressed: () async {
+                        String commission ;
+                        String membership ;
+
+                        await _firestore
+                            .collection('users')
+                            .doc(phoneNo)
+                            .get()
+                            .then((DocumentSnapshot documentSnapshot) => {
+                          commission = documentSnapshot.data()['Commission'],
+                          membership = documentSnapshot.data()['Membership'],
+
+                        });
+
                         if (photoEditited != true) {
                           _firestore.collection('ads').doc(documentId).update({
                             'selectedCategory': selectedCategory,
@@ -13009,6 +13022,9 @@ class _EditAdViewMobileState extends State<EditAdViewMobile> {
                             'Country': country,
                             'Title': title,
                             'Communication': communication,
+                            'Commission': commission,
+                            'Membership': membership,
+
                             'Description': description,
                             'priceBool': priceBool,
                             'price': price,
@@ -13027,6 +13043,9 @@ class _EditAdViewMobileState extends State<EditAdViewMobile> {
                             'Country': country,
                             'Title': title,
                             'Communication': communication,
+                            'Commission': commission,
+                            'Membership': membership,
+
                             'Description': description,
                             'priceBool': priceBool,
                             'price': price,
