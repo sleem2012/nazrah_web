@@ -871,11 +871,20 @@ class _PanelHomeState extends State<PanelHome> {
                                       for (var i = 0;
                                       i < selectedUser.length;
                                       i++) {
-                                        _firestore
-                                            .collection('users')
-                                            .doc(selectedUser[i])
-                                            .update(
-                                            {'Membership': 'free'});
+                                        _firestore.collection('users').doc(selectedUser[i]).update({'Membership': 'free'});
+                                        _firestore.collection('users').doc(selectedUser[i]).get().then((value) {
+                                          print(value.data()['Membership'] +" is " + value.data()['Name']);
+                                          FirebaseFirestore.instance.collection('ads').where('user', isEqualTo: value.data()['Phone Number']).get().then((QuerySnapshot snapshot) => {
+                                            snapshot.docs.forEach((element) {
+                                              print(element.id);
+                                              _firestore.collection('ads').doc(element.id).update({
+                                                'Membership': 'free',
+                                              });
+                                              print(element['Membership']);
+                                            })
+                                          });
+                                        });
+
                                       }
                                     },
                                     icon: Icon(Icons.change_history),
@@ -889,15 +898,19 @@ class _PanelHomeState extends State<PanelHome> {
                                       i < selectedUser.length; i++) {
                                         _firestore.collection('users').doc(selectedUser[i]).update({'Membership': 'Premium'});
 
-
-                                        _firestore.collection('ads').where('user', isEqualTo: selectedUser[i]).get().then((QuerySnapshot snapshot) => {
-                                          if (snapshot.docs.length != 0 || snapshot.docs.isNotEmpty){
-                                            for (var doc in snapshot.docs){
-                                              _firestore.collection('ads').doc(selectedUser[i]).update({doc.data()['Membership']: 'Premium'})
-
-                                            }
-                                          }
+                                        _firestore.collection('users').doc(selectedUser[i]).get().then((value) {
+                                          print(value.data()['Membership'] +" is " + value.data()['Name']);
+                                          FirebaseFirestore.instance.collection('ads').where('user', isEqualTo: value.data()['Phone Number']).get().then((QuerySnapshot snapshot) => {
+                                            snapshot.docs.forEach((element) {
+                                              print(element.id);
+                                              _firestore.collection('ads').doc(element.id).update({
+                                                'Membership': 'Premium',
+                                              });
+                                              print(element['Membership']);
+                                            })
+                                          });
                                         });
+
 
                                       }
                                     },

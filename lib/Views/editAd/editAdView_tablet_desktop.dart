@@ -13142,10 +13142,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
 
                           //islam
                           if (photoEditited != true) {
-                            _firestore
-                                .collection('ads')
-                                .doc(documentId)
-                                .update({
+                            _firestore.collection('ads').doc(documentId).update({
                               'selectedCategory': selectedCategory,
                               'subCategory': subCategory,
                               'subSubCategory': subSubCategory,

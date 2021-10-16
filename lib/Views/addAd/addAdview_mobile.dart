@@ -12812,11 +12812,7 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                           });
                           if (membership == 'free') {
                             bool repeated = false;
-                            await FirebaseFirestore.instance
-                                .collection('ads')
-                                .where('user', isEqualTo: phoneNo)
-                                .where('Title', isEqualTo: title)
-                                .where('Description', isEqualTo: description)
+                            await FirebaseFirestore.instance.collection('ads').where('user', isEqualTo: phoneNo).where('Title', isEqualTo: title).where('Description', isEqualTo: description)
                                 .get()
                                 .then((QuerySnapshot snapshot) => {
                                       if (snapshot.docs.length != 0 ||
@@ -12825,6 +12821,7 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                       else
                                         {repeated = false}
                                     });
+
                             if (repeated == true) {
                               locator<NavigationService>()
                                   .navigateTo(RepeatedAdRoute);
@@ -12855,19 +12852,10 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                     price != '' &&
                                     photoBool != 'true') {
                                   String userName = '';
-                                  await _firestore
-                                      .collection('users')
-                                      .doc(phoneNo)
-                                      .get()
-                                      .then(
-                                          (DocumentSnapshot documentSnapshot) =>
-                                              {
+                                  await _firestore.collection('users').doc(phoneNo).get().then((DocumentSnapshot documentSnapshot) => {
                                                 userName = documentSnapshot.data()['Name']
                                               });
-                                  _firestore
-                                      .collection('ads')
-                                      .doc(dateTime.toString())
-                                      .set({
+                                  _firestore.collection('ads').doc(dateTime.toString()).set({
                                     'selectedCategory': selectedCategory,
                                     'subCategory': subCategory,
                                     'Country': country,

@@ -13002,11 +13002,7 @@ class _EditAdViewMobileState extends State<EditAdViewMobile> {
                         String commission ;
                         String membership ;
 
-                        await _firestore
-                            .collection('users')
-                            .doc(phoneNo)
-                            .get()
-                            .then((DocumentSnapshot documentSnapshot) => {
+                        await _firestore.collection('users').doc(phoneNo).get().then((DocumentSnapshot documentSnapshot) => {
                           commission = documentSnapshot.data()['Commission'],
                           membership = documentSnapshot.data()['Membership'],
 

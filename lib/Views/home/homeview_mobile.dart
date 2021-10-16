@@ -11291,7 +11291,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                                           ],
                                                         ),
                                                       ): Container(),
-                                                      replacement: (sorted[index].commission.toString() == 'Premium')? Container(
+                                                      replacement: (sorted[index].membership.toString() == 'Premium')? Container(
                                                         margin: EdgeInsets.only(right: 5),
                                                         child: Row(
                                                           children: [
