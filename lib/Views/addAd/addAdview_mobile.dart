@@ -12806,14 +12806,9 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                             description != '') {
                           String membership;
                           String commission;
-                          await FirebaseFirestore.instance
-                              .collection('users')
-                              .doc(phoneNo)
-                              .get()
-                              .then((DocumentSnapshot documentSnapshot) => {
+                          await FirebaseFirestore.instance.collection('users').doc(phoneNo).get().then((DocumentSnapshot documentSnapshot) => {
                                 membership = documentSnapshot.data()['Membership'],
                                 commission = documentSnapshot.data()['Commission'],
-
                           });
                           if (membership == 'free') {
                             bool repeated = false;
@@ -12838,11 +12833,7 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                               DateTime dateTime2;
 
                               bool time = false;
-                              await FirebaseFirestore.instance
-                                  .collection('ads')
-                                  .where('user', isEqualTo: phoneNo)
-                                  .get()
-                                  .then((QuerySnapshot snapshot) => {
+                              await FirebaseFirestore.instance.collection('ads').where('user', isEqualTo: phoneNo).get().then((QuerySnapshot snapshot) => {
                                         if (snapshot.docs.length != 0 ||
                                             snapshot.docs.isNotEmpty)
                                           {
@@ -12871,8 +12862,7 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                                       .then(
                                           (DocumentSnapshot documentSnapshot) =>
                                               {
-                                                userName = documentSnapshot
-                                                    .data()['Name']
+                                                userName = documentSnapshot.data()['Name']
                                               });
                                   _firestore
                                       .collection('ads')

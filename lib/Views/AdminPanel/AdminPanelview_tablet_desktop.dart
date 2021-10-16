@@ -919,10 +919,20 @@ class _PanelHomeState extends State<PanelHome> {
                                       ),
                                       RaisedButton.icon(
                                           onPressed: () {
-                                            for (var i = 0;
-                                                i < selectedUser.length;
-                                                i++) {
+                                            for (var i = 0; i < selectedUser.length; i++) {
                                               _firestore.collection('users').doc(selectedUser[i]).update({'Commission': 'Paid'});
+
+                                              _firestore.collection('ads').where('user', isEqualTo: selectedUser[i]).get().then((QuerySnapshot snapshot) => {
+                                                if (snapshot.docs.length != 0 || snapshot.docs.isNotEmpty){
+                                                    for (var doc in snapshot.docs){
+                                                _firestore.collection('ads').doc(selectedUser[i]).update({doc.data()['Membership']: 'Premium'})
+
+                                              }
+                                                  }
+                                              });
+
+
+
                                             }
                                           },
                                           icon: Icon(Icons.money),
