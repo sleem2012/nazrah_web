@@ -1,3 +1,5 @@
+
+
 import 'dart:async';
 
 import 'package:clipboard/clipboard.dart';
@@ -23,10 +25,10 @@ class UserInfo {
 
   UserInfo(
       {this.phoneNo,
-      this.documentId,
-      this.username,
-      this.membership,
-      this.commission});
+        this.documentId,
+        this.username,
+        this.membership,
+        this.commission});
 }
 
 class InquiryInfo {
@@ -45,11 +47,11 @@ class AdsInfo {
 
   AdsInfo(
       {this.title,
-      this.category,
-      this.country,
-      this.username,
-      this.user,
-      this.docID});
+        this.category,
+        this.country,
+        this.username,
+        this.user,
+        this.docID});
 }
 
 class DelegateInfo {
@@ -57,12 +59,12 @@ class DelegateInfo {
 
   DelegateInfo(
       {this.name,
-      this.id,
-      this.country,
-      this.email,
-      this.phone,
-      this.imageCount,
-      this.docID});
+        this.id,
+        this.country,
+        this.email,
+        this.phone,
+        this.imageCount,
+        this.docID});
 }
 
 class _PanelHomeState extends State<PanelHome> {
@@ -142,7 +144,7 @@ class _PanelHomeState extends State<PanelHome> {
     _slidingPage = ScrollController();
     Timer(
         Duration(seconds: 5),
-        () => _slidingPage.animateTo(_slidingPage.offset + 0.1,
+            () => _slidingPage.animateTo(_slidingPage.offset + 0.1,
             duration: Duration(milliseconds: 500),
             curve: Curves.fastOutSlowIn));
   }
@@ -182,14 +184,14 @@ class _PanelHomeState extends State<PanelHome> {
                           child: Column(
                             children: icon
                                 .map((e) => NavBarItem(
-                                      icon: e,
-                                      selected: selected[icon.indexOf(e)],
-                                      onTap: () {
-                                        setState(() {
-                                          select(icon.indexOf(e));
-                                        });
-                                      },
-                                    ))
+                              icon: e,
+                              selected: selected[icon.indexOf(e)],
+                              onTap: () {
+                                setState(() {
+                                  select(icon.indexOf(e));
+                                });
+                              },
+                            ))
                                 .toList(),
                           ))
                     ],
@@ -197,2473 +199,2469 @@ class _PanelHomeState extends State<PanelHome> {
                 ),
                 (selected[0] == true)
                     ? Padding(
-                        padding: const EdgeInsets.only(
-                            top: 10, bottom: 10, left: 125, right: 125),
-                        child: Container(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "مرحبا!",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 45),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                          height: 80,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              4,
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              gradient: LinearGradient(
-                                                  colors: [
-                                                    Color(0xFF2980b9),
-                                                    Colors.lightBlue
-                                                  ],
-                                                  begin: Alignment.bottomLeft,
-                                                  end: Alignment.topRight),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Colors.grey[300],
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 16)
-                                              ]),
-                                          child: StreamBuilder<QuerySnapshot>(
-                                              stream: loadUsers(),
-                                              builder: (context, snapshot) {
-                                                if (!snapshot.hasData) {
-                                                  return Row(
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 125, right: 125),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "مرحبا!",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 45),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: 80,
+                                    width: MediaQuery.of(context)
+                                        .size
+                                        .width /
+                                        4,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadius.circular(8),
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xFF2980b9),
+                                              Colors.lightBlue
+                                            ],
+                                            begin: Alignment.bottomLeft,
+                                            end: Alignment.topRight),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey[300],
+                                              offset: Offset(0, 3),
+                                              blurRadius: 16)
+                                        ]),
+                                    child: StreamBuilder<QuerySnapshot>(
+                                        stream: loadUsers(),
+                                        builder: (context, snapshot) {
+                                          if (!snapshot.hasData) {
+                                            return Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    title: CustomText(
+                                                      text: "المستخدمين",
+                                                      size: 25,
+                                                      weight:
+                                                      FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                    subtitle: CustomText(
+                                                      text:
+                                                      "كم حساب تم انشاءه",
+                                                      size: 16,
+                                                      weight:
+                                                      FontWeight.w400,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                  const EdgeInsets
+                                                      .only(left: 14),
+                                                  child: Column(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    MainAxisAlignment
+                                                        .center,
                                                     children: [
-                                                      Expanded(
-                                                        child: ListTile(
-                                                          title: CustomText(
-                                                            text: "المستخدمين",
-                                                            size: 25,
-                                                            weight:
-                                                                FontWeight.bold,
-                                                            color: Colors.white,
-                                                          ),
-                                                          subtitle: CustomText(
-                                                            text:
-                                                                "كم حساب تم انشاءه",
-                                                            size: 16,
-                                                            weight:
-                                                                FontWeight.w400,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 14),
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomText(
-                                                              text: "0",
-                                                              size: 25,
-                                                              weight: FontWeight
-                                                                  .bold,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ],
-                                                        ),
+                                                      CustomText(
+                                                        text: "0",
+                                                        size: 25,
+                                                        weight: FontWeight
+                                                            .bold,
+                                                        color:
+                                                        Colors.white,
                                                       ),
                                                     ],
-                                                  );
-                                                } else {
-                                                  user =
-                                                      snapshot.data.docs.length;
-                                                  return Row(
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          } else {
+                                            user =
+                                                snapshot.data.docs.length;
+                                            return Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    title: CustomText(
+                                                      text: "المستخدمين",
+                                                      size: 25,
+                                                      weight:
+                                                      FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                    subtitle: CustomText(
+                                                        text:
+                                                        "كم حساب تم انشاءه",
+                                                        size: 16,
+                                                        weight: FontWeight
+                                                            .w400,
+                                                        color:
+                                                        Colors.black),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                  const EdgeInsets
+                                                      .only(left: 14),
+                                                  child: Column(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    MainAxisAlignment
+                                                        .center,
                                                     children: [
-                                                      Expanded(
-                                                        child: ListTile(
-                                                          title: CustomText(
-                                                            text: "المستخدمين",
-                                                            size: 25,
-                                                            weight:
-                                                                FontWeight.bold,
-                                                            color: Colors.white,
-                                                          ),
-                                                          subtitle: CustomText(
-                                                              text:
-                                                                  "كم حساب تم انشاءه",
-                                                              size: 16,
-                                                              weight: FontWeight
-                                                                  .w400,
-                                                              color:
-                                                                  Colors.black),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 14),
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomText(
-                                                              text: user
-                                                                  .toString(),
-                                                              size: 25,
-                                                              weight: FontWeight
-                                                                  .bold,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ],
-                                                        ),
+                                                      CustomText(
+                                                        text: user
+                                                            .toString(),
+                                                        size: 25,
+                                                        weight: FontWeight
+                                                            .bold,
+                                                        color:
+                                                        Colors.white,
                                                       ),
                                                     ],
-                                                  );
-                                                }
-                                              }),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                          height: 80,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              4,
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              gradient: LinearGradient(
-                                                  colors: [
-                                                    Color(0xFF2980b9),
-                                                    Colors.lightBlue
-                                                  ],
-                                                  begin: Alignment.bottomLeft,
-                                                  end: Alignment.topRight),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Colors.grey[300],
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 16)
-                                              ]),
-                                          child: StreamBuilder<QuerySnapshot>(
-                                              stream: loadEvents(),
-                                              builder: (context, snapshot) {
-                                                if (!snapshot.hasData) {
-                                                  return Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: ListTile(
-                                                          title: CustomText(
-                                                            text: "الاعلانات",
-                                                            size: 25,
-                                                            weight:
-                                                                FontWeight.bold,
-                                                            color: Colors.white,
-                                                          ),
-                                                          subtitle: CustomText(
-                                                            text:
-                                                                "كم اعلان تم انشاءه",
-                                                            size: 16,
-                                                            weight:
-                                                                FontWeight.w400,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 14),
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomText(
-                                                              text: "0",
-                                                              size: 25,
-                                                              weight: FontWeight
-                                                                  .bold,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  );
-                                                } else {
-                                                  events =
-                                                      snapshot.data.docs.length;
-                                                  return Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: ListTile(
-                                                          title: CustomText(
-                                                            text: "الاعلانات",
-                                                            size: 25,
-                                                            weight:
-                                                                FontWeight.bold,
-                                                            color: Colors.white,
-                                                          ),
-                                                          subtitle: CustomText(
-                                                            text:
-                                                                "كم اعلان تم انشاءه",
-                                                            size: 16,
-                                                            weight:
-                                                                FontWeight.w400,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 14),
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomText(
-                                                              text: events
-                                                                  .toString(),
-                                                              size: 25,
-                                                              weight: FontWeight
-                                                                  .bold,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  );
-                                                }
-                                              }),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                          height: 80,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              4,
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              gradient: LinearGradient(
-                                                  colors: [
-                                                    Color(0xFF2980b9),
-                                                    Colors.lightBlue
-                                                  ],
-                                                  begin: Alignment.bottomLeft,
-                                                  end: Alignment.topRight),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Colors.grey[300],
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 16)
-                                              ]),
-                                          child: StreamBuilder<QuerySnapshot>(
-                                              stream: loadInquires(),
-                                              builder: (context, snapshot) {
-                                                if (!snapshot.hasData) {
-                                                  return Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: ListTile(
-                                                          title: CustomText(
-                                                            text: "الاستفسارات",
-                                                            size: 25,
-                                                            weight:
-                                                                FontWeight.bold,
-                                                            color: Colors.white,
-                                                          ),
-                                                          subtitle: CustomText(
-                                                            text:
-                                                                "كم استفسار مرسل",
-                                                            size: 16,
-                                                            weight:
-                                                                FontWeight.w400,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 14),
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomText(
-                                                              text: "0",
-                                                              size: 25,
-                                                              weight: FontWeight
-                                                                  .bold,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  );
-                                                } else {
-                                                  user =
-                                                      snapshot.data.docs.length;
-                                                  return Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: ListTile(
-                                                          title: CustomText(
-                                                            text: "الاستفسارات",
-                                                            size: 25,
-                                                            weight:
-                                                                FontWeight.bold,
-                                                            color: Colors.white,
-                                                          ),
-                                                          subtitle: CustomText(
-                                                            text:
-                                                                "كم استفسار مرسل",
-                                                            size: 16,
-                                                            weight:
-                                                                FontWeight.w400,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 14),
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomText(
-                                                              text: user
-                                                                  .toString(),
-                                                              size: 25,
-                                                              weight: FontWeight
-                                                                  .bold,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  );
-                                                }
-                                              }),
-                                        ),
-                                      ),
-                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          }
+                                        }),
                                   ),
-                                  Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                          height: 80,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              4,
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              gradient: LinearGradient(
-                                                  colors: [
-                                                    Color(0xFF2980b9),
-                                                    Colors.lightBlue
-                                                  ],
-                                                  begin: Alignment.bottomLeft,
-                                                  end: Alignment.topRight),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                    color: Colors.grey[300],
-                                                    offset: Offset(0, 3),
-                                                    blurRadius: 16)
-                                              ]),
-                                          child: StreamBuilder<QuerySnapshot>(
-                                              stream: loadDelegates(),
-                                              builder: (context, snapshot) {
-                                                if (!snapshot.hasData) {
-                                                  return Row(
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: 80,
+                                    width: MediaQuery.of(context)
+                                        .size
+                                        .width /
+                                        4,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadius.circular(8),
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xFF2980b9),
+                                              Colors.lightBlue
+                                            ],
+                                            begin: Alignment.bottomLeft,
+                                            end: Alignment.topRight),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey[300],
+                                              offset: Offset(0, 3),
+                                              blurRadius: 16)
+                                        ]),
+                                    child: StreamBuilder<QuerySnapshot>(
+                                        stream: loadEvents(),
+                                        builder: (context, snapshot) {
+                                          if (!snapshot.hasData) {
+                                            return Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    title: CustomText(
+                                                      text: "الاعلانات",
+                                                      size: 25,
+                                                      weight:
+                                                      FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                    subtitle: CustomText(
+                                                      text:
+                                                      "كم اعلان تم انشاءه",
+                                                      size: 16,
+                                                      weight:
+                                                      FontWeight.w400,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                  const EdgeInsets
+                                                      .only(left: 14),
+                                                  child: Column(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    MainAxisAlignment
+                                                        .center,
                                                     children: [
-                                                      Expanded(
-                                                        child: ListTile(
-                                                          title: CustomText(
-                                                            text: "المندوبين",
-                                                            size: 25,
-                                                            weight:
-                                                                FontWeight.bold,
-                                                            color: Colors.white,
-                                                          ),
-                                                          subtitle: CustomText(
-                                                            text:
-                                                                "كم طلب تم ارساله",
-                                                            size: 16,
-                                                            weight:
-                                                                FontWeight.w400,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 14),
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomText(
-                                                              text: "0",
-                                                              size: 25,
-                                                              weight: FontWeight
-                                                                  .bold,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ],
-                                                        ),
+                                                      CustomText(
+                                                        text: "0",
+                                                        size: 25,
+                                                        weight: FontWeight
+                                                            .bold,
+                                                        color:
+                                                        Colors.white,
                                                       ),
                                                     ],
-                                                  );
-                                                } else {
-                                                  user =
-                                                      snapshot.data.docs.length;
-                                                  return Row(
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          } else {
+                                            events =
+                                                snapshot.data.docs.length;
+                                            return Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    title: CustomText(
+                                                      text: "الاعلانات",
+                                                      size: 25,
+                                                      weight:
+                                                      FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                    subtitle: CustomText(
+                                                      text:
+                                                      "كم اعلان تم انشاءه",
+                                                      size: 16,
+                                                      weight:
+                                                      FontWeight.w400,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                  const EdgeInsets
+                                                      .only(left: 14),
+                                                  child: Column(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    MainAxisAlignment
+                                                        .center,
                                                     children: [
-                                                      Expanded(
-                                                        child: ListTile(
-                                                          title: CustomText(
-                                                            text: "المندوبين",
-                                                            size: 25,
-                                                            weight:
-                                                                FontWeight.bold,
-                                                            color: Colors.white,
-                                                          ),
-                                                          subtitle: CustomText(
-                                                            text:
-                                                                "كم طلب تم ارساله",
-                                                            size: 16,
-                                                            weight:
-                                                                FontWeight.w400,
-                                                            color: Colors.white,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(left: 14),
-                                                        child: Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            CustomText(
-                                                              text: user
-                                                                  .toString(),
-                                                              size: 25,
-                                                              weight: FontWeight
-                                                                  .bold,
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ],
-                                                        ),
+                                                      CustomText(
+                                                        text: events
+                                                            .toString(),
+                                                        size: 25,
+                                                        weight: FontWeight
+                                                            .bold,
+                                                        color:
+                                                        Colors.white,
                                                       ),
                                                     ],
-                                                  );
-                                                }
-                                              }),
-                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          }
+                                        }),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: 80,
+                                    width: MediaQuery.of(context)
+                                        .size
+                                        .width /
+                                        4,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadius.circular(8),
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xFF2980b9),
+                                              Colors.lightBlue
+                                            ],
+                                            begin: Alignment.bottomLeft,
+                                            end: Alignment.topRight),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey[300],
+                                              offset: Offset(0, 3),
+                                              blurRadius: 16)
+                                        ]),
+                                    child: StreamBuilder<QuerySnapshot>(
+                                        stream: loadInquires(),
+                                        builder: (context, snapshot) {
+                                          if (!snapshot.hasData) {
+                                            return Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    title: CustomText(
+                                                      text: "الاستفسارات",
+                                                      size: 25,
+                                                      weight:
+                                                      FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                    subtitle: CustomText(
+                                                      text:
+                                                      "كم استفسار مرسل",
+                                                      size: 16,
+                                                      weight:
+                                                      FontWeight.w400,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                  const EdgeInsets
+                                                      .only(left: 14),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .center,
+                                                    children: [
+                                                      CustomText(
+                                                        text: "0",
+                                                        size: 25,
+                                                        weight: FontWeight
+                                                            .bold,
+                                                        color:
+                                                        Colors.white,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          } else {
+                                            user =
+                                                snapshot.data.docs.length;
+                                            return Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    title: CustomText(
+                                                      text: "الاستفسارات",
+                                                      size: 25,
+                                                      weight:
+                                                      FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                    subtitle: CustomText(
+                                                      text:
+                                                      "كم استفسار مرسل",
+                                                      size: 16,
+                                                      weight:
+                                                      FontWeight.w400,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                  const EdgeInsets
+                                                      .only(left: 14),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .center,
+                                                    children: [
+                                                      CustomText(
+                                                        text: user
+                                                            .toString(),
+                                                        size: 25,
+                                                        weight: FontWeight
+                                                            .bold,
+                                                        color:
+                                                        Colors.white,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          }
+                                        }),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height: 80,
+                                    width: MediaQuery.of(context)
+                                        .size
+                                        .width /
+                                        4,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadius.circular(8),
+                                        gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xFF2980b9),
+                                              Colors.lightBlue
+                                            ],
+                                            begin: Alignment.bottomLeft,
+                                            end: Alignment.topRight),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey[300],
+                                              offset: Offset(0, 3),
+                                              blurRadius: 16)
+                                        ]),
+                                    child: StreamBuilder<QuerySnapshot>(
+                                        stream: loadDelegates(),
+                                        builder: (context, snapshot) {
+                                          if (!snapshot.hasData) {
+                                            return Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    title: CustomText(
+                                                      text: "المندوبين",
+                                                      size: 25,
+                                                      weight:
+                                                      FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                    subtitle: CustomText(
+                                                      text:
+                                                      "كم طلب تم ارساله",
+                                                      size: 16,
+                                                      weight:
+                                                      FontWeight.w400,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                  const EdgeInsets
+                                                      .only(left: 14),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .center,
+                                                    children: [
+                                                      CustomText(
+                                                        text: "0",
+                                                        size: 25,
+                                                        weight: FontWeight
+                                                            .bold,
+                                                        color:
+                                                        Colors.white,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          } else {
+                                            user =
+                                                snapshot.data.docs.length;
+                                            return Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment
+                                                  .spaceBetween,
+                                              children: [
+                                                Expanded(
+                                                  child: ListTile(
+                                                    title: CustomText(
+                                                      text: "المندوبين",
+                                                      size: 25,
+                                                      weight:
+                                                      FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                    subtitle: CustomText(
+                                                      text:
+                                                      "كم طلب تم ارساله",
+                                                      size: 16,
+                                                      weight:
+                                                      FontWeight.w400,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                  const EdgeInsets
+                                                      .only(left: 14),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .center,
+                                                    children: [
+                                                      CustomText(
+                                                        text: user
+                                                            .toString(),
+                                                        size: 25,
+                                                        weight: FontWeight
+                                                            .bold,
+                                                        color:
+                                                        Colors.white,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            );
+                                          }
+                                        }),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+                    : (selected[1] == true)
+                    ? Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 125, right: 125),
+                  child: Container(
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment:
+                          CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "المستخدمين",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 45),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Container(
+                                    height: 50,
+                                    width: 250,
+                                    child: Card(
+                                      elevation: 5,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(15))),
+                                      child: TextFormField(
+                                        controller: searchController,
+                                        onChanged: (v) {
+                                          setState(() {
+                                            resultsMemberShip = users
+                                                .where(
+                                                  (e) => e.phoneNo
+                                                  .startsWith(
+                                                v,
+                                              ),
+                                            )
+                                                .toList();
+                                            print(
+                                                resultsMemberShip.length);
+                                          });
+                                        },
+                                        decoration: InputDecoration(
+                                            labelText:
+                                            'ادخل رقم المستخدم',
+                                            contentPadding:
+                                            EdgeInsets.only(
+                                                right: 10),
+                                            suffixIcon:
+                                            Icon(Icons.search_sharp),
+                                            border: InputBorder.none),
                                       ),
-                                    ],
+                                    ),
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
-                        ),
-                      )
-                    : (selected[1] == true)
-                        ? Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, bottom: 10, left: 125, right: 125),
-                            child: Container(
-                                child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "المستخدمين",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 45),
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Container(
-                                          height: 50,
-                                          width: 250,
-                                          child: Card(
-                                            elevation: 5,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(15))),
-                                            child: TextFormField(
-                                              controller: searchController,
-                                              onChanged: (v) {
-                                                setState(() {
-                                                  resultsMemberShip = users
-                                                      .where(
-                                                        (e) => e.phoneNo
-                                                            .startsWith(
-                                                          v,
-                                                        ),
-                                                      )
-                                                      .toList();
-                                                  print(
-                                                      resultsMemberShip.length);
-                                                });
-                                              },
-                                              decoration: InputDecoration(
-                                                  labelText:
-                                                      'ادخل رقم المستخدم',
-                                                  contentPadding:
-                                                      EdgeInsets.only(
-                                                          right: 10),
-                                                  suffixIcon:
-                                                      Icon(Icons.search_sharp),
-                                                  border: InputBorder.none),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    children: [
-                                      RaisedButton.icon(
-                                          onPressed: () async {
-                                            for (var i = 0;
-                                                i < selectedUser.length;
-                                                i++) {
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              children: [
+                                RaisedButton.icon(
+                                    onPressed: () async {
+                                      for (var i = 0;
+                                      i < selectedUser.length;
+                                      i++) {
+                                        _firestore
+                                            .collection('users')
+                                            .doc(selectedUser[i])
+                                            .delete();
+                                        await _firestore
+                                            .collection('ChatRoom')
+                                          ..where("users",
+                                              arrayContains:
+                                              selectedUser[i])
+                                              .get()
+                                              .then((QuerySnapshot
+                                          snapshot) {
+                                            for (var doc
+                                            in snapshot.docs) {
                                               _firestore
-                                                  .collection('users')
-                                                  .doc(selectedUser[i])
-                                                  .delete();
-                                              await _firestore
                                                   .collection('ChatRoom')
-                                                ..where("users",
-                                                        arrayContains:
-                                                            selectedUser[i])
-                                                    .get()
-                                                    .then((QuerySnapshot
-                                                        snapshot) {
-                                                  for (var doc
-                                                      in snapshot.docs) {
-                                                    _firestore
-                                                        .collection('ChatRoom')
-                                                        .doc(doc.id)
-                                                        .delete();
-                                                  }
-                                                });
-                                              await _firestore
-                                                  .collection('ads')
-                                                  .where('user',
-                                                      isEqualTo:
-                                                          selectedUser[i])
-                                                  .get()
-                                                  .then(
-                                                      (QuerySnapshot snapshot) {
-                                                for (var doc in snapshot.docs) {
-                                                  _firestore
-                                                      .collection('ads')
-                                                      .doc(doc.id)
-                                                      .delete();
-                                                }
-                                              });
+                                                  .doc(doc.id)
+                                                  .delete();
                                             }
-                                          },
-                                          icon: Icon(Icons.remove),
-                                          label: Text("مسح المستخدم")),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      RaisedButton.icon(
-                                          onPressed: () {
-                                            for (var i = 0;
-                                                i < selectedUser.length;
-                                                i++) {
-                                              _firestore
-                                                  .collection('users')
-                                                  .doc(selectedUser[i])
-                                                  .update(
-                                                      {'Membership': 'free'});
-                                            }
-                                          },
-                                          icon: Icon(Icons.change_history),
-                                          label: Text("عضوية مجانية")),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      RaisedButton.icon(
-                                          onPressed: () {
-                                            for (var i = 0;
-                                                i < selectedUser.length;
-                                                i++) {
-                                              _firestore
-                                                  .collection('users')
-                                                  .doc(selectedUser[i])
-                                                  .update({
-                                                'Membership': 'Premium'
-                                              });
-                                            }
-                                          },
-                                          icon: Icon(Icons.card_membership),
-                                          label: Text(
-                                              "عضوية السيارات والسلع المتكرره")),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      RaisedButton.icon(
-                                          onPressed: () {
-                                            for (var i = 0;
-                                                i < selectedUser.length;
-                                                i++) {
-                                              _firestore
-                                                  .collection('users')
-                                                  .doc(selectedUser[i])
-                                                  .update(
-                                                      {'Commission': 'unpaid'});
-                                            }
-                                          },
-                                          icon: Icon(Icons.money_off),
-                                          label: Text("لم يدفع العمولة")),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      RaisedButton.icon(
-                                          onPressed: () {
-                                            for (var i = 0; i < selectedUser.length; i++) {
-                                              _firestore.collection('users').doc(selectedUser[i]).update({'Commission': 'Paid'});
-
-                                              _firestore.collection('ads').where('user', isEqualTo: selectedUser[i]).get().then((QuerySnapshot snapshot) => {
-                                                if (snapshot.docs.length != 0 || snapshot.docs.isNotEmpty){
-                                                    for (var doc in snapshot.docs){
-                                                _firestore.collection('ads').doc(selectedUser[i]).update({doc.data()['Membership']: 'Premium'})
-
+                                          });
+                                        await _firestore
+                                            .collection('ads')
+                                            .where('user',
+                                            isEqualTo:
+                                            selectedUser[i])
+                                            .get()
+                                            .then(
+                                                (QuerySnapshot snapshot) {
+                                              for (var doc in snapshot.docs) {
+                                                _firestore
+                                                    .collection('ads')
+                                                    .doc(doc.id)
+                                                    .delete();
                                               }
-                                                  }
-                                              });
-
-
-
-                                            }
-                                          },
-                                          icon: Icon(Icons.money),
-                                          label: Text("تم دفع العمولة")),
-                                    ],
-                                  ),
-                                  StreamBuilder<QuerySnapshot>(
-                                    stream: loadUsers(),
-                                    builder: (context, snapshot) {
-                                      if (!snapshot.hasData ||
-                                          snapshot.data.docs.length == 0) {
-                                        return Center(
-                                          child: Text(
-                                              "لا يوجد مستخدمين فالوقت الحالي"),
-                                        );
-                                      } else {
-                                        if (users.isEmpty)
-                                          for (var doc in snapshot.data.docs) {
-                                            users.add(UserInfo(
-                                                documentId: doc.id,
-                                                phoneNo:
-                                                    doc.data()['Phone Number'],
-                                                username: doc.data()['Name'],
-                                                commission:
-                                                    (doc.data()['Commission'] ==
-                                                            'Paid')
-                                                        ? 'تم دفع عمولة'
-                                                        : 'لم يدفع عمولة',
-                                                membership: (doc.data()[
-                                                            'Membership'] ==
-                                                        'Premium')
-                                                    ? 'معارض السيارات والسلع المتكرره'
-                                                    : 'مجانية'));
-                                          }
-                                        return Padding(
-                                          padding: EdgeInsets.all(40),
-                                          child: VsScrollbar(
-                                            controller: _slidingPage,
-                                            isAlwaysShown: true,
-                                            showTrackOnHover: true,
-                                            style: VsScrollbarStyle(
-                                              hoverThickness: 10.0,
-                                              // default 12.0
-                                              radius: Radius.circular(10),
-                                              // default Radius.circular(8.0)
-                                              thickness: 10.0,
-                                              // [ default 8.0 ]
-                                              color: Color(
-                                                  0xFF2980b9), // default ColorScheme Theme
-                                            ),
-                                            child: SingleChildScrollView(
-                                              controller: _slidingPage,
-                                              child: Container(
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                child: DataTable(
-                                                  dividerThickness: 5,
-                                                  columns: [
-                                                    DataColumn(
-                                                        label: Text('الاسم'),
-                                                        tooltip:
-                                                            'يظهر اسم المستخدم المسجل من المستخدم'),
-                                                    DataColumn(
-                                                        label:
-                                                            Text('رقم الهاتف'),
-                                                        tooltip:
-                                                            'يظهر رقم الهاتف السمجل من المستخدم'),
-                                                    DataColumn(
-                                                        label: Text('العضوية'),
-                                                        tooltip:
-                                                            'يظهر نوع عضوية المستخدم'),
-                                                    DataColumn(
-                                                        label: Text('العمولة'),
-                                                        tooltip:
-                                                            'يظهر اذا كان المستخدم دفع عمولة من قبل ام لا'),
-                                                  ],
-                                                  rows:
-                                                      searchController.text !=
-                                                              ""
-                                                          ? resultsMemberShip
-                                                              .map(
-                                                                  (e) =>
-                                                                      DataRow(
-                                                                        selected:
-                                                                            selectedUser.contains(e.documentId),
-                                                                        onSelectChanged:
-                                                                            (isSelected) =>
-                                                                                setState(() {
-                                                                          final isAdding =
-                                                                              isSelected != null && isSelected;
-                                                                          isAdding
-                                                                              ? selectedUser.add(e.documentId)
-                                                                              : selectedUser.remove(e.documentId);
-                                                                        }),
-                                                                        cells: [
-                                                                          DataCell(
-                                                                            Text(e.username),
-                                                                          ),
-                                                                          DataCell(
-                                                                              Text(e.phoneNo)),
-                                                                          DataCell(
-                                                                              Text(e.membership)),
-                                                                          DataCell(
-                                                                              Text(e.commission))
-                                                                        ],
-                                                                      ))
-                                                              .toList()
-                                                          : users
-                                                              .map(
-                                                                  (e) =>
-                                                                      DataRow(
-                                                                        selected:
-                                                                            selectedUser.contains(e.documentId),
-                                                                        onSelectChanged:
-                                                                            (isSelected) =>
-                                                                                setState(() {
-                                                                          final isAdding =
-                                                                              isSelected != null && isSelected;
-                                                                          isAdding
-                                                                              ? selectedUser.add(e.documentId)
-                                                                              : selectedUser.remove(e.documentId);
-                                                                        }),
-                                                                        cells: [
-                                                                          DataCell(
-                                                                            Text(e.username),
-                                                                          ),
-                                                                          DataCell(
-                                                                              Text(e.phoneNo)),
-                                                                          DataCell(
-                                                                              Text(e.membership)),
-                                                                          DataCell(
-                                                                              Text(e.commission))
-                                                                        ],
-                                                                      ))
-                                                              .toList(),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
+                                            });
                                       }
                                     },
-                                  )
-                                ])),
-                          )
-                        : (selected[2] == true)
-                            ? Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 10, bottom: 10, left: 125, right: 125),
-                                child: Container(
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          "الاعلانات",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 45),
+                                    icon: Icon(Icons.remove),
+                                    label: Text("مسح المستخدم")),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                RaisedButton.icon(
+                                    onPressed: () {
+                                      for (var i = 0;
+                                      i < selectedUser.length;
+                                      i++) {
+                                        _firestore
+                                            .collection('users')
+                                            .doc(selectedUser[i])
+                                            .update(
+                                            {'Membership': 'free'});
+                                      }
+                                    },
+                                    icon: Icon(Icons.change_history),
+                                    label: Text("عضوية مجانية")),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                RaisedButton.icon(
+                                    onPressed: () {
+                                      for (var i = 0;
+                                      i < selectedUser.length; i++) {
+                                        _firestore.collection('users').doc(selectedUser[i]).update({'Membership': 'Premium'});
+
+
+                                        _firestore.collection('ads').where('user', isEqualTo: selectedUser[i]).get().then((QuerySnapshot snapshot) => {
+                                          if (snapshot.docs.length != 0 || snapshot.docs.isNotEmpty){
+                                            for (var doc in snapshot.docs){
+                                              _firestore.collection('ads').doc(selectedUser[i]).update({doc.data()['Membership']: 'Premium'})
+
+                                            }
+                                          }
+                                        });
+
+                                      }
+                                    },
+                                    icon: Icon(Icons.card_membership),
+                                    label: Text(
+                                        "عضوية السيارات والسلع المتكرره")),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                RaisedButton.icon(
+                                    onPressed: () {
+                                      for (var i = 0;
+                                      i < selectedUser.length;
+                                      i++) {
+                                        _firestore
+                                            .collection('users')
+                                            .doc(selectedUser[i])
+                                            .update(
+                                            {'Commission': 'unpaid'});
+                                      }
+                                    },
+                                    icon: Icon(Icons.money_off),
+                                    label: Text("لم يدفع العمولة")),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                RaisedButton.icon(
+                                    onPressed: () {
+                                      for (var i = 0; i < selectedUser.length; i++) {
+                                        _firestore.collection('users').doc(selectedUser[i]).update({'Commission': 'Paid'});
+
+                                      }
+                                    },
+                                    icon: Icon(Icons.money),
+                                    label: Text("تم دفع العمولة")),
+                              ],
+                            ),
+                            StreamBuilder<QuerySnapshot>(
+                              stream: loadUsers(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData ||
+                                    snapshot.data.docs.length == 0) {
+                                  return Center(
+                                    child: Text(
+                                        "لا يوجد مستخدمين فالوقت الحالي"),
+                                  );
+                                } else {
+                                  if (users.isEmpty)
+                                    for (var doc in snapshot.data.docs) {
+                                      users.add(UserInfo(
+                                          documentId: doc.id,
+                                          phoneNo:
+                                          doc.data()['Phone Number'],
+                                          username: doc.data()['Name'],
+                                          commission:
+                                          (doc.data()['Commission'] ==
+                                              'Paid')
+                                              ? 'تم دفع عمولة'
+                                              : 'لم يدفع عمولة',
+                                          membership: (doc.data()[
+                                          'Membership'] ==
+                                              'Premium')
+                                              ? 'معارض السيارات والسلع المتكرره'
+                                              : 'مجانية'));
+
+
+                                    }
+                                  return Padding(
+                                    padding: EdgeInsets.all(40),
+                                    child: VsScrollbar(
+                                      controller: _slidingPage,
+                                      isAlwaysShown: true,
+                                      showTrackOnHover: true,
+                                      style: VsScrollbarStyle(
+                                        hoverThickness: 10.0,
+                                        // default 12.0
+                                        radius: Radius.circular(10),
+                                        // default Radius.circular(8.0)
+                                        thickness: 10.0,
+                                        // [ default 8.0 ]
+                                        color: Color(
+                                            0xFF2980b9), // default ColorScheme Theme
+                                      ),
+                                      child: SingleChildScrollView(
+                                        controller: _slidingPage,
+                                        child: Container(
+                                          width: MediaQuery.of(context)
+                                              .size
+                                              .width,
+                                          child: DataTable(
+                                            dividerThickness: 5,
+                                            columns: [
+                                              DataColumn(
+                                                  label: Text('الاسم'),
+                                                  tooltip:
+                                                  'يظهر اسم المستخدم المسجل من المستخدم'),
+                                              DataColumn(
+                                                  label:
+                                                  Text('رقم الهاتف'),
+                                                  tooltip:
+                                                  'يظهر رقم الهاتف السمجل من المستخدم'),
+                                              DataColumn(
+                                                  label: Text('العضوية'),
+                                                  tooltip:
+                                                  'يظهر نوع عضوية المستخدم'),
+                                              DataColumn(
+                                                  label: Text('العمولة'),
+                                                  tooltip:
+                                                  'يظهر اذا كان المستخدم دفع عمولة من قبل ام لا'),
+                                            ],
+                                            rows:
+                                            searchController.text !=
+                                                ""
+                                                ? resultsMemberShip
+                                                .map(
+                                                    (e) =>
+                                                    DataRow(
+                                                      selected:
+                                                      selectedUser.contains(e.documentId),
+                                                      onSelectChanged:
+                                                          (isSelected) =>
+                                                          setState(() {
+                                                            final isAdding =
+                                                                isSelected != null && isSelected;
+                                                            isAdding
+                                                                ? selectedUser.add(e.documentId)
+                                                                : selectedUser.remove(e.documentId);
+                                                          }),
+                                                      cells: [
+                                                        DataCell(
+                                                          Text(e.username),
+                                                        ),
+                                                        DataCell(
+                                                            Text(e.phoneNo)),
+                                                        DataCell(
+                                                            Text(e.membership)),
+                                                        DataCell(
+                                                            Text(e.commission))
+                                                      ],
+                                                    ))
+                                                .toList()
+                                                : users
+                                                .map(
+                                                    (e) =>
+                                                    DataRow(
+                                                      selected:
+                                                      selectedUser.contains(e.documentId),
+                                                      onSelectChanged:
+                                                          (isSelected) =>
+                                                          setState(() {
+                                                            final isAdding =
+                                                                isSelected != null && isSelected;
+                                                            isAdding
+                                                                ? selectedUser.add(e.documentId)
+                                                                : selectedUser.remove(e.documentId);
+                                                          }),
+                                                      cells: [
+                                                        DataCell(
+                                                          Text(e.username),
+                                                        ),
+                                                        DataCell(
+                                                            Text(e.phoneNo)),
+                                                        DataCell(
+                                                            Text(e.membership)),
+                                                        DataCell(
+                                                            Text(e.commission))
+                                                      ],
+                                                    ))
+                                                .toList(),
+                                          ),
                                         ),
                                       ),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      RaisedButton.icon(
-                                          onPressed: () {
-                                            for (var i = 0;
-                                                i < selectedAd.length;
-                                                i++) {
-                                              _firestore
-                                                  .collection('ads')
-                                                  .doc(selectedAd[i])
-                                                  .delete();
-                                            }
-                                          },
-                                          icon: Icon(Icons.remove),
-                                          label: Text("مسح الاعلان")),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      StreamBuilder<QuerySnapshot>(
-                                          stream: loadEvents(),
-                                          builder: (context, snapshot) {
-                                            if (!snapshot.hasData ||
-                                                snapshot.data.docs.length ==
-                                                    0) {
-                                              return Center(
-                                                child: Text(
-                                                    "لا توجد اعلانات فالوقت الحالي"),
-                                              );
-                                            } else {
-                                              List<AdsInfo> ads = [];
+                                    ),
+                                  );
+                                }
+                              },
+                            )
+                          ])),
+                )
+                    : (selected[2] == true)
+                    ? Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 125, right: 125),
+                  child: Container(
+                      child: Column(
+                          mainAxisAlignment:
+                          MainAxisAlignment.start,
+                          crossAxisAlignment:
+                          CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "الاعلانات",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 45),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            RaisedButton.icon(
+                                onPressed: () {
+                                  for (var i = 0;
+                                  i < selectedAd.length;
+                                  i++) {
+                                    _firestore
+                                        .collection('ads')
+                                        .doc(selectedAd[i])
+                                        .delete();
+                                  }
+                                },
+                                icon: Icon(Icons.remove),
+                                label: Text("مسح الاعلان")),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            StreamBuilder<QuerySnapshot>(
+                                stream: loadEvents(),
+                                builder: (context, snapshot) {
+                                  if (!snapshot.hasData ||
+                                      snapshot.data.docs.length ==
+                                          0) {
+                                    return Center(
+                                      child: Text(
+                                          "لا توجد اعلانات فالوقت الحالي"),
+                                    );
+                                  } else {
+                                    List<AdsInfo> ads = [];
 
-                                              for (var doc
-                                                  in snapshot.data.docs) {
-                                                ads.add(AdsInfo(
-                                                    docID: doc.id,
-                                                    title: doc.data()['Title'],
-                                                    category: doc.data()[
-                                                        'selectedCategory'],
-                                                    country:
-                                                        doc.data()['Country'],
-                                                    user: doc.data()['user'],
-                                                    username: doc
-                                                        .data()['userName']));
-                                              }
+                                    for (var doc
+                                    in snapshot.data.docs) {
+                                      ads.add(AdsInfo(
+                                          docID: doc.id,
+                                          title: doc.data()['Title'],
+                                          category: doc.data()[
+                                          'selectedCategory'],
+                                          country:
+                                          doc.data()['Country'],
+                                          user: doc.data()['user'],
+                                          username: doc
+                                              .data()['userName']));
+                                    }
 
-                                              return Padding(
-                                                padding: EdgeInsets.all(20),
-                                                child: VsScrollbar(
-                                                  controller: _slidingPage,
-                                                  showTrackOnHover: true,
-                                                  // default false
-                                                  isAlwaysShown: true,
-                                                  // default false
-                                                  scrollbarFadeDuration:
-                                                      Duration(
-                                                          milliseconds: 500),
-                                                  // default : Duration(milliseconds: 300)
-                                                  scrollbarTimeToFade: Duration(
-                                                      milliseconds: 800),
-                                                  // default : Duration(milliseconds: 600)
-                                                  style: VsScrollbarStyle(
-                                                    hoverThickness: 10.0,
-                                                    // default 12.0
-                                                    radius: Radius.circular(10),
-                                                    // default Radius.circular(8.0)
-                                                    thickness: 10.0,
-                                                    // [ default 8.0 ]
-                                                    color: Colors.purple
-                                                        .shade900, // default ColorScheme Theme
-                                                  ),
-                                                  child: SingleChildScrollView(
-                                                    controller: _slidingPage,
-                                                    child: Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      child: DataTable(
-                                                        dividerThickness: 5,
-                                                        columns: [
-                                                          DataColumn(
-                                                              label: Text(
-                                                                  'عنوان الاعلان'),
-                                                              tooltip:
-                                                                  'يظهر عنوان الاعلان'),
-                                                          DataColumn(
-                                                              label: Text(
-                                                                  'تصنيف الاعلان'),
-                                                              tooltip:
-                                                                  'يظهر تصنيف الاعلان'),
-                                                          DataColumn(
-                                                              label: Text(
-                                                                  'المدينة'),
-                                                              tooltip:
-                                                                  'يظهر المدينة المستهدفة من الاعلان'),
-                                                          DataColumn(
-                                                              label: Text(
-                                                                  'اسم المعلن'),
-                                                              tooltip:
-                                                                  'يظهر اسم المعلن'),
-                                                          DataColumn(
-                                                              label: Text(
-                                                                  'هاتف المعلن'),
-                                                              tooltip:
-                                                                  'يظهر هاتف المعلن'),
-                                                        ],
-                                                        rows: ads
-                                                            .map((e) => DataRow(
-                                                                    selected: selectedAd
-                                                                        .contains(e
-                                                                            .docID),
-                                                                    onSelectChanged:
-                                                                        (isSelected) =>
-                                                                            setState(() {
-                                                                              final isAdding = isSelected != null && isSelected;
-                                                                              isAdding ? selectedAd.add(e.docID) : selectedAd.remove(e.docID);
-                                                                            }),
-                                                                    cells: [
-                                                                      DataCell(
-                                                                          Text(e
-                                                                              .title),
-                                                                          onTap:
-                                                                              () {
-                                                                        launch(
-                                                                            'https://nazrahsa.com/#/adDetails?id=${e.docID}');
-                                                                      }),
-                                                                      DataCell(
-                                                                          Text(e
-                                                                              .category)),
-                                                                      DataCell(
-                                                                          Text(e
-                                                                              .country)),
-                                                                      DataCell(
-                                                                          Text(e
-                                                                              .username)),
-                                                                      DataCell(
-                                                                          Text(e
-                                                                              .user)),
-                                                                    ]))
-                                                            .toList(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                          }),
-                                    ])),
-                              )
-                            : (selected[3] == true)
-                                ? Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 10,
-                                        bottom: 10,
-                                        left: 125,
-                                        right: 125),
-                                    child: Container(
-                                        child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              "الاستفسارات",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 45),
+                                    return Padding(
+                                      padding: EdgeInsets.all(20),
+                                      child: VsScrollbar(
+                                        controller: _slidingPage,
+                                        showTrackOnHover: true,
+                                        // default false
+                                        isAlwaysShown: true,
+                                        // default false
+                                        scrollbarFadeDuration:
+                                        Duration(
+                                            milliseconds: 500),
+                                        // default : Duration(milliseconds: 300)
+                                        scrollbarTimeToFade: Duration(
+                                            milliseconds: 800),
+                                        // default : Duration(milliseconds: 600)
+                                        style: VsScrollbarStyle(
+                                          hoverThickness: 10.0,
+                                          // default 12.0
+                                          radius: Radius.circular(10),
+                                          // default Radius.circular(8.0)
+                                          thickness: 10.0,
+                                          // [ default 8.0 ]
+                                          color: Colors.purple
+                                              .shade900, // default ColorScheme Theme
+                                        ),
+                                        child: SingleChildScrollView(
+                                          controller: _slidingPage,
+                                          child: Container(
+                                            width:
+                                            MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            child: DataTable(
+                                              dividerThickness: 5,
+                                              columns: [
+                                                DataColumn(
+                                                    label: Text(
+                                                        'عنوان الاعلان'),
+                                                    tooltip:
+                                                    'يظهر عنوان الاعلان'),
+                                                DataColumn(
+                                                    label: Text(
+                                                        'تصنيف الاعلان'),
+                                                    tooltip:
+                                                    'يظهر تصنيف الاعلان'),
+                                                DataColumn(
+                                                    label: Text(
+                                                        'المدينة'),
+                                                    tooltip:
+                                                    'يظهر المدينة المستهدفة من الاعلان'),
+                                                DataColumn(
+                                                    label: Text(
+                                                        'اسم المعلن'),
+                                                    tooltip:
+                                                    'يظهر اسم المعلن'),
+                                                DataColumn(
+                                                    label: Text(
+                                                        'هاتف المعلن'),
+                                                    tooltip:
+                                                    'يظهر هاتف المعلن'),
+                                              ],
+                                              rows: ads
+                                                  .map((e) => DataRow(
+                                                  selected: selectedAd
+                                                      .contains(e
+                                                      .docID),
+                                                  onSelectChanged:
+                                                      (isSelected) =>
+                                                      setState(() {
+                                                        final isAdding = isSelected != null && isSelected;
+                                                        isAdding ? selectedAd.add(e.docID) : selectedAd.remove(e.docID);
+                                                      }),
+                                                  cells: [
+                                                    DataCell(
+                                                        Text(e
+                                                            .title),
+                                                        onTap:
+                                                            () {
+                                                          launch(
+                                                              'https://nazrahsa.com/#/adDetails?id=${e.docID}');
+                                                        }),
+                                                    DataCell(
+                                                        Text(e
+                                                            .category)),
+                                                    DataCell(
+                                                        Text(e
+                                                            .country)),
+                                                    DataCell(
+                                                        Text(e
+                                                            .username)),
+                                                    DataCell(
+                                                        Text(e
+                                                            .user)),
+                                                  ]))
+                                                  .toList(),
                                             ),
                                           ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          // Row(
-                                          //   children: [
-                                          //     RaisedButton.icon(
-                                          //         onPressed: () {
-                                          //           for (var i = 0;
-                                          //               i < selectedUser.length;
-                                          //               i++) {
-                                          //             _firestore
-                                          //                 .collection('users')
-                                          //                 .doc(selectedUser[i])
-                                          //                 .delete();
-                                          //           }
-                                          //         },
-                                          //         icon: Icon(Icons.remove),
-                                          //         label: Text("مسح المستخدم")),
-                                          //     SizedBox(
-                                          //       width: 10,
-                                          //     ),
-                                          //     RaisedButton.icon(
-                                          //         onPressed: () {
-                                          //           for (var i = 0;
-                                          //               i < selectedUser.length;
-                                          //               i++) {
-                                          //             _firestore
-                                          //                 .collection('users')
-                                          //                 .doc(selectedUser[i])
-                                          //                 .update({'Membership': 'free'});
-                                          //           }
-                                          //         },
-                                          //         icon: Icon(Icons.change_history),
-                                          //         label: Text("عضوية مجانية")),
-                                          //     SizedBox(
-                                          //       width: 10,
-                                          //     ),
-                                          //     RaisedButton.icon(
-                                          //         onPressed: () {
-                                          //           for (var i = 0;
-                                          //               i < selectedUser.length;
-                                          //               i++) {
-                                          //             _firestore
-                                          //                 .collection('users')
-                                          //                 .doc(selectedUser[i])
-                                          //                 .update(
-                                          //                     {'Membership': 'Premium'});
-                                          //           }
-                                          //         },
-                                          //         icon: Icon(Icons.card_membership),
-                                          //         label: Text(
-                                          //             "عضوية السيارات والسلع المتكرره")),
-                                          //     SizedBox(
-                                          //       width: 10,
-                                          //     ),
-                                          //     RaisedButton.icon(
-                                          //         onPressed: () {
-                                          //           for (var i = 0;
-                                          //               i < selectedUser.length;
-                                          //               i++) {
-                                          //             _firestore
-                                          //                 .collection('users')
-                                          //                 .doc(selectedUser[i])
-                                          //                 .update({'Commission': 'unpaid'});
-                                          //           }
-                                          //         },
-                                          //         icon: Icon(Icons.money_off),
-                                          //         label: Text("لم يدفع العمولة")),
-                                          //     SizedBox(
-                                          //       width: 10,
-                                          //     ),
-                                          //     RaisedButton.icon(
-                                          //         onPressed: () {
-                                          //           for (var i = 0;
-                                          //               i < selectedUser.length;
-                                          //               i++) {
-                                          //             _firestore
-                                          //                 .collection('users')
-                                          //                 .doc(selectedUser[i])
-                                          //                 .update({'Commission': 'Paid'});
-                                          //           }
-                                          //         },
-                                          //         icon: Icon(Icons.money),
-                                          //         label: Text("تم دفع العمولة")),
-                                          //   ],
-                                          // ),
-                                          StreamBuilder<QuerySnapshot>(
-                                            stream: loadInquires(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData ||
-                                                  snapshot.data.docs.length ==
-                                                      0) {
-                                                return Center(
-                                                  child: Text(
-                                                      "لا يوجد استفسارات فالوقت الحالي"),
-                                                );
-                                              } else {
-                                                List<InquiryInfo> inquires = [];
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                }),
+                          ])),
+                )
+                    : (selected[3] == true)
+                    ? Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10,
+                      bottom: 10,
+                      left: 125,
+                      right: 125),
+                  child: Container(
+                      child: Column(
+                          mainAxisAlignment:
+                          MainAxisAlignment.start,
+                          crossAxisAlignment:
+                          CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "الاستفسارات",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 45),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            // Row(
+                            //   children: [
+                            //     RaisedButton.icon(
+                            //         onPressed: () {
+                            //           for (var i = 0;
+                            //               i < selectedUser.length;
+                            //               i++) {
+                            //             _firestore
+                            //                 .collection('users')
+                            //                 .doc(selectedUser[i])
+                            //                 .delete();
+                            //           }
+                            //         },
+                            //         icon: Icon(Icons.remove),
+                            //         label: Text("مسح المستخدم")),
+                            //     SizedBox(
+                            //       width: 10,
+                            //     ),
+                            //     RaisedButton.icon(
+                            //         onPressed: () {
+                            //           for (var i = 0;
+                            //               i < selectedUser.length;
+                            //               i++) {
+                            //             _firestore
+                            //                 .collection('users')
+                            //                 .doc(selectedUser[i])
+                            //                 .update({'Membership': 'free'});
+                            //           }
+                            //         },
+                            //         icon: Icon(Icons.change_history),
+                            //         label: Text("عضوية مجانية")),
+                            //     SizedBox(
+                            //       width: 10,
+                            //     ),
+                            //     RaisedButton.icon(
+                            //         onPressed: () {
+                            //           for (var i = 0;
+                            //               i < selectedUser.length;
+                            //               i++) {
+                            //             _firestore
+                            //                 .collection('users')
+                            //                 .doc(selectedUser[i])
+                            //                 .update(
+                            //                     {'Membership': 'Premium'});
+                            //           }
+                            //         },
+                            //         icon: Icon(Icons.card_membership),
+                            //         label: Text(
+                            //             "عضوية السيارات والسلع المتكرره")),
+                            //     SizedBox(
+                            //       width: 10,
+                            //     ),
+                            //     RaisedButton.icon(
+                            //         onPressed: () {
+                            //           for (var i = 0;
+                            //               i < selectedUser.length;
+                            //               i++) {
+                            //             _firestore
+                            //                 .collection('users')
+                            //                 .doc(selectedUser[i])
+                            //                 .update({'Commission': 'unpaid'});
+                            //           }
+                            //         },
+                            //         icon: Icon(Icons.money_off),
+                            //         label: Text("لم يدفع العمولة")),
+                            //     SizedBox(
+                            //       width: 10,
+                            //     ),
+                            //     RaisedButton.icon(
+                            //         onPressed: () {
+                            //           for (var i = 0;
+                            //               i < selectedUser.length;
+                            //               i++) {
+                            //             _firestore
+                            //                 .collection('users')
+                            //                 .doc(selectedUser[i])
+                            //                 .update({'Commission': 'Paid'});
+                            //           }
+                            //         },
+                            //         icon: Icon(Icons.money),
+                            //         label: Text("تم دفع العمولة")),
+                            //   ],
+                            // ),
+                            StreamBuilder<QuerySnapshot>(
+                              stream: loadInquires(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData ||
+                                    snapshot.data.docs.length ==
+                                        0) {
+                                  return Center(
+                                    child: Text(
+                                        "لا يوجد استفسارات فالوقت الحالي"),
+                                  );
+                                } else {
+                                  List<InquiryInfo> inquires = [];
 
-                                                for (var doc
-                                                    in snapshot.data.docs) {
-                                                  inquires.add(InquiryInfo(
-                                                      documentId: doc.id,
-                                                      phoneNo: doc.data()[
-                                                          'phone number'],
-                                                      username:
-                                                          doc.data()['name'],
-                                                      message: doc
-                                                          .data()['message']));
-                                                }
-                                                return Padding(
-                                                  padding: EdgeInsets.all(20),
-                                                  child: SingleChildScrollView(
-                                                    scrollDirection:
-                                                        Axis.vertical,
-                                                    child: Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      child:
-                                                          SingleChildScrollView(
-                                                        scrollDirection:
-                                                            Axis.vertical,
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .all(8.0),
-                                                          child: DataTable(
-                                                            dividerThickness: 3,
-                                                            columns: [
-                                                              DataColumn(
-                                                                  label: Text(
-                                                                      'الاسم'),
-                                                                  tooltip:
-                                                                      'يظهر اسم المستخدم المسجل من المستخدم'),
-                                                              DataColumn(
-                                                                  label: Text(
-                                                                      'رقم الهاتف'),
-                                                                  tooltip:
-                                                                      'يظهر رقم الهاتف السمجل من المستخدم'),
-                                                              DataColumn(
-                                                                  label: Text(
-                                                                      'الاستفسار'),
-                                                                  tooltip:
-                                                                      'يظهر استفسار المستخدم'),
-                                                              DataColumn(
-                                                                  label: Text(
-                                                                      ' انسخ الاستفسار'),
-                                                                  ),
-                                                            ],
-                                                            rows: inquires
-                                                                .map(
-                                                                    (e) =>
-                                                                        DataRow(
-                                                                          cells: [
-                                                                            DataCell(
-                                                                              Text(e.username),
-                                                                            ),
-                                                                            DataCell(
-                                                                              Text(e.phoneNo),
-                                                                            ),
-                                                                            DataCell(Tooltip(
-                                                                              height: MediaQuery.of(context).size.height * .05,
-                                                                              textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                                                                              message: e.message,
-                                                                              child: SizedBox(
-                                                                                width: MediaQuery.of(context).size.width * .1,
-                                                                                child: Text(
-                                                                                  e.message,
-                                                                                  overflow: TextOverflow.clip,
-                                                                                ),
-                                                                              ),
-                                                                            )),
-                                                                            DataCell(InkWell(child: Icon(Icons.copy),onTap: (){
-                                                                              FlutterClipboard.copy(e.message);
-                                                                            },))
-                                                                          ],
-                                                                        ))
-                                                                .toList(),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                            },
-                                          )
-                                        ])),
-                                  )
-                                : (selected[4] == true)
-                                    ? Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 10,
-                                            bottom: 10,
-                                            left: 125,
-                                            right: 125),
-                                        child: Container(
-                                            child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: Text(
-                                                  "طلبات تسجيل مندوبين",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 45),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 20,
-                                              ),
-                                              StreamBuilder<QuerySnapshot>(
-                                                stream: loadDelegates(),
-                                                builder: (context, snapshot) {
-                                                  if (!snapshot.hasData ||
-                                                      snapshot.data.docs
-                                                              .length ==
-                                                          0) {
-                                                    return Center(
-                                                      child: Text(
-                                                          "لا يوجد طلبات فالوقت الحالي"),
-                                                    );
-                                                  } else {
-                                                    List<DelegateInfo>
-                                                        delegates = [];
-
-                                                    for (var doc
-                                                        in snapshot.data.docs) {
-                                                      delegates.add(DelegateInfo(
-                                                          docID: doc.id,
-                                                          phone: doc.data()[
-                                                              'phone number'],
-                                                          name: doc
-                                                              .data()['name'],
-                                                          email: doc
-                                                              .data()['email'],
-                                                          country: doc.data()[
-                                                              'country'],
-                                                          id: doc.data()['id'],
-                                                          imageCount: doc
-                                                              .data()[
-                                                                  'imageCount']
-                                                              .toString()));
-                                                    }
-                                                    return Padding(
-                                                      padding:
-                                                          EdgeInsets.all(20),
-                                                      child: VsScrollbar(
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Container(
-                                                            width:
-                                                                MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width,
-                                                            child: DataTable(
-                                                              dividerThickness:
-                                                                  5,
-                                                              columns: [
-                                                                DataColumn(
-                                                                    label: Text(
-                                                                        'الاسم'),
-                                                                    tooltip:
-                                                                        'يظهر اسم المندوب'),
-                                                                DataColumn(
-                                                                    label: Text(
-                                                                        'رقم الهاتف'),
-                                                                    tooltip:
-                                                                        'يظهر رقم الهاتف السمجل من المندوب'),
-                                                                DataColumn(
-                                                                    label: Text(
-                                                                        'المدينة'),
-                                                                    tooltip:
-                                                                        'يظهر مدينة المندوب'),
-                                                                DataColumn(
-                                                                    label: Text(
-                                                                        'رقم الهوية - الاقامة'),
-                                                                    tooltip:
-                                                                        'يظهر رقم الهوية او الاقامة الخاصة بالمندوب'),
-                                                                DataColumn(
-                                                                    label: Text(
-                                                                        'البريد الالكتروني'),
-                                                                    tooltip:
-                                                                        'يظهر البريد الالكتروني الخاص بالمندوب'),
-                                                              ],
-                                                              rows: delegates
-                                                                  .map((e) =>
-                                                                      DataRow(
-                                                                        cells: [
-                                                                          DataCell(
-                                                                              Text(e.name),
-                                                                              onTap: () {
-                                                                            if (e.imageCount != null &&
-                                                                                e.imageCount != '0') {
-                                                                              _onDelegatePressed(context, e.docID);
-                                                                            }
-                                                                          }),
-                                                                          DataCell(
-                                                                              Text(e.phone)),
-                                                                          DataCell(
-                                                                              Text(e.country)),
-                                                                          DataCell(
-                                                                              Text(e.id)),
-                                                                          DataCell(Text((e.email != null)
-                                                                              ? e.email
-                                                                              : 'لا يوجد')),
-                                                                        ],
-                                                                      ))
-                                                                  .toList(),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  }
-                                                },
-                                              )
-                                            ])),
-                                      )
-                                    : Padding(
-                                        padding: EdgeInsets.only(
-                                            top: 10,
-                                            bottom: 10,
-                                            left: 125,
-                                            right: 125),
-                                        child: VsScrollbar(
-                                          child: SingleChildScrollView(
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    "الاعدادات",
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 45),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    "رفع الاعلان الاول",
-                                                    style:
-                                                        TextStyle(fontSize: 45),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 20),
-                                                  child: Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      height: 300,
-                                                      decoration: BoxDecoration(
-                                                          border: Border.all(
-                                                              width: 4,
-                                                              color: Color(
-                                                                  0xFF2980b9)),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5)),
-                                                      child: (wait == false)
-                                                          ? GestureDetector(
-                                                              onTap: () {
-                                                                setState(() {
-                                                                  wait = true;
-                                                                });
-
-                                                                uploadAdToStorage(
-                                                                    1, path);
-                                                              },
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .camera_alt,
-                                                                    color: Colors
-                                                                        .grey,
-                                                                    size: 100,
-                                                                  ),
-                                                                  Text(
-                                                                    'رفع صوره',
-                                                                    style: TextStyle(
-                                                                        fontFamily:
-                                                                            'Bahij',
-                                                                        fontSize:
-                                                                            40,
-                                                                        color: Colors
-                                                                            .grey,
-                                                                        fontWeight:
-                                                                            FontWeight.bold),
-                                                                  )
-                                                                ],
-                                                              ).showCursorOnHover,
-                                                            )
-                                                          : StreamBuilder<
-                                                              DocumentSnapshot>(
-                                                              stream:
-                                                                  loadBanners(),
-                                                              builder: (context,
-                                                                  snapshot) {
-                                                                if (snapshot
-                                                                        .hasData &&
-                                                                    snapshot.data !=
-                                                                        null) {
-                                                                  if (snapshot
-                                                                          .connectionState ==
-                                                                      ConnectionState
-                                                                          .waiting)
-                                                                    return Center(
-                                                                      child:
-                                                                          CircularProgressIndicator(),
-                                                                    );
-                                                                  bool banner1 =
-                                                                      snapshot.data
-                                                                              .data()['ads 1'] ==
-                                                                          path;
-                                                                  return (banner1)
-                                                                      ? Column(
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.center,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                          children: [
-                                                                            Image.asset(
-                                                                              'assets/images/icons/checked.png',
-                                                                              height: 100,
-                                                                            ),
-                                                                            SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              '!قد تم رفع الصوره',
-                                                                              style: TextStyle(fontFamily: 'Bahij', fontSize: 40, color: Colors.grey, fontWeight: FontWeight.bold),
-                                                                            ),
-                                                                          ],
-                                                                        )
-                                                                      : Center(
-                                                                          child:
-                                                                              CircularProgressIndicator(),
-                                                                        );
-                                                                } else {
-                                                                  return Center(
-                                                                    child:
-                                                                        CircularProgressIndicator(),
-                                                                  );
-                                                                }
-                                                              },
-                                                            )),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    "رفع الاعلان الثاني",
-                                                    style:
-                                                        TextStyle(fontSize: 45),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 20),
-                                                  child: Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      height: 300,
-                                                      decoration: BoxDecoration(
-                                                          border: Border.all(
-                                                              width: 4,
-                                                              color: Color(
-                                                                  0xFF2980b9)),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5)),
-                                                      child: (wait2 == false)
-                                                          ? GestureDetector(
-                                                              onTap: () {
-                                                                setState(() {
-                                                                  wait2 = true;
-                                                                });
-
-                                                                uploadAdToStorage(
-                                                                    2, path);
-                                                              },
-                                                              child: Column(
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .camera_alt,
-                                                                    color: Colors
-                                                                        .grey,
-                                                                    size: 100,
-                                                                  ),
-                                                                  Text(
-                                                                    'رفع صوره',
-                                                                    style: TextStyle(
-                                                                        fontFamily:
-                                                                            'Bahij',
-                                                                        fontSize:
-                                                                            40,
-                                                                        color: Colors
-                                                                            .grey,
-                                                                        fontWeight:
-                                                                            FontWeight.bold),
-                                                                  )
-                                                                ],
-                                                              ).showCursorOnHover,
-                                                            )
-                                                          : StreamBuilder<
-                                                              DocumentSnapshot>(
-                                                              stream:
-                                                                  loadBanners(),
-                                                              builder: (context,
-                                                                  snapshot) {
-                                                                if (snapshot
-                                                                        .hasData &&
-                                                                    snapshot.data !=
-                                                                        null) {
-                                                                  if (snapshot
-                                                                          .connectionState ==
-                                                                      ConnectionState
-                                                                          .waiting)
-                                                                    return Center(
-                                                                      child:
-                                                                          CircularProgressIndicator(),
-                                                                    );
-                                                                  bool banner1 =
-                                                                      snapshot.data
-                                                                              .data()['ads 2'] ==
-                                                                          path;
-                                                                  return (banner1)
-                                                                      ? Column(
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.center,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.center,
-                                                                          children: [
-                                                                            Image.asset(
-                                                                              'assets/images/icons/checked.png',
-                                                                              height: 100,
-                                                                            ),
-                                                                            SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              '!قد تم رفع الصوره',
-                                                                              style: TextStyle(fontFamily: 'Bahij', fontSize: 40, color: Colors.grey, fontWeight: FontWeight.bold),
-                                                                            ),
-                                                                          ],
-                                                                        )
-                                                                      : Center(
-                                                                          child:
-                                                                              CircularProgressIndicator(),
-                                                                        );
-                                                                } else {
-                                                                  return Center(
-                                                                    child:
-                                                                        CircularProgressIndicator(),
-                                                                  );
-                                                                }
-                                                              },
-                                                            )),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                // Padding(
-                                                //   padding: const EdgeInsets.all(8.0),
-                                                //   child: Text(
-                                                //     "رفع الاعلان الثالث",
-                                                //     style: TextStyle(fontSize: 45),
-                                                //   ),
-                                                // ),
-                                                // SizedBox(
-                                                //   height: 20,
-                                                // ),
-                                                // Padding(
-                                                //   padding:
-                                                //       const EdgeInsets.only(left: 20),
-                                                //   child: Container(
-                                                //       width: MediaQuery.of(context)
-                                                //           .size
-                                                //           .width,
-                                                //       height: 300,
-                                                //       decoration: BoxDecoration(
-                                                //           border: Border.all(
-                                                //               width: 4,
-                                                //               color:
-                                                //                   Color(0xFF2980b9)),
-                                                //           borderRadius:
-                                                //               BorderRadius.circular(
-                                                //                   5)),
-                                                //       child: (wait3 == false)
-                                                //           ? GestureDetector(
-                                                //               onTap: () {
-                                                //                 setState(() {
-                                                //                   wait3 = true;
-                                                //                 });
-
-                                                //                 uploadAdToStorage(
-                                                //                     3, path);
-                                                //               },
-                                                //               child: Column(
-                                                //                 mainAxisAlignment:
-                                                //                     MainAxisAlignment
-                                                //                         .center,
-                                                //                 children: [
-                                                //                   Icon(
-                                                //                     Icons.camera_alt,
-                                                //                     color:
-                                                //                         Colors.grey,
-                                                //                     size: 100,
-                                                //                   ),
-                                                //                   Text(
-                                                //                     'رفع صوره',
-                                                //                     style: TextStyle(
-                                                //                         fontFamily:
-                                                //                             'Bahij',
-                                                //                         fontSize: 40,
-                                                //                         color: Colors
-                                                //                             .grey,
-                                                //                         fontWeight:
-                                                //                             FontWeight
-                                                //                                 .bold),
-                                                //                   )
-                                                //                 ],
-                                                //               ).showCursorOnHover,
-                                                //             )
-                                                //           : StreamBuilder<
-                                                //               DocumentSnapshot>(
-                                                //               stream: loadBanners(),
-                                                //               builder: (context,
-                                                //                   snapshot) {
-                                                //                 if (snapshot
-                                                //                         .hasData &&
-                                                //                     snapshot.data !=
-                                                //                         null) {
-                                                //                   if (snapshot
-                                                //                           .connectionState ==
-                                                //                       ConnectionState
-                                                //                           .waiting)
-                                                //                     return Center(
-                                                //                       child:
-                                                //                           CircularProgressIndicator(),
-                                                //                     );
-                                                //                   bool banner1 = snapshot
-                                                //                               .data
-                                                //                               .data()[
-                                                //                           'ads 3'] ==
-                                                //                       path;
-                                                //                   return (banner1)
-                                                //                       ? Column(
-                                                //                           mainAxisAlignment:
-                                                //                               MainAxisAlignment
-                                                //                                   .center,
-                                                //                           crossAxisAlignment:
-                                                //                               CrossAxisAlignment
-                                                //                                   .center,
-                                                //                           children: [
-                                                //                             Image
-                                                //                                 .asset(
-                                                //                               'assets/images/icons/checked.png',
-                                                //                               height:
-                                                //                                   100,
-                                                //                             ),
-                                                //                             SizedBox(
-                                                //                               height:
-                                                //                                   10,
-                                                //                             ),
-                                                //                             Text(
-                                                //                               '!قد تم رفع الصوره',
-                                                //                               style: TextStyle(
-                                                //                                   fontFamily:
-                                                //                                       'Bahij',
-                                                //                                   fontSize:
-                                                //                                       40,
-                                                //                                   color:
-                                                //                                       Colors.grey,
-                                                //                                   fontWeight: FontWeight.bold),
-                                                //                             ),
-                                                //                           ],
-                                                //                         )
-                                                //                       : Center(
-                                                //                           child:
-                                                //                               CircularProgressIndicator(),
-                                                //                         );
-                                                //                 } else {
-                                                //                   return Center(
-                                                //                     child:
-                                                //                         CircularProgressIndicator(),
-                                                //                   );
-                                                //                 }
-                                                //               },
-                                                //             )),
-                                                // ),
-                                                // SizedBox(
-                                                //   height: 20,
-                                                // ),
-                                                // Padding(
-                                                //   padding: const EdgeInsets.all(8.0),
-                                                //   child: Text(
-                                                //     "رفع الاعلان الرابع",
-                                                //     style: TextStyle(fontSize: 45),
-                                                //   ),
-                                                // ),
-                                                // SizedBox(
-                                                //   height: 20,
-                                                // ),
-                                                // Padding(
-                                                //   padding:
-                                                //       const EdgeInsets.only(left: 20),
-                                                //   child: Container(
-                                                //       width: MediaQuery.of(context)
-                                                //           .size
-                                                //           .width,
-                                                //       height: 300,
-                                                //       decoration: BoxDecoration(
-                                                //           border: Border.all(
-                                                //               width: 4,
-                                                //               color:
-                                                //                   Color(0xFF2980b9)),
-                                                //           borderRadius:
-                                                //               BorderRadius.circular(
-                                                //                   5)),
-                                                //       child: (wait4 == false)
-                                                //           ? GestureDetector(
-                                                //               onTap: () {
-                                                //                 setState(() {
-                                                //                   wait4 = true;
-                                                //                 });
-
-                                                //                 uploadAdToStorage(
-                                                //                     4, path);
-                                                //               },
-                                                //               child: Column(
-                                                //                 mainAxisAlignment:
-                                                //                     MainAxisAlignment
-                                                //                         .center,
-                                                //                 children: [
-                                                //                   Icon(
-                                                //                     Icons.camera_alt,
-                                                //                     color:
-                                                //                         Colors.grey,
-                                                //                     size: 100,
-                                                //                   ),
-                                                //                   Text(
-                                                //                     'رفع صوره',
-                                                //                     style: TextStyle(
-                                                //                         fontFamily:
-                                                //                             'Bahij',
-                                                //                         fontSize: 40,
-                                                //                         color: Colors
-                                                //                             .grey,
-                                                //                         fontWeight:
-                                                //                             FontWeight
-                                                //                                 .bold),
-                                                //                   )
-                                                //                 ],
-                                                //               ).showCursorOnHover,
-                                                //             )
-                                                //           : StreamBuilder<
-                                                //               DocumentSnapshot>(
-                                                //               stream: loadBanners(),
-                                                //               builder: (context,
-                                                //                   snapshot) {
-                                                //                 if (snapshot
-                                                //                         .hasData &&
-                                                //                     snapshot.data !=
-                                                //                         null) {
-                                                //                   if (snapshot
-                                                //                           .connectionState ==
-                                                //                       ConnectionState
-                                                //                           .waiting)
-                                                //                     return Center(
-                                                //                       child:
-                                                //                           CircularProgressIndicator(),
-                                                //                     );
-                                                //                   bool banner1 = snapshot
-                                                //                               .data
-                                                //                               .data()[
-                                                //                           'ads 4'] ==
-                                                //                       path;
-                                                //                   return (banner1)
-                                                //                       ? Column(
-                                                //                           mainAxisAlignment:
-                                                //                               MainAxisAlignment
-                                                //                                   .center,
-                                                //                           crossAxisAlignment:
-                                                //                               CrossAxisAlignment
-                                                //                                   .center,
-                                                //                           children: [
-                                                //                             Image
-                                                //                                 .asset(
-                                                //                               'assets/images/icons/checked.png',
-                                                //                               height:
-                                                //                                   100,
-                                                //                             ),
-                                                //                             SizedBox(
-                                                //                               height:
-                                                //                                   10,
-                                                //                             ),
-                                                //                             Text(
-                                                //                               '!قد تم رفع الصوره',
-                                                //                               style: TextStyle(
-                                                //                                   fontFamily:
-                                                //                                       'Bahij',
-                                                //                                   fontSize:
-                                                //                                       40,
-                                                //                                   color:
-                                                //                                       Colors.grey,
-                                                //                                   fontWeight: FontWeight.bold),
-                                                //                             ),
-                                                //                           ],
-                                                //                         )
-                                                //                       : Center(
-                                                //                           child:
-                                                //                               CircularProgressIndicator(),
-                                                //                         );
-                                                //                 } else {
-                                                //                   return Center(
-                                                //                     child:
-                                                //                         CircularProgressIndicator(),
-                                                //                   );
-                                                //                 }
-                                                //               },
-                                                //             )),
-                                                // ),
-                                                // SizedBox(
-                                                //   height: 20,
-                                                // ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    "روابط التطبيق",
-                                                    style:
-                                                        TextStyle(fontSize: 45),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width /
-                                                              2,
-                                                      child: Directionality(
-                                                        textDirection:
-                                                            TextDirection.rtl,
-                                                        child: TextField(
-                                                          onChanged: (val) {
-                                                            android = val;
-                                                          },
-                                                          textAlign:
-                                                              TextAlign.right,
-                                                          style: TextStyle(
-                                                            fontFamily: 'Bahij',
-                                                            fontSize: 20,
-                                                          ),
-                                                          keyboardType:
-                                                              TextInputType
-                                                                  .text,
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  hintText:
-                                                                      'جوجل بلاي',
-                                                                  fillColor:
-                                                                      Colors.blueGrey[
-                                                                          50],
-                                                                  filled: true,
-                                                                  icon: Icon(Icons
-                                                                      .android),
-                                                                  labelStyle:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        20,
-                                                                    fontFamily:
-                                                                        'Bahij',
-                                                                  ),
-                                                                  hintStyle:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        20,
-                                                                    fontFamily:
-                                                                        'Bahij',
-                                                                  ),
-                                                                  contentPadding:
-                                                                      EdgeInsets.only(
-                                                                          right:
-                                                                              30,
-                                                                          left:
-                                                                              30),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Colors.blueGrey[50],
-                                                                          ),
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              15)),
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Colors.blueGrey[50],
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15))),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 20,
-                                                    ),
-                                                    Container(
-                                                      width: 200,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(30),
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                                color: Colors
-                                                                    .blue[100],
-                                                                spreadRadius:
-                                                                    10,
-                                                                blurRadius: 20)
-                                                          ]),
-                                                      child: ElevatedButton(
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 50,
-                                                          child: Center(
-                                                              child: Text(
-                                                            "تغير",
-                                                            style: TextStyle(
-                                                              fontSize: 20,
-                                                              fontFamily:
-                                                                  'Bahij',
-                                                            ),
-                                                          )),
-                                                        ),
-                                                        onPressed: () async {
-                                                          if (android != null) {
-                                                            _firestore
-                                                                .collection(
-                                                                    'info')
-                                                                .doc('app')
-                                                                .update({
-                                                              'playstore':
-                                                                  android
-                                                            });
-                                                          }
-                                                        },
-                                                        style: ElevatedButton.styleFrom(
-                                                            primary: Color(
-                                                                0xFF2980b9),
-                                                            onPrimary:
-                                                                Colors.white,
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            15))),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width /
-                                                              2,
-                                                      child: Directionality(
-                                                        textDirection:
-                                                            TextDirection.rtl,
-                                                        child: TextField(
-                                                          onChanged: (val) {
-                                                            iphone = val;
-                                                          },
-                                                          textAlign:
-                                                              TextAlign.right,
-                                                          style: TextStyle(
-                                                            fontFamily: 'Bahij',
-                                                            fontSize: 20,
-                                                          ),
-                                                          keyboardType:
-                                                              TextInputType
-                                                                  .text,
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  hintText:
-                                                                      'بلاي ستور',
-                                                                  fillColor:
-                                                                      Colors.blueGrey[
-                                                                          50],
-                                                                  filled: true,
-                                                                  icon: Icon(Icons
-                                                                      .phone_iphone),
-                                                                  labelStyle:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        20,
-                                                                    fontFamily:
-                                                                        'Bahij',
-                                                                  ),
-                                                                  hintStyle:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        20,
-                                                                    fontFamily:
-                                                                        'Bahij',
-                                                                  ),
-                                                                  contentPadding:
-                                                                      EdgeInsets.only(
-                                                                          right:
-                                                                              30,
-                                                                          left:
-                                                                              30),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Colors.blueGrey[50],
-                                                                          ),
-                                                                          borderRadius: BorderRadius.circular(
-                                                                              15)),
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Colors.blueGrey[50],
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15))),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 20,
-                                                    ),
-                                                    Container(
-                                                      width: 200,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(30),
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                                color: Colors
-                                                                    .blue[100],
-                                                                spreadRadius:
-                                                                    10,
-                                                                blurRadius: 20)
-                                                          ]),
-                                                      child: ElevatedButton(
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 50,
-                                                          child: Center(
-                                                              child: Text(
-                                                            "تغير",
-                                                            style: TextStyle(
-                                                              fontSize: 20,
-                                                              fontFamily:
-                                                                  'Bahij',
-                                                            ),
-                                                          )),
-                                                        ),
-                                                        onPressed: () async {
-                                                          if (iphone != null) {
-                                                            _firestore
-                                                                .collection(
-                                                                    'info')
-                                                                .doc('app')
-                                                                .update({
-                                                              'appstore': iphone
-                                                            });
-                                                          }
-                                                        },
-                                                        style: ElevatedButton.styleFrom(
-                                                            primary: Color(
-                                                                0xFF2980b9),
-                                                            onPrimary:
-                                                                Colors.white,
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            15))),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    "اخفاء واظهار الصفحات",
-                                                    style:
-                                                        TextStyle(fontSize: 45),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      width: 300,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(30),
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                                color: Colors
-                                                                    .blue[100],
-                                                                spreadRadius:
-                                                                    10,
-                                                                blurRadius: 20)
-                                                          ]),
-                                                      child: ElevatedButton(
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 50,
-                                                          child: Center(
-                                                              child: Text(
-                                                            "أخفاء صفحة تسجيل مندوب",
-                                                            style: TextStyle(
-                                                              fontSize: 20,
-                                                              fontFamily:
-                                                                  'Bahij',
-                                                            ),
-                                                          )),
-                                                        ),
-                                                        onPressed: () async {
-                                                          _firestore
-                                                              .collection(
-                                                                  'info')
-                                                              .doc('Pages')
-                                                              .update({
-                                                            'Delegate': false
-                                                          });
-                                                        },
-                                                        style: ElevatedButton.styleFrom(
-                                                            primary: Color(
-                                                                0xFF2980b9),
-                                                            onPrimary:
-                                                                Colors.white,
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            15))),
-                                                      ),
-                                                    ),
-                                                    SizedBox(width: 20),
-                                                    Container(
-                                                      width: 300,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(30),
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                                color: Colors
-                                                                    .blue[100],
-                                                                spreadRadius:
-                                                                    10,
-                                                                blurRadius: 20)
-                                                          ]),
-                                                      child: ElevatedButton(
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 50,
-                                                          child: Center(
-                                                              child: Text(
-                                                            "أظهار صفحة تسجيل مندوب",
-                                                            style: TextStyle(
-                                                              fontSize: 20,
-                                                              fontFamily:
-                                                                  'Bahij',
-                                                            ),
-                                                          )),
-                                                        ),
-                                                        onPressed: () async {
-                                                          _firestore
-                                                              .collection(
-                                                                  'info')
-                                                              .doc('Pages')
-                                                              .update({
-                                                            'Delegate': true
-                                                          });
-                                                        },
-                                                        style: ElevatedButton.styleFrom(
-                                                            primary: Color(
-                                                                0xFF2980b9),
-                                                            onPrimary:
-                                                                Colors.white,
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            15))),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      width: 300,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(30),
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                                color: Colors
-                                                                    .blue[100],
-                                                                spreadRadius:
-                                                                    10,
-                                                                blurRadius: 20)
-                                                          ]),
-                                                      child: ElevatedButton(
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 50,
-                                                          child: Center(
-                                                              child: Text(
-                                                            "أخفاء صفحة السلع والاعلانات الممنوعة",
-                                                            style: TextStyle(
-                                                              fontSize: 20,
-                                                              fontFamily:
-                                                                  'Bahij',
-                                                            ),
-                                                          )),
-                                                        ),
-                                                        onPressed: () async {
-                                                          _firestore
-                                                              .collection(
-                                                                  'info')
-                                                              .doc('Pages')
-                                                              .update({
-                                                            'Legacy': false
-                                                          });
-                                                        },
-                                                        style: ElevatedButton.styleFrom(
-                                                            primary: Color(
-                                                                0xFF2980b9),
-                                                            onPrimary:
-                                                                Colors.white,
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            15))),
-                                                      ),
-                                                    ),
-                                                    SizedBox(width: 20),
-                                                    Container(
-                                                      width: 300,
-                                                      decoration: BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(30),
-                                                          boxShadow: [
-                                                            BoxShadow(
-                                                                color: Colors
-                                                                    .blue[100],
-                                                                spreadRadius:
-                                                                    10,
-                                                                blurRadius: 20)
-                                                          ]),
-                                                      child: ElevatedButton(
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          height: 50,
-                                                          child: Center(
-                                                              child: Text(
-                                                            "أظهار صفحة السلع والاعلانات الممنوعة",
-                                                            style: TextStyle(
-                                                              fontSize: 20,
-                                                              fontFamily:
-                                                                  'Bahij',
-                                                            ),
-                                                          )),
-                                                        ),
-                                                        onPressed: () async {
-                                                          _firestore
-                                                              .collection(
-                                                                  'info')
-                                                              .doc('Pages')
-                                                              .update({
-                                                            'Legacy': true
-                                                          });
-                                                        },
-                                                        style: ElevatedButton.styleFrom(
-                                                            primary: Color(
-                                                                0xFF2980b9),
-                                                            onPrimary:
-                                                                Colors.white,
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            15))),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
+                                  for (var doc
+                                  in snapshot.data.docs) {
+                                    inquires.add(InquiryInfo(
+                                        documentId: doc.id,
+                                        phoneNo: doc.data()[
+                                        'phone number'],
+                                        username:
+                                        doc.data()['name'],
+                                        message: doc
+                                            .data()['message']));
+                                  }
+                                  return Padding(
+                                    padding: EdgeInsets.all(20),
+                                    child: SingleChildScrollView(
+                                      scrollDirection:
+                                      Axis.vertical,
+                                      child: Container(
+                                        width:
+                                        MediaQuery.of(context)
+                                            .size
+                                            .width,
+                                        child:
+                                        SingleChildScrollView(
+                                          scrollDirection:
+                                          Axis.vertical,
+                                          child: Padding(
+                                            padding:
+                                            const EdgeInsets
+                                                .all(8.0),
+                                            child: DataTable(
+                                              dividerThickness: 3,
+                                              columns: [
+                                                DataColumn(
+                                                    label: Text(
+                                                        'الاسم'),
+                                                    tooltip:
+                                                    'يظهر اسم المستخدم المسجل من المستخدم'),
+                                                DataColumn(
+                                                    label: Text(
+                                                        'رقم الهاتف'),
+                                                    tooltip:
+                                                    'يظهر رقم الهاتف السمجل من المستخدم'),
+                                                DataColumn(
+                                                    label: Text(
+                                                        'الاستفسار'),
+                                                    tooltip:
+                                                    'يظهر استفسار المستخدم'),
+                                                DataColumn(
+                                                  label: Text(
+                                                      ' انسخ الاستفسار'),
                                                 ),
                                               ],
+                                              rows: inquires
+                                                  .map(
+                                                      (e) =>
+                                                      DataRow(
+                                                        cells: [
+                                                          DataCell(
+                                                            Text(e.username),
+                                                          ),
+                                                          DataCell(
+                                                            Text(e.phoneNo),
+                                                          ),
+                                                          DataCell(Tooltip(
+                                                            height: MediaQuery.of(context).size.height * .05,
+                                                            textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                                                            message: e.message,
+                                                            child: SizedBox(
+                                                              width: MediaQuery.of(context).size.width * .1,
+                                                              child: Text(
+                                                                e.message,
+                                                                overflow: TextOverflow.clip,
+                                                              ),
+                                                            ),
+                                                          )),
+                                                          DataCell(InkWell(child: Icon(Icons.copy),onTap: (){
+                                                            FlutterClipboard.copy(e.message);
+                                                          },))
+                                                        ],
+                                                      ))
+                                                  .toList(),
                                             ),
                                           ),
                                         ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                              },
+                            )
+                          ])),
+                )
+                    : (selected[4] == true)
+                    ? Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10,
+                      bottom: 10,
+                      left: 125,
+                      right: 125),
+                  child: Container(
+                      child: Column(
+                          mainAxisAlignment:
+                          MainAxisAlignment.start,
+                          crossAxisAlignment:
+                          CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                              const EdgeInsets.all(8.0),
+                              child: Text(
+                                "طلبات تسجيل مندوبين",
+                                style: TextStyle(
+                                    fontWeight:
+                                    FontWeight.bold,
+                                    fontSize: 45),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            StreamBuilder<QuerySnapshot>(
+                              stream: loadDelegates(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData ||
+                                    snapshot.data.docs
+                                        .length ==
+                                        0) {
+                                  return Center(
+                                    child: Text(
+                                        "لا يوجد طلبات فالوقت الحالي"),
+                                  );
+                                } else {
+                                  List<DelegateInfo>
+                                  delegates = [];
+
+                                  for (var doc
+                                  in snapshot.data.docs) {
+                                    delegates.add(DelegateInfo(
+                                        docID: doc.id,
+                                        phone: doc.data()[
+                                        'phone number'],
+                                        name: doc
+                                            .data()['name'],
+                                        email: doc
+                                            .data()['email'],
+                                        country: doc.data()[
+                                        'country'],
+                                        id: doc.data()['id'],
+                                        imageCount: doc
+                                            .data()[
+                                        'imageCount']
+                                            .toString()));
+                                  }
+                                  return Padding(
+                                    padding:
+                                    EdgeInsets.all(20),
+                                    child: VsScrollbar(
+                                      child:
+                                      SingleChildScrollView(
+                                        child: Container(
+                                          width:
+                                          MediaQuery.of(
+                                              context)
+                                              .size
+                                              .width,
+                                          child: DataTable(
+                                            dividerThickness:
+                                            5,
+                                            columns: [
+                                              DataColumn(
+                                                  label: Text(
+                                                      'الاسم'),
+                                                  tooltip:
+                                                  'يظهر اسم المندوب'),
+                                              DataColumn(
+                                                  label: Text(
+                                                      'رقم الهاتف'),
+                                                  tooltip:
+                                                  'يظهر رقم الهاتف السمجل من المندوب'),
+                                              DataColumn(
+                                                  label: Text(
+                                                      'المدينة'),
+                                                  tooltip:
+                                                  'يظهر مدينة المندوب'),
+                                              DataColumn(
+                                                  label: Text(
+                                                      'رقم الهوية - الاقامة'),
+                                                  tooltip:
+                                                  'يظهر رقم الهوية او الاقامة الخاصة بالمندوب'),
+                                              DataColumn(
+                                                  label: Text(
+                                                      'البريد الالكتروني'),
+                                                  tooltip:
+                                                  'يظهر البريد الالكتروني الخاص بالمندوب'),
+                                            ],
+                                            rows: delegates
+                                                .map((e) =>
+                                                DataRow(
+                                                  cells: [
+                                                    DataCell(
+                                                        Text(e.name),
+                                                        onTap: () {
+                                                          if (e.imageCount != null &&
+                                                              e.imageCount != '0') {
+                                                            _onDelegatePressed(context, e.docID);
+                                                          }
+                                                        }),
+                                                    DataCell(
+                                                        Text(e.phone)),
+                                                    DataCell(
+                                                        Text(e.country)),
+                                                    DataCell(
+                                                        Text(e.id)),
+                                                    DataCell(Text((e.email != null)
+                                                        ? e.email
+                                                        : 'لا يوجد')),
+                                                  ],
+                                                ))
+                                                .toList(),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                              },
+                            )
+                          ])),
+                )
+                    : Padding(
+                  padding: EdgeInsets.only(
+                      top: 10,
+                      bottom: 10,
+                      left: 125,
+                      right: 125),
+                  child: VsScrollbar(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment:
+                        MainAxisAlignment.start,
+                        crossAxisAlignment:
+                        CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                            const EdgeInsets.all(8.0),
+                            child: Text(
+                              "الاعدادات",
+                              style: TextStyle(
+                                  fontWeight:
+                                  FontWeight.bold,
+                                  fontSize: 45),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding:
+                            const EdgeInsets.all(8.0),
+                            child: Text(
+                              "رفع الاعلان الاول",
+                              style:
+                              TextStyle(fontSize: 45),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding:
+                            const EdgeInsets.only(
+                                left: 20),
+                            child: Container(
+                                width:
+                                MediaQuery.of(context)
+                                    .size
+                                    .width,
+                                height: 300,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 4,
+                                        color: Color(
+                                            0xFF2980b9)),
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(5)),
+                                child: (wait == false)
+                                    ? GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      wait = true;
+                                    });
+
+                                    uploadAdToStorage(
+                                        1, path);
+                                  },
+                                  child: Column(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment
+                                        .center,
+                                    children: [
+                                      Icon(
+                                        Icons
+                                            .camera_alt,
+                                        color: Colors
+                                            .grey,
+                                        size: 100,
+                                      ),
+                                      Text(
+                                        'رفع صوره',
+                                        style: TextStyle(
+                                            fontFamily:
+                                            'Bahij',
+                                            fontSize:
+                                            40,
+                                            color: Colors
+                                                .grey,
+                                            fontWeight:
+                                            FontWeight.bold),
                                       )
+                                    ],
+                                  ).showCursorOnHover,
+                                )
+                                    : StreamBuilder<
+                                    DocumentSnapshot>(
+                                  stream:
+                                  loadBanners(),
+                                  builder: (context,
+                                      snapshot) {
+                                    if (snapshot
+                                        .hasData &&
+                                        snapshot.data !=
+                                            null) {
+                                      if (snapshot
+                                          .connectionState ==
+                                          ConnectionState
+                                              .waiting)
+                                        return Center(
+                                          child:
+                                          CircularProgressIndicator(),
+                                        );
+                                      bool banner1 =
+                                          snapshot.data
+                                              .data()['ads 1'] ==
+                                              path;
+                                      return (banner1)
+                                          ? Column(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/icons/checked.png',
+                                            height: 100,
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            '!قد تم رفع الصوره',
+                                            style: TextStyle(fontFamily: 'Bahij', fontSize: 40, color: Colors.grey, fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      )
+                                          : Center(
+                                        child:
+                                        CircularProgressIndicator(),
+                                      );
+                                    } else {
+                                      return Center(
+                                        child:
+                                        CircularProgressIndicator(),
+                                      );
+                                    }
+                                  },
+                                )),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding:
+                            const EdgeInsets.all(8.0),
+                            child: Text(
+                              "رفع الاعلان الثاني",
+                              style:
+                              TextStyle(fontSize: 45),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding:
+                            const EdgeInsets.only(
+                                left: 20),
+                            child: Container(
+                                width:
+                                MediaQuery.of(context)
+                                    .size
+                                    .width,
+                                height: 300,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 4,
+                                        color: Color(
+                                            0xFF2980b9)),
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(5)),
+                                child: (wait2 == false)
+                                    ? GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      wait2 = true;
+                                    });
+
+                                    uploadAdToStorage(
+                                        2, path);
+                                  },
+                                  child: Column(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment
+                                        .center,
+                                    children: [
+                                      Icon(
+                                        Icons
+                                            .camera_alt,
+                                        color: Colors
+                                            .grey,
+                                        size: 100,
+                                      ),
+                                      Text(
+                                        'رفع صوره',
+                                        style: TextStyle(
+                                            fontFamily:
+                                            'Bahij',
+                                            fontSize:
+                                            40,
+                                            color: Colors
+                                                .grey,
+                                            fontWeight:
+                                            FontWeight.bold),
+                                      )
+                                    ],
+                                  ).showCursorOnHover,
+                                )
+                                    : StreamBuilder<
+                                    DocumentSnapshot>(
+                                  stream:
+                                  loadBanners(),
+                                  builder: (context,
+                                      snapshot) {
+                                    if (snapshot
+                                        .hasData &&
+                                        snapshot.data !=
+                                            null) {
+                                      if (snapshot
+                                          .connectionState ==
+                                          ConnectionState
+                                              .waiting)
+                                        return Center(
+                                          child:
+                                          CircularProgressIndicator(),
+                                        );
+                                      bool banner1 =
+                                          snapshot.data
+                                              .data()['ads 2'] ==
+                                              path;
+                                      return (banner1)
+                                          ? Column(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/icons/checked.png',
+                                            height: 100,
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            '!قد تم رفع الصوره',
+                                            style: TextStyle(fontFamily: 'Bahij', fontSize: 40, color: Colors.grey, fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      )
+                                          : Center(
+                                        child:
+                                        CircularProgressIndicator(),
+                                      );
+                                    } else {
+                                      return Center(
+                                        child:
+                                        CircularProgressIndicator(),
+                                      );
+                                    }
+                                  },
+                                )),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(8.0),
+                          //   child: Text(
+                          //     "رفع الاعلان الثالث",
+                          //     style: TextStyle(fontSize: 45),
+                          //   ),
+                          // ),
+                          // SizedBox(
+                          //   height: 20,
+                          // ),
+                          // Padding(
+                          //   padding:
+                          //       const EdgeInsets.only(left: 20),
+                          //   child: Container(
+                          //       width: MediaQuery.of(context)
+                          //           .size
+                          //           .width,
+                          //       height: 300,
+                          //       decoration: BoxDecoration(
+                          //           border: Border.all(
+                          //               width: 4,
+                          //               color:
+                          //                   Color(0xFF2980b9)),
+                          //           borderRadius:
+                          //               BorderRadius.circular(
+                          //                   5)),
+                          //       child: (wait3 == false)
+                          //           ? GestureDetector(
+                          //               onTap: () {
+                          //                 setState(() {
+                          //                   wait3 = true;
+                          //                 });
+
+                          //                 uploadAdToStorage(
+                          //                     3, path);
+                          //               },
+                          //               child: Column(
+                          //                 mainAxisAlignment:
+                          //                     MainAxisAlignment
+                          //                         .center,
+                          //                 children: [
+                          //                   Icon(
+                          //                     Icons.camera_alt,
+                          //                     color:
+                          //                         Colors.grey,
+                          //                     size: 100,
+                          //                   ),
+                          //                   Text(
+                          //                     'رفع صوره',
+                          //                     style: TextStyle(
+                          //                         fontFamily:
+                          //                             'Bahij',
+                          //                         fontSize: 40,
+                          //                         color: Colors
+                          //                             .grey,
+                          //                         fontWeight:
+                          //                             FontWeight
+                          //                                 .bold),
+                          //                   )
+                          //                 ],
+                          //               ).showCursorOnHover,
+                          //             )
+                          //           : StreamBuilder<
+                          //               DocumentSnapshot>(
+                          //               stream: loadBanners(),
+                          //               builder: (context,
+                          //                   snapshot) {
+                          //                 if (snapshot
+                          //                         .hasData &&
+                          //                     snapshot.data !=
+                          //                         null) {
+                          //                   if (snapshot
+                          //                           .connectionState ==
+                          //                       ConnectionState
+                          //                           .waiting)
+                          //                     return Center(
+                          //                       child:
+                          //                           CircularProgressIndicator(),
+                          //                     );
+                          //                   bool banner1 = snapshot
+                          //                               .data
+                          //                               .data()[
+                          //                           'ads 3'] ==
+                          //                       path;
+                          //                   return (banner1)
+                          //                       ? Column(
+                          //                           mainAxisAlignment:
+                          //                               MainAxisAlignment
+                          //                                   .center,
+                          //                           crossAxisAlignment:
+                          //                               CrossAxisAlignment
+                          //                                   .center,
+                          //                           children: [
+                          //                             Image
+                          //                                 .asset(
+                          //                               'assets/images/icons/checked.png',
+                          //                               height:
+                          //                                   100,
+                          //                             ),
+                          //                             SizedBox(
+                          //                               height:
+                          //                                   10,
+                          //                             ),
+                          //                             Text(
+                          //                               '!قد تم رفع الصوره',
+                          //                               style: TextStyle(
+                          //                                   fontFamily:
+                          //                                       'Bahij',
+                          //                                   fontSize:
+                          //                                       40,
+                          //                                   color:
+                          //                                       Colors.grey,
+                          //                                   fontWeight: FontWeight.bold),
+                          //                             ),
+                          //                           ],
+                          //                         )
+                          //                       : Center(
+                          //                           child:
+                          //                               CircularProgressIndicator(),
+                          //                         );
+                          //                 } else {
+                          //                   return Center(
+                          //                     child:
+                          //                         CircularProgressIndicator(),
+                          //                   );
+                          //                 }
+                          //               },
+                          //             )),
+                          // ),
+                          // SizedBox(
+                          //   height: 20,
+                          // ),
+                          // Padding(
+                          //   padding: const EdgeInsets.all(8.0),
+                          //   child: Text(
+                          //     "رفع الاعلان الرابع",
+                          //     style: TextStyle(fontSize: 45),
+                          //   ),
+                          // ),
+                          // SizedBox(
+                          //   height: 20,
+                          // ),
+                          // Padding(
+                          //   padding:
+                          //       const EdgeInsets.only(left: 20),
+                          //   child: Container(
+                          //       width: MediaQuery.of(context)
+                          //           .size
+                          //           .width,
+                          //       height: 300,
+                          //       decoration: BoxDecoration(
+                          //           border: Border.all(
+                          //               width: 4,
+                          //               color:
+                          //                   Color(0xFF2980b9)),
+                          //           borderRadius:
+                          //               BorderRadius.circular(
+                          //                   5)),
+                          //       child: (wait4 == false)
+                          //           ? GestureDetector(
+                          //               onTap: () {
+                          //                 setState(() {
+                          //                   wait4 = true;
+                          //                 });
+
+                          //                 uploadAdToStorage(
+                          //                     4, path);
+                          //               },
+                          //               child: Column(
+                          //                 mainAxisAlignment:
+                          //                     MainAxisAlignment
+                          //                         .center,
+                          //                 children: [
+                          //                   Icon(
+                          //                     Icons.camera_alt,
+                          //                     color:
+                          //                         Colors.grey,
+                          //                     size: 100,
+                          //                   ),
+                          //                   Text(
+                          //                     'رفع صوره',
+                          //                     style: TextStyle(
+                          //                         fontFamily:
+                          //                             'Bahij',
+                          //                         fontSize: 40,
+                          //                         color: Colors
+                          //                             .grey,
+                          //                         fontWeight:
+                          //                             FontWeight
+                          //                                 .bold),
+                          //                   )
+                          //                 ],
+                          //               ).showCursorOnHover,
+                          //             )
+                          //           : StreamBuilder<
+                          //               DocumentSnapshot>(
+                          //               stream: loadBanners(),
+                          //               builder: (context,
+                          //                   snapshot) {
+                          //                 if (snapshot
+                          //                         .hasData &&
+                          //                     snapshot.data !=
+                          //                         null) {
+                          //                   if (snapshot
+                          //                           .connectionState ==
+                          //                       ConnectionState
+                          //                           .waiting)
+                          //                     return Center(
+                          //                       child:
+                          //                           CircularProgressIndicator(),
+                          //                     );
+                          //                   bool banner1 = snapshot
+                          //                               .data
+                          //                               .data()[
+                          //                           'ads 4'] ==
+                          //                       path;
+                          //                   return (banner1)
+                          //                       ? Column(
+                          //                           mainAxisAlignment:
+                          //                               MainAxisAlignment
+                          //                                   .center,
+                          //                           crossAxisAlignment:
+                          //                               CrossAxisAlignment
+                          //                                   .center,
+                          //                           children: [
+                          //                             Image
+                          //                                 .asset(
+                          //                               'assets/images/icons/checked.png',
+                          //                               height:
+                          //                                   100,
+                          //                             ),
+                          //                             SizedBox(
+                          //                               height:
+                          //                                   10,
+                          //                             ),
+                          //                             Text(
+                          //                               '!قد تم رفع الصوره',
+                          //                               style: TextStyle(
+                          //                                   fontFamily:
+                          //                                       'Bahij',
+                          //                                   fontSize:
+                          //                                       40,
+                          //                                   color:
+                          //                                       Colors.grey,
+                          //                                   fontWeight: FontWeight.bold),
+                          //                             ),
+                          //                           ],
+                          //                         )
+                          //                       : Center(
+                          //                           child:
+                          //                               CircularProgressIndicator(),
+                          //                         );
+                          //                 } else {
+                          //                   return Center(
+                          //                     child:
+                          //                         CircularProgressIndicator(),
+                          //                   );
+                          //                 }
+                          //               },
+                          //             )),
+                          // ),
+                          // SizedBox(
+                          //   height: 20,
+                          // ),
+                          Padding(
+                            padding:
+                            const EdgeInsets.all(8.0),
+                            child: Text(
+                              "روابط التطبيق",
+                              style:
+                              TextStyle(fontSize: 45),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                width:
+                                MediaQuery.of(context)
+                                    .size
+                                    .width /
+                                    2,
+                                child: Directionality(
+                                  textDirection:
+                                  TextDirection.rtl,
+                                  child: TextField(
+                                    onChanged: (val) {
+                                      android = val;
+                                    },
+                                    textAlign:
+                                    TextAlign.right,
+                                    style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                    ),
+                                    keyboardType:
+                                    TextInputType
+                                        .text,
+                                    decoration:
+                                    InputDecoration(
+                                        hintText:
+                                        'جوجل بلاي',
+                                        fillColor:
+                                        Colors.blueGrey[
+                                        50],
+                                        filled: true,
+                                        icon: Icon(Icons
+                                            .android),
+                                        labelStyle:
+                                        TextStyle(
+                                          fontSize:
+                                          20,
+                                          fontFamily:
+                                          'Bahij',
+                                        ),
+                                        hintStyle:
+                                        TextStyle(
+                                          fontSize:
+                                          20,
+                                          fontFamily:
+                                          'Bahij',
+                                        ),
+                                        contentPadding:
+                                        EdgeInsets.only(
+                                            right:
+                                            30,
+                                            left:
+                                            30),
+                                        focusedBorder:
+                                        OutlineInputBorder(
+                                            borderSide:
+                                            BorderSide(
+                                              color:
+                                              Colors.blueGrey[50],
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                                15)),
+                                        enabledBorder:
+                                        OutlineInputBorder(
+                                            borderSide:
+                                            BorderSide(
+                                              color:
+                                              Colors.blueGrey[50],
+                                            ),
+                                            borderRadius:
+                                            BorderRadius.circular(15))),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Container(
+                                width: 200,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(30),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors
+                                              .blue[100],
+                                          spreadRadius:
+                                          10,
+                                          blurRadius: 20)
+                                    ]),
+                                child: ElevatedButton(
+                                  child: Container(
+                                    width:
+                                    double.infinity,
+                                    height: 50,
+                                    child: Center(
+                                        child: Text(
+                                          "تغير",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontFamily:
+                                            'Bahij',
+                                          ),
+                                        )),
+                                  ),
+                                  onPressed: () async {
+                                    if (android != null) {
+                                      _firestore
+                                          .collection(
+                                          'info')
+                                          .doc('app')
+                                          .update({
+                                        'playstore':
+                                        android
+                                      });
+                                    }
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Color(
+                                          0xFF2980b9),
+                                      onPrimary:
+                                      Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius
+                                              .circular(
+                                              15))),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                width:
+                                MediaQuery.of(context)
+                                    .size
+                                    .width /
+                                    2,
+                                child: Directionality(
+                                  textDirection:
+                                  TextDirection.rtl,
+                                  child: TextField(
+                                    onChanged: (val) {
+                                      iphone = val;
+                                    },
+                                    textAlign:
+                                    TextAlign.right,
+                                    style: TextStyle(
+                                      fontFamily: 'Bahij',
+                                      fontSize: 20,
+                                    ),
+                                    keyboardType:
+                                    TextInputType
+                                        .text,
+                                    decoration:
+                                    InputDecoration(
+                                        hintText:
+                                        'بلاي ستور',
+                                        fillColor:
+                                        Colors.blueGrey[
+                                        50],
+                                        filled: true,
+                                        icon: Icon(Icons
+                                            .phone_iphone),
+                                        labelStyle:
+                                        TextStyle(
+                                          fontSize:
+                                          20,
+                                          fontFamily:
+                                          'Bahij',
+                                        ),
+                                        hintStyle:
+                                        TextStyle(
+                                          fontSize:
+                                          20,
+                                          fontFamily:
+                                          'Bahij',
+                                        ),
+                                        contentPadding:
+                                        EdgeInsets.only(
+                                            right:
+                                            30,
+                                            left:
+                                            30),
+                                        focusedBorder:
+                                        OutlineInputBorder(
+                                            borderSide:
+                                            BorderSide(
+                                              color:
+                                              Colors.blueGrey[50],
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                                15)),
+                                        enabledBorder:
+                                        OutlineInputBorder(
+                                            borderSide:
+                                            BorderSide(
+                                              color:
+                                              Colors.blueGrey[50],
+                                            ),
+                                            borderRadius:
+                                            BorderRadius.circular(15))),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Container(
+                                width: 200,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(30),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors
+                                              .blue[100],
+                                          spreadRadius:
+                                          10,
+                                          blurRadius: 20)
+                                    ]),
+                                child: ElevatedButton(
+                                  child: Container(
+                                    width:
+                                    double.infinity,
+                                    height: 50,
+                                    child: Center(
+                                        child: Text(
+                                          "تغير",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontFamily:
+                                            'Bahij',
+                                          ),
+                                        )),
+                                  ),
+                                  onPressed: () async {
+                                    if (iphone != null) {
+                                      _firestore
+                                          .collection(
+                                          'info')
+                                          .doc('app')
+                                          .update({
+                                        'appstore': iphone
+                                      });
+                                    }
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Color(
+                                          0xFF2980b9),
+                                      onPrimary:
+                                      Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius
+                                              .circular(
+                                              15))),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding:
+                            const EdgeInsets.all(8.0),
+                            child: Text(
+                              "اخفاء واظهار الصفحات",
+                              style:
+                              TextStyle(fontSize: 45),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                width: 300,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(30),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors
+                                              .blue[100],
+                                          spreadRadius:
+                                          10,
+                                          blurRadius: 20)
+                                    ]),
+                                child: ElevatedButton(
+                                  child: Container(
+                                    width:
+                                    double.infinity,
+                                    height: 50,
+                                    child: Center(
+                                        child: Text(
+                                          "أخفاء صفحة تسجيل مندوب",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontFamily:
+                                            'Bahij',
+                                          ),
+                                        )),
+                                  ),
+                                  onPressed: () async {
+                                    _firestore
+                                        .collection(
+                                        'info')
+                                        .doc('Pages')
+                                        .update({
+                                      'Delegate': false
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Color(
+                                          0xFF2980b9),
+                                      onPrimary:
+                                      Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius
+                                              .circular(
+                                              15))),
+                                ),
+                              ),
+                              SizedBox(width: 20),
+                              Container(
+                                width: 300,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(30),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors
+                                              .blue[100],
+                                          spreadRadius:
+                                          10,
+                                          blurRadius: 20)
+                                    ]),
+                                child: ElevatedButton(
+                                  child: Container(
+                                    width:
+                                    double.infinity,
+                                    height: 50,
+                                    child: Center(
+                                        child: Text(
+                                          "أظهار صفحة تسجيل مندوب",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontFamily:
+                                            'Bahij',
+                                          ),
+                                        )),
+                                  ),
+                                  onPressed: () async {
+                                    _firestore
+                                        .collection(
+                                        'info')
+                                        .doc('Pages')
+                                        .update({
+                                      'Delegate': true
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Color(
+                                          0xFF2980b9),
+                                      onPrimary:
+                                      Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius
+                                              .circular(
+                                              15))),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                width: 300,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(30),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors
+                                              .blue[100],
+                                          spreadRadius:
+                                          10,
+                                          blurRadius: 20)
+                                    ]),
+                                child: ElevatedButton(
+                                  child: Container(
+                                    width:
+                                    double.infinity,
+                                    height: 50,
+                                    child: Center(
+                                        child: Text(
+                                          "أخفاء صفحة السلع والاعلانات الممنوعة",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontFamily:
+                                            'Bahij',
+                                          ),
+                                        )),
+                                  ),
+                                  onPressed: () async {
+                                    _firestore
+                                        .collection(
+                                        'info')
+                                        .doc('Pages')
+                                        .update({
+                                      'Legacy': false
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Color(
+                                          0xFF2980b9),
+                                      onPrimary:
+                                      Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius
+                                              .circular(
+                                              15))),
+                                ),
+                              ),
+                              SizedBox(width: 20),
+                              Container(
+                                width: 300,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                    BorderRadius
+                                        .circular(30),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors
+                                              .blue[100],
+                                          spreadRadius:
+                                          10,
+                                          blurRadius: 20)
+                                    ]),
+                                child: ElevatedButton(
+                                  child: Container(
+                                    width:
+                                    double.infinity,
+                                    height: 50,
+                                    child: Center(
+                                        child: Text(
+                                          "أظهار صفحة السلع والاعلانات الممنوعة",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontFamily:
+                                            'Bahij',
+                                          ),
+                                        )),
+                                  ),
+                                  onPressed: () async {
+                                    _firestore
+                                        .collection(
+                                        'info')
+                                        .doc('Pages')
+                                        .update({
+                                      'Legacy': true
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      primary: Color(
+                                          0xFF2980b9),
+                                      onPrimary:
+                                      Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius
+                                              .circular(
+                                              15))),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -2780,9 +2778,9 @@ class _PanelHomeState extends State<PanelHome> {
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(
-                    'Enter a correct information!',
-                    textAlign: TextAlign.left,
-                  )));
+                        'Enter a correct information!',
+                        textAlign: TextAlign.left,
+                      )));
                 }
               })
         ]).show();
@@ -2835,9 +2833,9 @@ class _PanelHomeState extends State<PanelHome> {
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text(
-                  'Enter a correct information!',
-                  textAlign: TextAlign.left,
-                )));
+                      'Enter a correct information!',
+                      textAlign: TextAlign.left,
+                    )));
               }
             },
             child: Text(
@@ -2902,7 +2900,7 @@ _onDelegatePressed(context, String docId) {
                       itemBuilder: (context, index) {
                         return StreamBuilder<Uri>(
                           stream: downloadUrl(
-                                  snapshot.data.data()['photo_url $index'])
+                              snapshot.data.data()['photo_url $index'])
                               .asStream(),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
@@ -3018,7 +3016,7 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
         child: Container(
           width: 101,
           color:
-              hovered && !widget.selected ? Colors.white12 : Colors.transparent,
+          hovered && !widget.selected ? Colors.white12 : Colors.transparent,
           child: Stack(
             children: [
               Container(
@@ -3118,3 +3116,7 @@ class CustomText extends StatelessWidget {
     );
   }
 }
+
+
+
+
