@@ -11243,7 +11243,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              width: width*0.5,
+                                              width: width*0.47,
                                               child: Text(
                                                 (query != '')
                                                     ? search[index].title
@@ -11274,7 +11274,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                                       sorted[index].username,
                                                       style: TextStyle(
                                                         fontFamily: 'Bahij',
-                                                        fontSize: 20,
+                                                        fontSize: 18,
                                                         color: Colors.white,
                                                       ),
                                                     ),
@@ -11393,8 +11393,8 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                                             8.0),
                                                     child: Image.network(
                                                       snapshot.data.toString(),
-                                                      width: 150,
-                                                      height: 150,
+                                                      width: 130,
+                                                      height: 130,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   );
@@ -11405,8 +11405,8 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                                     BorderRadius.circular(8.0),
                                                 child: Image.asset(
                                                   'assets/images/no_image.png',
-                                                  width: 150,
-                                                  height: 150,
+                                                  width: 130,
+                                                  height: 130,
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
