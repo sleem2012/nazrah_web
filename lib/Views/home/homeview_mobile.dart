@@ -11212,6 +11212,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                         itemCount:
                             (query != '') ? search.length : sorted.length,
                         shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
                         //reverse: true,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
