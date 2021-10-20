@@ -69,26 +69,12 @@ class _AdDetailsViewTabletDesktopState
   }
 
   TextEditingController messageController = new TextEditingController();
-  final ScrollController _scrollController = ScrollController();
 
-  void scolldown() {
-    Timer(
-        Duration(seconds: 1),
-        () => _scrollController.animateTo(
-            _scrollController.position.maxScrollExtent,
-            duration: Duration(milliseconds: 500),
-            curve: Curves.fastOutSlowIn));
-  }
 
   @override
   void initState() {
     getData();
-    Timer(
-        Duration(seconds: 2),
-        () => _scrollController.animateTo(
-            _scrollController.position.maxScrollExtent,
-            duration: Duration(milliseconds: 500),
-            curve: Curves.fastOutSlowIn));
+
     super.initState();
     Timer(
         Duration(seconds: 5),
@@ -160,8 +146,7 @@ class _AdDetailsViewTabletDesktopState
               stream: loadAdDetails(documentId),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  String selectedCategory =
-                      snapshot.data.data()['selectedCategory'];
+                  String selectedCategory = snapshot.data.data()['selectedCategory'];
                   String subCategory = snapshot.data.data()['subCategory'];
                   String country = snapshot.data.data()['Country'];
                   String subCountry = snapshot.data.data()['subCountry'];
@@ -177,7 +162,7 @@ class _AdDetailsViewTabletDesktopState
                   String membership=snapshot.data.data()['Membership'];
 
                   final Timestamp timestamp =
-                      snapshot.data.data()['date'] as Timestamp;
+                  snapshot.data.data()['date'] as Timestamp;
                   final DateTime dateTime = timestamp.toDate();
 
                   int dateDays = DateTime.now().difference(dateTime).inDays;
@@ -188,8 +173,12 @@ class _AdDetailsViewTabletDesktopState
                   if (photoBool == 'true') {
                     int imageCount = snapshot.data.data()['imageCount'];
                     for (var i = 0; i < imageCount; i++) {
-                      imagePaths.add(snapshot.data.data()['photo_url $i']);
+                      if(snapshot.data.data()['photo_url $i']!=null){
+                        imagePaths.add(snapshot.data.data()['photo_url $i']);
+                      }
                     }
+                     imageCount = imagePaths.length;
+
                   }
 
                   return Column(
@@ -319,10 +308,7 @@ class _AdDetailsViewTabletDesktopState
                                             padding: const EdgeInsets.only(
                                                 top: 30, bottom: 30),
                                             child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  2,
+                                              width: MediaQuery.of(context).size.width / 2,
                                               margin: EdgeInsets.symmetric(
                                                   horizontal: 10),
                                               decoration: BoxDecoration(
@@ -339,7 +325,7 @@ class _AdDetailsViewTabletDesktopState
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                                 child: Image.network(
-                                                  imgPath,
+                                                  imgPath.toString(),
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -348,17 +334,12 @@ class _AdDetailsViewTabletDesktopState
                                         });
                                       }).toList(),
                                       options: CarouselOptions(
-                                        height: (MediaQuery.of(context)
-                                                    .size
-                                                    .height /
-                                                2) +
-                                            200,
+                                        height: (MediaQuery.of(context).size.height / 2) + 200,
                                         autoPlay: true,
                                         initialPage: 0,
                                         enlargeCenterPage: true,
                                         autoPlayInterval: Duration(seconds: 2),
-                                        autoPlayAnimationDuration:
-                                            Duration(milliseconds: 2000),
+                                        autoPlayAnimationDuration: Duration(milliseconds: 2000),
                                       ));
                                 } else {
                                   return Center(
@@ -654,7 +635,6 @@ class _AdDetailsViewTabletDesktopState
                                               );
                                             } else {
                                               return ListView.builder(
-                                                controller: _scrollController,
                                                 itemCount:
                                                     snapshot.data.docs.length,
                                                 shrinkWrap: true,
@@ -806,11 +786,7 @@ class _AdDetailsViewTabletDesktopState
                                     .collection('users')
                                     .doc(phoneNo)
                                     .get()
-                                    .then((DocumentSnapshot documentSnapshot) =>
-                                        {
-                                          username =
-                                              documentSnapshot.data()['Name'],
-                                        });
+                                    .then((DocumentSnapshot documentSnapshot) => {username = documentSnapshot.data()['Name'],});
                                 Map<String, dynamic> messageMap = {
                                   "message": messageController.text,
                                   "sendBy": phoneNo,
@@ -819,7 +795,6 @@ class _AdDetailsViewTabletDesktopState
                                 };
                                 addConversationMessages(documentId, messageMap);
                                 messageController.text = '';
-                                scolldown();
                                 if (username != userName) {
                                   await FirebaseFirestore.instance
                                       .collection('users')
