@@ -116,6 +116,9 @@ class _NavigationBarTabletDekstopNotState
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(
+                      width: 20,
+                    ),
                     NavBarItem('أتصل بنا', ContactRoute, () {
                       locator<NavigationService>().navigateTo(ContactRoute);
                       setState(() {
@@ -220,27 +223,27 @@ class _NavigationBarTabletDekstopNotState
                     // SizedBox(
                     //   width: 40,
                     // ),
-                    NavBarItem('العمولة', CommissionInfoRoute, () {
-                      locator<NavigationService>().navigateTo(CommissionInfoRoute);
-                      setState(() {
-                        currentRoute = 'Commission';
-                      });
-                    },
-                        (currentRoute == 'Commission')
-                            ? Color(0xFF2980b9)
-                            : Colors.black),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    NavBarItem('العضويات', MembershipInfoRoute, () {
-                      locator<NavigationService>().navigateTo(MembershipInfoRoute);
-                      setState(() {
-                        currentRoute = 'Membership';
-                      });
-                    },
-                        (currentRoute == 'Membership')
-                            ? Color(0xFF2980b9)
-                            : Colors.black),
+                    // NavBarItem('العمولة', CommissionInfoRoute, () {
+                    //   locator<NavigationService>().navigateTo(CommissionInfoRoute);
+                    //   setState(() {
+                    //     currentRoute = 'Commission';
+                    //   });
+                    // },
+                    //     (currentRoute == 'Commission')
+                    //         ? Color(0xFF2980b9)
+                    //         : Colors.black),
+                    // SizedBox(
+                    //   width: 40,
+                    // ),
+                    // NavBarItem('العضويات', MembershipInfoRoute, () {
+                    //   locator<NavigationService>().navigateTo(MembershipInfoRoute);
+                    //   setState(() {
+                    //     currentRoute = 'Membership';
+                    //   });
+                    // },
+                    //     (currentRoute == 'Membership')
+                    //         ? Color(0xFF2980b9)
+                    //         : Colors.black),
                     SizedBox(
                       width: 40,
                     ),

@@ -22,7 +22,7 @@ class AddAdViewTabletDesktop extends StatefulWidget {
 }
 
 class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
-  bool deal = false;
+  // bool deal = false;
   String selectedCategory = 'All';
   String subCategory = 'null';
   String subSubCategory = 'null';
@@ -10725,67 +10725,67 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                                                                                                                                                                                                               )),
                                                                                                                                                                                                                                         )
                                                                                                                                                                                                                                       : Container(),
-
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Divider(
-                    thickness: 1,
-                    color: Color(0xff818181),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    "إتفاقية العمولة",
-                    style: TextStyle(
-                        fontFamily: 'Bahij',
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    "بسم الله الرحمن الرحيم",
-                    style: TextStyle(
-                      fontFamily: 'Bahij',
-                      fontSize: 20,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                      "قال الله تعالى:' وَأَوْفُواْ بِعَهْدِ اللهِ إِذَا عَاهَدتُّمْ وَلاَ تَنقُضُواْ الأَيْمَانَ بَعْدَ تَوْكِيدِهَا وَقَدْ جَعَلْتُمُ اللهَ عَلَيْكُمْ كَفِيلاً 'صدق الله العظيم",
-                      style: TextStyle(
-                        fontFamily: 'Bahij',
-                        fontSize: 20,
-                        color: Colors.black,
-                      )),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: CheckboxListTile(
-                      title: Text(
-                        "* اتعهد واقسم بالله أنا المعلن أن أدفع عمولة الموقع وهي 0.5% من قيمة البيع سواء تم البيع عن طريق الموقع أو بسببه.\n* كما أتعهد بدفع العمولة خلال 10 أيام من استلام كامل مبلغ المبايعة.",
-                        style: TextStyle(
-                          fontFamily: 'Bahij',
-                          fontSize: 20,
-                          color: Colors.black,
-                        ),
-                        textAlign: TextAlign.right,
-                      ),
-                      value: deal,
-                      onChanged: (newValue) {
-                        setState(() {
-                          deal = newValue;
-                        });
-                      },
-                      controlAffinity: ListTileControlAffinity.leading,
-                    ),
-                  ),
+                  //
+                  // SizedBox(
+                  //   height: 15,
+                  // ),
+                  // Divider(
+                  //   thickness: 1,
+                  //   color: Color(0xff818181),
+                  // ),
+                  // SizedBox(
+                  //   height: 15,
+                  // ),
+                  // Text(
+                  //   "إتفاقية العمولة",
+                  //   style: TextStyle(
+                  //       fontFamily: 'Bahij',
+                  //       fontSize: 25,
+                  //       color: Colors.black,
+                  //       fontWeight: FontWeight.bold),
+                  // ),
+                  // SizedBox(
+                  //   height: 15,
+                  // ),
+                  // Text(
+                  //   "بسم الله الرحمن الرحيم",
+                  //   style: TextStyle(
+                  //     fontFamily: 'Bahij',
+                  //     fontSize: 20,
+                  //     color: Colors.black,
+                  //   ),
+                  // ),
+                  // Text(
+                  //     "قال الله تعالى:' وَأَوْفُواْ بِعَهْدِ اللهِ إِذَا عَاهَدتُّمْ وَلاَ تَنقُضُواْ الأَيْمَانَ بَعْدَ تَوْكِيدِهَا وَقَدْ جَعَلْتُمُ اللهَ عَلَيْكُمْ كَفِيلاً 'صدق الله العظيم",
+                  //     style: TextStyle(
+                  //       fontFamily: 'Bahij',
+                  //       fontSize: 20,
+                  //       color: Colors.black,
+                  //     )),
+                  // SizedBox(
+                  //   height: 5,
+                  // ),
+                  // Directionality(
+                  //   textDirection: TextDirection.rtl,
+                  //   child: CheckboxListTile(
+                  //     title: Text(
+                  //       "* اتعهد واقسم بالله أنا المعلن أن أدفع عمولة الموقع وهي 0.5% من قيمة البيع سواء تم البيع عن طريق الموقع أو بسببه.\n* كما أتعهد بدفع العمولة خلال 10 أيام من استلام كامل مبلغ المبايعة.",
+                  //       style: TextStyle(
+                  //         fontFamily: 'Bahij',
+                  //         fontSize: 20,
+                  //         color: Colors.black,
+                  //       ),
+                  //       textAlign: TextAlign.right,
+                  //     ),
+                  //     value: deal,
+                  //     onChanged: (newValue) {
+                  //       setState(() {
+                  //         deal = newValue;
+                  //       });
+                  //     },
+                  //     controlAffinity: ListTileControlAffinity.leading,
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 15,
                   ),
@@ -12917,7 +12917,7 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                           )),
                         ),
                         onPressed: () async {
-                          if (deal == true ||
+                          if (
                               country != 'All' ||
                               title != '' ||
                               communication != '' ||

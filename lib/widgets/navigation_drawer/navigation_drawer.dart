@@ -31,71 +31,77 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [BoxShadow(color: Colors.black, blurRadius: 16)]),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            NavigationDrawerHeader(),
-            GestureDetector(child: DrawerItem(Icons.home, 'الرئيسية', HomeRoute)),
-            DrawerItem(Icons.card_membership, 'العضويات', MembershipInfoRoute),
-            DrawerItem(Icons.calculate, 'العمولة', CommissionInfoRoute),
-            StreamBuilder<DocumentSnapshot>(
-              stream: loadMyPages(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  bool delegate = snapshot.data.data()['Delegate'];
-                  if (delegate) {
-                    return DrawerItem(
-                        Icons.app_registration, 'تسجيل مندوب', DelegateRoute);
-                  } else {
-                    return Container();
-                  }
-                } else {
-                  return DrawerItem(
-                      Icons.app_registration, 'تسجيل مندوب', DelegateRoute);
-                }
-              },
+      child: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  NavigationDrawerHeader(),
+                  GestureDetector(child: DrawerItem(Icons.home, 'الرئيسية', HomeRoute)),
+                  // DrawerItem(Icons.card_membership, 'العضويات', MembershipInfoRoute),
+                  // DrawerItem(Icons.calculate, 'العمولة', CommissionInfoRoute),
+                  StreamBuilder<DocumentSnapshot>(
+                    stream: loadMyPages(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        bool delegate = snapshot.data.data()['Delegate'];
+                        if (delegate) {
+                          return DrawerItem(
+                              Icons.app_registration, 'تسجيل مندوب', DelegateRoute);
+                        } else {
+                          return Container();
+                        }
+                      } else {
+                        return DrawerItem(
+                            Icons.app_registration, 'تسجيل مندوب', DelegateRoute);
+                      }
+                    },
+                  ),
+                  DrawerItem(
+                      Icons.rule, 'اتفاقية استخدام الموقع والمعلومات', TermsRoute),
+                  StreamBuilder<DocumentSnapshot>(
+                    stream: loadMyPages(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        bool delegate = snapshot.data.data()['Delegate'];
+                        if (delegate) {
+                          return DrawerItem(
+                              Icons.cancel, 'السلع والإعلانات الممنوعة', LegacyRoute);
+                        } else {
+                          return Container();
+                        }
+                      } else {
+                        return DrawerItem(
+                            Icons.cancel, 'السلع والإعلانات الممنوعة', LegacyRoute);
+                      }
+                    },
+                  ),
+                  DrawerItem(Icons.contact_support, 'أتصل بنا', ContactRoute),
+                  SizedBox(
+                    height: 0,
+                  ),
+                  (phoneNo == null)
+                      ? Column(
+                          children: [
+                            DrawerItem(Icons.login, 'تسجيل دخول', LoginRoute),
+                            DrawerItem(
+                                Icons.app_registration, 'انشاء حساب', SignupRoute),
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            DrawerItem(Icons.person, 'الصفحة الشخصية', ProfileRoute),
+                            DrawerItem(
+                                Icons.notifications, 'الاشعارات', NotificationsRoute),
+                            DrawerItem(Icons.chat, 'الرسائل', ChatsRoute),
+                          ],
+                        )
+                ],
+              ),
             ),
-            DrawerItem(
-                Icons.rule, 'اتفاقية استخدام الموقع والمعلومات', TermsRoute),
-            StreamBuilder<DocumentSnapshot>(
-              stream: loadMyPages(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  bool delegate = snapshot.data.data()['Delegate'];
-                  if (delegate) {
-                    return DrawerItem(
-                        Icons.cancel, 'السلع والإعلانات الممنوعة', LegacyRoute);
-                  } else {
-                    return Container();
-                  }
-                } else {
-                  return DrawerItem(
-                      Icons.cancel, 'السلع والإعلانات الممنوعة', LegacyRoute);
-                }
-              },
-            ),
-            DrawerItem(Icons.contact_support, 'أتصل بنا', ContactRoute),
-            SizedBox(
-              height: 50,
-            ),
-            (phoneNo == null)
-                ? Column(
-                    children: [
-                      DrawerItem(Icons.login, 'تسجيل دخول', LoginRoute),
-                      DrawerItem(
-                          Icons.app_registration, 'انشاء حساب', SignupRoute),
-                    ],
-                  )
-                : Column(
-                    children: [
-                      DrawerItem(Icons.person, 'الصفحة الشخصية', ProfileRoute),
-                      DrawerItem(
-                          Icons.notifications, 'الاشعارات', NotificationsRoute),
-                      DrawerItem(Icons.chat, 'الرسائل', ChatsRoute),
-                    ],
-                  )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

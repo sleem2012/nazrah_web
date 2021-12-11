@@ -127,7 +127,7 @@ class _NavigationBarTabletDekstopState
                       });
                     }, (currentRoute == 'Terms') ? Color(0xFF2980b9) : Colors.black),
                     SizedBox(
-                      width: 40,
+                      width: 0,
                     ),
                     StreamBuilder<DocumentSnapshot>(
                         stream: loadMyPages(),
@@ -170,27 +170,24 @@ class _NavigationBarTabletDekstopState
                     // SizedBox(
                     //   width: 40,
                     // ),
-                    NavBarItem('العمولة', CommissionInfoRoute, () {
-                      locator<NavigationService>().navigateTo(CommissionInfoRoute);
-                      setState(() {
-                        currentRoute = 'Commission';
-                      });
-                    },
-                        (currentRoute == 'Commission')
-                            ? Color(0xFF2980b9)
-                            : Colors.black),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    NavBarItem('العضويات', MembershipInfoRoute, () {
-                      locator<NavigationService>().navigateTo(MembershipInfoRoute);
-                      setState(() {
-                        currentRoute = 'Membership';
-                      });
-                    },
-                        (currentRoute == 'Membership')
-                            ? Color(0xFF2980b9)
-                            : Colors.black),
+                    // NavBarItem('العمولة', CommissionInfoRoute, () {
+                    //   locator<NavigationService>().navigateTo(CommissionInfoRoute);
+                    //   setState(() {
+                    //     currentRoute = 'Commission';
+                    //   });
+                    // }, (currentRoute == 'Commission') ? Color(0xFF2980b9) : Colors.black),
+                    // SizedBox(
+                    //   width: 40,
+                    // ),
+                    // NavBarItem('العضويات', MembershipInfoRoute, () {
+                    //   locator<NavigationService>().navigateTo(MembershipInfoRoute);
+                    //   setState(() {
+                    //     currentRoute = 'Membership';
+                    //   });
+                    // },
+                    //     (currentRoute == 'Membership')
+                    //         ? Color(0xFF2980b9)
+                    //         : Colors.black),
                     SizedBox(
                       width: 40,
                     ),
