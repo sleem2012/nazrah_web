@@ -245,7 +245,7 @@ class _NavigationBarTabletDekstopNotState
                     //         ? Color(0xFF2980b9)
                     //         : Colors.black),
                     SizedBox(
-                      width: 40,
+                      width: 0,
                     ),
                     NavBarItem('الرئيسية', HomeRoute, () {
                       locator<NavigationService>().navigateTo(HomeRoute);
