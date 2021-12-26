@@ -40,6 +40,8 @@ class _LoginViewTabletDesktopState extends State<LoginViewTabletDesktop> {
         color: Color(0xFF2980b9), // default ColorScheme Theme
       ),
       child: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
         controller: _slidingPage,
         child: Column(
           children: [

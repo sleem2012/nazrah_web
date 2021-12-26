@@ -48,6 +48,8 @@ class _NotificationsViewMobileState extends State<NotificationsViewMobile> {
   Widget build(BuildContext context) {
     if (phoneNumber == null) return Center(child: CircularProgressIndicator());
     return SingleChildScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
       child: Column(
         children: [
           CenteredView(child: NavigationBar(currentRoute: 'Notification')),

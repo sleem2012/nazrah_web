@@ -52,6 +52,8 @@ class _DelegateViewTabletDesktopState extends State<DelegateViewTabletDesktop> {
         color: Color(0xFF2980b9), // default ColorScheme Theme
       ),
       child: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
         child: Column(
           children: [
             CenteredView(child: NavigationBar(currentRoute: 'Delegate')),

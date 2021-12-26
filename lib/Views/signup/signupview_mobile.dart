@@ -32,6 +32,8 @@ class _SignupViewMobileState extends State<SignupViewMobile> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
       child: Column(
         children: [
           CenteredView(child: NavigationBar(currentRoute: 'Signup')),

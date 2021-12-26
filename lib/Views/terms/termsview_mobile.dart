@@ -20,6 +20,8 @@ class _TermsViewMobileState extends State<TermsViewMobile> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
       child: Column(
         children: [
           CenteredView(child: NavigationBar(currentRoute: 'Terms')),

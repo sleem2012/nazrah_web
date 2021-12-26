@@ -29,6 +29,8 @@ class _AdminLoginViewTabletDesktopState
         color: Color(0xFF2980b9), // default ColorScheme Theme
       ),
       child: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
         controller: _slidingPage,
         child: Container(
           height: MediaQuery.of(context).size.height,

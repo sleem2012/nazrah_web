@@ -165,6 +165,8 @@ class _PanelHomeState extends State<PanelHome> {
             color: Color(0xFF2980b9), // default ColorScheme Theme
           ),
           child: SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
             child: Stack(
               children: [
                 Container(
@@ -995,6 +997,8 @@ class _PanelHomeState extends State<PanelHome> {
                                             0xFF2980b9), // default ColorScheme Theme
                                       ),
                                       child: SingleChildScrollView(
+                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                         controller: _slidingPage,
                                         child: Container(
                                           width: MediaQuery.of(context)
@@ -1182,6 +1186,8 @@ class _PanelHomeState extends State<PanelHome> {
                                               .shade900, // default ColorScheme Theme
                                         ),
                                         child: SingleChildScrollView(
+                                          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                           controller: _slidingPage,
                                           child: Container(
                                             width:
@@ -1396,6 +1402,8 @@ class _PanelHomeState extends State<PanelHome> {
                                   return Padding(
                                     padding: EdgeInsets.all(20),
                                     child: SingleChildScrollView(
+                                      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                       scrollDirection:
                                       Axis.vertical,
                                       child: Container(
@@ -1405,6 +1413,8 @@ class _PanelHomeState extends State<PanelHome> {
                                             .width,
                                         child:
                                         SingleChildScrollView(
+                                          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                           scrollDirection:
                                           Axis.vertical,
                                           child: Padding(
@@ -1541,6 +1551,8 @@ class _PanelHomeState extends State<PanelHome> {
                                     child: VsScrollbar(
                                       child:
                                       SingleChildScrollView(
+                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                         child: Container(
                                           width:
                                           MediaQuery.of(
@@ -1619,6 +1631,8 @@ class _PanelHomeState extends State<PanelHome> {
                       right: 125),
                   child: VsScrollbar(
                     child: SingleChildScrollView(
+                      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                       child: Column(
                         mainAxisAlignment:
                         MainAxisAlignment.start,

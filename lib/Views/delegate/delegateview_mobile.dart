@@ -38,6 +38,8 @@ class _DelegateViewMobileState extends State<DelegateViewMobile> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
       child: Column(
         children: [
           CenteredView(child: NavigationBar(currentRoute: 'Delegate')),

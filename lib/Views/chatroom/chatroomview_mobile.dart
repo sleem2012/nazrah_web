@@ -146,6 +146,8 @@ class _ChatRoomViewMobileState extends State<ChatRoomViewMobile> {
   Widget build(BuildContext context) {
     if (phoneNo == null) return Center(child: CircularProgressIndicator());
     return SingleChildScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
       child: Column(
         children: [
           CenteredView(child: NavigationBar(currentRoute: 'ChatRoom')),

@@ -25,6 +25,8 @@ class _LegacyViewMobileState extends State<LegacyViewMobile> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
       child: Column(
         children: [
           CenteredView(child: NavigationBar(currentRoute: 'Legacy')),

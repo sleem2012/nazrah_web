@@ -71,6 +71,8 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
         color: Color(0xFF2980b9), // default ColorScheme Theme
       ),
       child: SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
         controller: _slidingPage,
         child: Column(
           children: [

@@ -58,6 +58,8 @@ class _ViewProfileMobileState extends State<ViewProfileMobile> {
     if (phoneNumber == null || phoneNo == null)
       return Center(child: CircularProgressIndicator());
     return SingleChildScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
       child: Column(
         children: [
           CenteredView(
