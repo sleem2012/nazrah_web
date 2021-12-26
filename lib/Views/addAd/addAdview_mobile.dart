@@ -368,6 +368,8 @@ class _AddAdViewMobileState extends State<AddAdViewMobile> {
                     children: [
                       ListView(
                         controller: list1,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                         scrollDirection: Axis.horizontal,
                         reverse: true,
                         children: [

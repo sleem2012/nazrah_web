@@ -441,6 +441,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                           ListView(
                             controller: list1,
                             scrollDirection: Axis.horizontal,
+                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                             reverse: true,
                             children: [
                               textPhotoCategories(
@@ -986,6 +987,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                             controller: list2,
                             scrollDirection: Axis.horizontal,
                             reverse: true,
+                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                             children: [
                               photoCategories(
                                   'assets/images/car_brands/toyota-logo.png',
@@ -1918,6 +1920,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       child: ListView(
                         controller: list2,
                         scrollDirection: Axis.horizontal,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         reverse: true,
                         children: [
                           textPhotoCategories('قطع غيار',
@@ -2004,6 +2007,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       height: 100,
                       child: ListView(
                         controller: list2,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         scrollDirection: Axis.horizontal,
                         reverse: true,
                         children: [
@@ -2121,6 +2125,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                             controller: list2,
                             scrollDirection: Axis.horizontal,
                             reverse: true,
+                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                             children: [
                               textPhotoCategories('غنم',
                                   'assets/images/icons/sheep.png',
@@ -2446,6 +2451,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       child: ListView(
                         controller: list2,
                         reverse: true,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         scrollDirection: Axis.horizontal,
                         children: [
                           textPhotoCategories(
@@ -2590,7 +2596,9 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       child: ListView(
                         controller: list2,
                         reverse: true,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         scrollDirection:
+
                         Axis.horizontal,
                         children: [
                           textPhotoCategories('ساعات',
@@ -2717,6 +2725,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       height: 100,
                       child: ListView(
                         controller: list2,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         scrollDirection:
                         Axis.horizontal,
                         reverse: true,
@@ -2820,6 +2829,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       height: 100,
                       child: ListView(
                         controller: list2,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         scrollDirection:
                         Axis.horizontal,
                         reverse: true,
@@ -2977,6 +2987,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       height: 100,
                       child: ListView(
                         controller: list2,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         scrollDirection:
                         Axis.horizontal,
                         reverse: true,
@@ -3135,6 +3146,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       child: ListView(
                         controller:
                         list2,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         scrollDirection:
                         Axis.horizontal,
                         reverse: true,
@@ -3184,6 +3196,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                       ListView(
                         controller:
                         list2,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         scrollDirection:
                         Axis.horizontal,
                         reverse:
@@ -3236,6 +3249,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                         children: [
                           ListView(
                             controller: list2,
+                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                             scrollDirection: Axis.horizontal,
                             reverse: true,
                             children: [
@@ -3534,6 +3548,7 @@ class _HomeViewTabletDesktopState extends State<HomeViewTabletDesktop> {
                               controller: list3,
                               scrollDirection: Axis.horizontal,
                               reverse: true,
+                              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                               children: [
                                 textCategories('لاند كروزر', () {
                                   setState(() {

@@ -144,6 +144,7 @@ class _NotificationsViewMobileState extends State<NotificationsViewMobile> {
                   ),
                   child: ListView.builder(
                     itemCount: notifications.length,
+                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return GestureDetector(

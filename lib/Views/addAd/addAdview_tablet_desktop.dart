@@ -386,6 +386,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                         ListView(
                           controller: list1,
                           scrollDirection: Axis.horizontal,
+                          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                           reverse: true,
                           children: [
                             textPhotoCategories(
@@ -925,6 +927,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                             children: [
                               ListView(
                                 controller: list2,
+                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                 scrollDirection: Axis.horizontal,
                                 reverse: true,
                                 children: [
@@ -1856,6 +1860,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                               height: 100,
                               child: ListView(
                                 controller: list2,
+                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                 scrollDirection: Axis.horizontal,
                                 reverse: true,
                                 children: [
@@ -1942,6 +1948,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                   height: 100,
                                   child: ListView(
                                     controller: list2,
+                                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                     scrollDirection: Axis.horizontal,
                                     reverse: true,
                                     children: [
@@ -2055,6 +2063,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                         children: [
                                           ListView(
                                             controller: list2,
+                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                             scrollDirection: Axis.horizontal,
                                             reverse: true,
                                             children: [
@@ -2376,6 +2386,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                           height: 100,
                                           child: ListView(
                                             controller: list2,
+                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                             reverse: true,
                                             scrollDirection: Axis.horizontal,
                                             children: [
@@ -2511,6 +2523,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                               height: 100,
                                               child: ListView(
                                                 controller: list2,
+                                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                 reverse: true,
                                                 scrollDirection:
                                                     Axis.horizontal,
@@ -2627,6 +2641,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                   height: 100,
                                                   child: ListView(
                                                     controller: list2,
+                                                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                     scrollDirection:
                                                         Axis.horizontal,
                                                     reverse: true,
@@ -2723,6 +2739,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                       height: 100,
                                                       child: ListView(
                                                         controller: list2,
+                                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                         scrollDirection:
                                                             Axis.horizontal,
                                                         reverse: true,
@@ -2879,6 +2897,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                           height: 100,
                                                           child: ListView(
                                                             controller: list2,
+                                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                             scrollDirection:
                                                                 Axis.horizontal,
                                                             reverse: true,
@@ -3037,6 +3057,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                               child: ListView(
                                                                 controller:
                                                                     list2,
+                                                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                                 scrollDirection:
                                                                     Axis.horizontal,
                                                                 reverse: true,
@@ -3090,7 +3112,9 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                                       ListView(
                                                                     controller:
                                                                         list2,
-                                                                    scrollDirection:
+                                                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
+                                                                        scrollDirection:
                                                                         Axis.horizontal,
                                                                     reverse:
                                                                         true,
@@ -3143,6 +3167,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                                           ListView(
                                                                             controller:
                                                                                 list2,
+                                                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                                             scrollDirection:
                                                                                 Axis.horizontal,
                                                                             reverse:
@@ -3367,6 +3393,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                               children: [
                                 ListView(
                                   controller: list3,
+                                  keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                   scrollDirection: Axis.horizontal,
                                   reverse: true,
                                   children: [
@@ -3796,6 +3824,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                       ListView(
                                         controller: list3,
                                         scrollDirection: Axis.horizontal,
+                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                         reverse: true,
                                         children: [
                                           textCategories('كابريس', () {
@@ -4240,6 +4270,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                           ListView(
                                             controller: list3,
                                             scrollDirection: Axis.horizontal,
+                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                             reverse: true,
                                             children: [
                                               textCategories('باترول', () {
@@ -4643,6 +4675,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                           height: 50,
                                           child: ListView(
                                             scrollDirection: Axis.horizontal,
+                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                             reverse: true,
                                             children: [
                                               textCategories('اكورد', () {
@@ -4770,6 +4804,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                     controller: list3,
                                                     scrollDirection:
                                                         Axis.horizontal,
+                                                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                     reverse: true,
                                                     children: [
                                                       textCategories('سوناتا',
@@ -5272,6 +5308,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                         controller: list3,
                                                         scrollDirection:
                                                             Axis.horizontal,
+                                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                         reverse: true,
                                                         children: [
                                                           textCategories(
@@ -5772,6 +5810,8 @@ class _AddAdViewTabletDesktopState extends State<AddAdViewTabletDesktop> {
                                                             controller: list3,
                                                             scrollDirection:
                                                                 Axis.horizontal,
+                                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                             reverse: true,
                                                             children: [
                                                               textCategories(

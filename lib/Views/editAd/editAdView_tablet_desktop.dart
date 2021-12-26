@@ -520,6 +520,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                         ListView(
                           controller: list1,
                           scrollDirection: Axis.horizontal,
+                          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                           reverse: true,
                           children: [
                             textPhotoCategories(
@@ -1060,6 +1061,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                               ListView(
                                 controller: list2,
                                 scrollDirection: Axis.horizontal,
+                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                 reverse: true,
                                 children: [
                                   photoCategories(
@@ -1991,6 +1993,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                               child: ListView(
                                 controller: list2,
                                 scrollDirection: Axis.horizontal,
+                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                 reverse: true,
                                 children: [
                                   textPhotoCategories('قطع غيار',
@@ -2077,6 +2080,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                   child: ListView(
                                     controller: list2,
                                     scrollDirection: Axis.horizontal,
+                                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                     reverse: true,
                                     children: [
                                       textPhotoCategories('اراضي للبيع',
@@ -2190,6 +2194,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                           ListView(
                                             controller: list2,
                                             scrollDirection: Axis.horizontal,
+                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                             reverse: true,
                                             children: [
                                               textPhotoCategories('غنم',
@@ -2511,6 +2516,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                           child: ListView(
                                             controller: list2,
                                             reverse: true,
+                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                             scrollDirection: Axis.horizontal,
                                             children: [
                                               textPhotoCategories('أثاث خارجي',
@@ -2645,6 +2651,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                               height: 100,
                                               child: ListView(
                                                 controller: list2,
+                                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                 reverse: true,
                                                 scrollDirection:
                                                     Axis.horizontal,
@@ -2763,6 +2770,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                     controller: list2,
                                                     scrollDirection:
                                                         Axis.horizontal,
+                                                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                     reverse: true,
                                                     children: [
                                                       textPhotoCategories('عسل',
@@ -2859,6 +2867,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                         controller: list2,
                                                         scrollDirection:
                                                             Axis.horizontal,
+                                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                         reverse: true,
                                                         children: [
                                                           textPhotoCategories(
@@ -3015,6 +3024,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                             controller: list2,
                                                             scrollDirection:
                                                                 Axis.horizontal,
+                                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                             reverse: true,
                                                             children: [
                                                               textPhotoCategories(
@@ -3173,6 +3183,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                                     list2,
                                                                 scrollDirection:
                                                                     Axis.horizontal,
+                                                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                                 reverse: true,
                                                                 children: [
                                                                   textPhotoCategories(
@@ -3224,6 +3235,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                                       ListView(
                                                                     controller:
                                                                         list2,
+                                                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                                     scrollDirection:
                                                                         Axis.horizontal,
                                                                     reverse:
@@ -3277,6 +3289,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                                           ListView(
                                                                             controller:
                                                                                 list2,
+                                                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                                             scrollDirection:
                                                                                 Axis.horizontal,
                                                                             reverse:
@@ -3503,6 +3516,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                   controller: list3,
                                   scrollDirection: Axis.horizontal,
                                   reverse: true,
+                                  keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                   children: [
                                     textCategories('لاند كروزر', () {
                                       setState(() {
@@ -3930,6 +3944,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                       ListView(
                                         controller: list3,
                                         scrollDirection: Axis.horizontal,
+                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                         reverse: true,
                                         children: [
                                           textCategories('كابريس', () {
@@ -4374,6 +4389,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                           ListView(
                                             controller: list3,
                                             scrollDirection: Axis.horizontal,
+                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                             reverse: true,
                                             children: [
                                               textCategories('باترول', () {
@@ -4777,6 +4793,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                           height: 50,
                                           child: ListView(
                                             scrollDirection: Axis.horizontal,
+                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                             reverse: true,
                                             children: [
                                               textCategories('اكورد', () {
@@ -4904,6 +4921,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                     controller: list3,
                                                     scrollDirection:
                                                         Axis.horizontal,
+                                                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                     reverse: true,
                                                     children: [
                                                       textCategories('سوناتا',
@@ -5406,6 +5424,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                         controller: list3,
                                                         scrollDirection:
                                                             Axis.horizontal,
+                                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                         reverse: true,
                                                         children: [
                                                           textCategories(
@@ -5906,6 +5925,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                             controller: list3,
                                                             scrollDirection:
                                                                 Axis.horizontal,
+                                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                             reverse: true,
                                                             children: [
                                                               textCategories(
@@ -6296,6 +6316,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                                     list3,
                                                                 scrollDirection:
                                                                     Axis.horizontal,
+                                                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                                 reverse: true,
                                                                 children: [
                                                                   textCategories(
@@ -6994,6 +7015,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                               child: ListView(
                                                                 scrollDirection:
                                                                     Axis.horizontal,
+                                                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                                 reverse: true,
                                                                 children: [
                                                                   textCategories(
@@ -7210,6 +7232,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                                       ListView(
                                                                     scrollDirection:
                                                                         Axis.horizontal,
+                                                                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                                     reverse:
                                                                         true,
                                                                     children: [
@@ -7294,6 +7317,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                                               ListView(
                                                                             scrollDirection:
                                                                                 Axis.horizontal,
+                                                                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                                             reverse:
                                                                                 true,
                                                                             children: [
@@ -7432,6 +7456,7 @@ class _EditAdViewTabletDesktopState extends State<EditAdViewTabletDesktop> {
                                                                           child: ListView(
                                                                             scrollDirection:
                                                                                 Axis.horizontal,
+                                                                            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                                                             reverse:
                                                                                 true,
                                                                             children: [

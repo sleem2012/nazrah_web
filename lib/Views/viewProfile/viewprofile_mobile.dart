@@ -397,6 +397,7 @@ class _ViewProfileMobileState extends State<ViewProfileMobile> {
                       child: ListView.builder(
                         itemCount: ads.length,
                         shrinkWrap: true,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         reverse: true,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(

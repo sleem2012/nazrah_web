@@ -571,6 +571,8 @@ class _AdDetailsViewMobileState extends State<AdDetailsViewMobile> {
                                           } else {
                                             return ListView.builder(
                                               controller: _scrollController,
+                                              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                               itemCount:
                                                   snapshot.data.docs.length,
                                               shrinkWrap: true,

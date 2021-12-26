@@ -637,6 +637,8 @@ class _AdDetailsViewTabletDesktopState
                                               return ListView.builder(
                                                 itemCount:
                                                     snapshot.data.docs.length,
+                                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                                                 shrinkWrap: true,
                                                 itemBuilder: (context, index) {
                                                   return MessageTile(

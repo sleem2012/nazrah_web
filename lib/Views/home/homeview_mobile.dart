@@ -422,6 +422,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                         ListView(
                           controller: list1,
                           scrollDirection: Axis.horizontal,
+                          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                           reverse: true,
                           children: [
                             textPhotoCategories(
@@ -962,6 +963,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                               ListView(
                                 controller: list2,
                                 scrollDirection: Axis.horizontal,
+                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                 reverse: true,
                                 children: [
                                   photoCategories(
@@ -1892,6 +1894,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                               height: 100,
                               child: ListView(
                                 controller: list2,
+                                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                 scrollDirection: Axis.horizontal,
                                 reverse: true,
                                 children: [
@@ -1979,6 +1982,7 @@ class _HomeViewMobileState extends State<HomeViewMobile> {
                                   child: ListView(
                                     controller: list2,
                                     scrollDirection: Axis.horizontal,
+                                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                                     reverse: true,
                                     children: [
                                       textPhotoCategories('اراضي للبيع',

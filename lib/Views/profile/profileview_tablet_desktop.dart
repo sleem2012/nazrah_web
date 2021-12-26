@@ -371,6 +371,7 @@ class _ProfileViewTabletDesktopState extends State<ProfileViewTabletDesktop> {
                         padding: const EdgeInsets.only(left: 100, right: 100),
                         child: ListView.builder(
                           itemCount: ads.length,
+                          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                           shrinkWrap: true,
                           reverse: true,
                           itemBuilder: (BuildContext context, int index) {

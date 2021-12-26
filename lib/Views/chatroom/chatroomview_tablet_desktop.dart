@@ -70,7 +70,9 @@ class _ChatRoomViewTabletDesktopState extends State<ChatRoomViewTabletDesktop> {
         return (snapshot.hasData)
             ? ListView.builder(
                 itemCount: snapshot.data.docs.length,
-                itemBuilder: (context, index) {
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
+          itemBuilder: (context, index) {
                   return MessageTile(
                       snapshot.data.docs[index]["message"],
                       snapshot.data.docs[index]["sendBy"] == phoneNo,
@@ -283,6 +285,8 @@ class _ChatRoomViewTabletDesktopState extends State<ChatRoomViewTabletDesktop> {
                       } else {
                         return ListView.builder(
                           controller: _scrollController,
+                          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                           itemCount: snapshot.data.docs.length,
                           itemBuilder: (context, index) {
                             return MessageTile(

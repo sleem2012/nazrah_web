@@ -130,6 +130,8 @@ class _ChatsViewTabletDesktopState extends State<ChatsViewTabletDesktop> {
                         const EdgeInsets.only(right: 50, left: 50, bottom: 25),
                     child: ListView.builder(
                       itemCount: chats.length,
+                      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return GestureDetector(

@@ -329,6 +329,7 @@ class _ProfileViewMobileState extends State<ProfileViewMobile> {
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: ListView.builder(
                         itemCount: ads.length,
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         shrinkWrap: true,
                         reverse: true,
                         itemBuilder: (BuildContext context, int index) {
